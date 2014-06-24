@@ -1,4 +1,4 @@
-name := "GridInterface"
+name := "Interface"
 
 version := "1.0-SNAPSHOT"
 
