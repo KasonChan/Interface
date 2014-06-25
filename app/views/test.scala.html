@@ -1,0 +1,14 @@
+@(msg: String)
+
+@import helper._
+
+@frame(Messages("application.name")) {
+@helper.form(action = routes.File.upload, 'enctype -> "multipart/form-data") {
+<p>
+  @msg
+</p>
+<input type="file" name="files[]" id="files" multiple="multiple">
+<input type="submit">
+}
+}
+

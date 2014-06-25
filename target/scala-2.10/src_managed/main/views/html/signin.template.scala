@@ -23,7 +23,7 @@ Seq[Any](format.raw/*1.1*/("""<div id="section1">
   <div id="container">
     <form method="post" id="signin">
       <input type="text" name="username" id="username" placeholder="Username" required>
-      <input type="text" name="password" id="password" placeholder="Password" required>
+      <input type="password" name="password" id="password" placeholder="Password" required>
       <input type="submit" value="Sign in">
     </form>
   </div>
@@ -31,7 +31,7 @@ Seq[Any](format.raw/*1.1*/("""<div id="section1">
 <div id="section2">
   <div id="container">
     <a href="#">Create an account</a><br>
-    <a href="#">Guest session</a>
+    <a href=""""),_display_(Seq[Any](/*13.15*/routes/*13.21*/.Application.guest)),format.raw/*13.39*/("""">Guest session</a>
   </div>
 </div>
 """))}
@@ -46,11 +46,11 @@ Seq[Any](format.raw/*1.1*/("""<div id="section1">
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jun 23 17:42:30 CDT 2014
-                    SOURCE: /home/ka-son/Documents/GridInterface/app/views/signin.scala.html
-                    HASH: b296da69fe59abd53299488762420c31bc00c9d3
-                    MATRIX: 638->0
-                    LINES: 22->1
+                    DATE: Tue Jun 24 11:54:48 CDT 2014
+                    SOURCE: /home/ka-son/Documents/Interface/app/views/signin.scala.html
+                    HASH: b2e191248ff74b9f30248daceaa79b045419a0bc
+                    MATRIX: 638->0|1105->431|1120->437|1160->455
+                    LINES: 22->1|34->13|34->13|34->13
                     -- GENERATED --
                 */
             

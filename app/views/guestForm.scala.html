@@ -1,9 +1,9 @@
 <div id="section1">
   <div id="container">
-    <form method="post" id="guestForm">
-      <input type="text" name="source" id="source" placeholder="Source" required>
-
-      <h1>Destination Grid</h1>
+    <form action="@routes.Application.index" method="post" id="guestForm">
+      Source 
+      <input type="file" name="files[]" id="source" multiple directory webkitdirectory required>
+      Destination Grid
       <input type="text" name="gridUsername" id="gridUsername" placeholder="Username" required>
       <input type="text" name="gridHostname" id="gridHostname" placeholder="Hostname" required>
       <input type="password" name="password" id="gridPassword" placeholder="Password" required>

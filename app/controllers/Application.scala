@@ -12,4 +12,8 @@ object Application extends Controller {
   def guest = Action {
     Ok(views.html.guest())
   }
+
+  def test = Action {
+    Ok(views.html.test("None"))
+  }
 }

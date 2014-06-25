@@ -1,18 +1,33 @@
-2014-06-23 17:33:41,091 - [INFO] - from play in pool-4-thread-2 
+2014-06-24 19:13:07,683 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:8080
 
-2014-06-23 17:34:14,362 - [INFO] - from play in play-internal-execution-context-1 
+2014-06-24 19:13:32,455 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-06-23 17:41:06,301 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
+2014-06-24 19:16:06,453 - [ERROR] - from application in New I/O worker #3 
 
-2014-06-23 17:41:31,538 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
 
-2014-06-23 17:41:59,450 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
+! @6ijl36fp0 - Internal server error, for (GET) [/test] ->
 
-2014-06-23 17:42:33,504 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
+play.PlayExceptions$CompilationException: Compilation error[not enough arguments for method upload: (files: Seq[java.io.File])play.api.mvc.Action[play.api.mvc.MultipartFormData[play.api.libs.Files.TemporaryFile]].
+Unspecified value parameter files.]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
 
