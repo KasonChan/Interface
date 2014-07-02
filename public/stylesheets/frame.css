@@ -3,11 +3,6 @@ body {
   padding: 0;
 }
 
-#appname {
-  font-family: Nunito, sans-serif;
-  color: #0099FF;
-}
-
 #header {
   font-family: Nunito, sans-serif;
   font-weight: 400;
@@ -39,22 +34,25 @@ body {
   font-size: 18px;
 }
 
+#section1 #signup,
 #section1 #signin, 
-#section1 #guestForm {
+#section1 #submissionForm {
   background-color: #f5f5f5;
   padding: 1em;
 }
 
+#section1 #signup label,
 #section1 #signin label, 
-#section1 #guestForm label {
+#section1 #submissionForm label {
   font-size: 1.2em;
   font-weight: 200;
   padding-top: 12px;
   display: block;
 }
 
+#section1 #signup input,
 #section1 #signin input, 
-#section1 #guestForm input {
+#section1 #submissionForm input {
   width: 100%;
   font-size: 18px;
   font-weight: 200;
@@ -62,8 +60,9 @@ body {
   box-sizing: border-box;
 }
 
+#section1 #signup input[type=submit],
 #section1 #signin input[type=submit], 
-#section1 #guestForm input[type=submit] {
+#section1 #submissionForm input[type=submit] {
   background-color: hsl(8, 70%, 54%);
   color: white;
   margin-top: 20px;

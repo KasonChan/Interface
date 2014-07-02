@@ -22,7 +22,7 @@ object guest extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 Seq[Any](format.raw/*1.4*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
-  """),_display_(Seq[Any](/*4.4*/guestForm())),format.raw/*4.15*/("""
+  """),_display_(Seq[Any](/*4.4*/submissionForm())),format.raw/*4.20*/("""
 """)))})))}
     }
     
@@ -35,10 +35,10 @@ Seq[Any](format.raw/*1.4*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jun 24 10:46:15 CDT 2014
+                    DATE: Wed Jul 02 14:45:53 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/guest.scala.html
-                    HASH: c40c7c635ac804dd7d7a649d8216aa3625204acf
-                    MATRIX: 549->1|644->3|681->6|724->41|763->43|801->47|833->58
+                    HASH: 3c4a797f0423d46c3e49a696258b771c3c2caef4
+                    MATRIX: 549->1|644->3|681->6|724->41|763->43|801->47|838->63
                     LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4
                     -- GENERATED --
                 */
