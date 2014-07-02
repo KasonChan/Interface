@@ -21,7 +21,7 @@ object guestForm extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appenda
 
 Seq[Any](format.raw/*1.1*/("""<div id="section1">
   <div id="container">
-    <form action=""""),_display_(Seq[Any](/*3.20*/routes/*3.26*/.File.upload)),format.raw/*3.38*/("""" method="post" id="guestForm" enctype="multipart/form-data">
+    <form action=""""),_display_(Seq[Any](/*3.20*/routes/*3.26*/.Files.upload)),format.raw/*3.39*/("""" method="post" id="guestForm" enctype="multipart/form-data">
       Source 
       <input type="file" name="files[]" id="source" multiple directory webkitdirectory required>
       Destination Grid
@@ -44,10 +44,10 @@ Seq[Any](format.raw/*1.1*/("""<div id="section1">
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 01 16:39:51 CDT 2014
+                    DATE: Wed Jul 02 13:34:00 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/guestForm.scala.html
-                    HASH: f139cc930be736994c0df210e1bbe3968cf3ab9f
-                    MATRIX: 641->0|738->62|752->68|785->80
+                    HASH: b43d87db050c873898e5ee8ad9eac5c703240de4
+                    MATRIX: 641->0|738->62|752->68|786->81
                     LINES: 22->1|24->3|24->3|24->3
                     -- GENERATED --
                 */

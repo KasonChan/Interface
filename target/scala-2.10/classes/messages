@@ -1,1 +1,16 @@
 application.name = Interface
+
+signin.label.username = Username
+signin.label.password = Password
+signin.label.submit = Sign in
+signin.link.signup = Create an account
+signin.link.guest = Guest session
+
+signup.form = Create your Interface Account
+signup.label.name = Name
+signup.label.firstname = First
+signup.label.lastname = Last
+signup.label.username = Choose your username
+signup.label.password = Create a password
+signup.label.confirmPassword = Confirm your password
+signup.label.submit = Sign up

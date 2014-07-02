@@ -22,7 +22,7 @@ object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 Seq[Any](format.raw/*1.4*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
-  """),_display_(Seq[Any](/*4.4*/signin())),format.raw/*4.12*/("""
+  """),_display_(Seq[Any](/*4.4*/signinForm())),format.raw/*4.16*/("""
 """)))})))}
     }
     
@@ -35,10 +35,10 @@ Seq[Any](format.raw/*1.4*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jun 24 10:46:15 CDT 2014
+                    DATE: Wed Jul 02 13:31:44 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/index.scala.html
-                    HASH: 8405f516e84426687fe5452cb48775846637382c
-                    MATRIX: 549->1|644->3|681->6|724->41|763->43|801->47|830->55
+                    HASH: 7b9d4c08424e29dfd1d560a7d1fb366571e81a49
+                    MATRIX: 549->1|644->3|681->6|724->41|763->43|801->47|834->59
                     LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4
                     -- GENERATED --
                 */

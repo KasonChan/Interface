@@ -22,7 +22,7 @@ object footer extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
 Seq[Any](format.raw/*1.1*/("""<div id="footer">
   <div id="container">
     """),_display_(Seq[Any](/*3.6*/(new java.util.Date().format("yyyy-MM-dd HH:mm")))),format.raw/*3.55*/(""" <br>
-    © """),_display_(Seq[Any](/*4.8*/Messages("application.name"))),format.raw/*4.36*/(""" 2014
+    <strong>© """),_display_(Seq[Any](/*4.16*/Messages("application.name"))),format.raw/*4.44*/(""" 2014</strong>
   </div>
 </div>
 """))}
@@ -37,10 +37,10 @@ Seq[Any](format.raw/*1.1*/("""<div id="footer">
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jun 24 10:46:15 CDT 2014
+                    DATE: Wed Jul 02 14:28:12 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/footer.scala.html
-                    HASH: 5a6890bb9ea7500c6fbabe1370c0815ecc98f3b6
-                    MATRIX: 638->0|718->46|788->95|835->108|884->136
+                    HASH: c3dfb3d07c12e7caf2cd67decdb0a85144fc44a7
+                    MATRIX: 638->0|718->46|788->95|844->116|893->144
                     LINES: 22->1|24->3|24->3|25->4|25->4
                     -- GENERATED --
                 */

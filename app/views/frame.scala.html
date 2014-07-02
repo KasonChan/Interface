@@ -6,9 +6,12 @@
 <head>
   <title>@title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
+  <link href="//fonts.googleapis.com/css?family=Nunito:700,400,300,&subset=latin" rel="stylesheet">
+  <!-- Style -->
   <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/frame.css")">
+  <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-  <link href="//fonts.googleapis.com/css?family=Roboto:400,300,200,100&subset=latin,cyrillic" rel="stylesheet">
   <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
 </head>
 <body>
@@ -17,7 +20,9 @@
       <h1>@title</h1>
     </div>
   </div>
+  <!-- Output page content block -->
   @content
+  <!-- Footer -->
   @footer()
 </body>
 </html>

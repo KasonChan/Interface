@@ -5,11 +5,18 @@
 # Home page
 GET     /                           controllers.Application.index
 
+# Signup page
+GET     /signup                     controllers.Application.signup
+
+# Guest page
 GET     /guest                      controllers.Application.guest
 
+POST    /guest                      controllers.Files.upload
+
+# Test page
 GET     /test                       controllers.Application.test
 
-POST    /test                       controllers.File.upload
+POST    /test                       controllers.Files.upload
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

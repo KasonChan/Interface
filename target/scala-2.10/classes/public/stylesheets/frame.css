@@ -4,13 +4,13 @@ body {
 }
 
 #appname {
-  font-family: Roboto, helvetica, arial, sans-serif;
+  font-family: Nunito, sans-serif;
   color: #0099FF;
 }
 
 #header {
-  font-family: Roboto, helvetica, arial, sans-serif;
-  font-weight: 300;
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
   text-align: center;
   background-color: white;
   color: #0099FF;
@@ -19,37 +19,42 @@ body {
 }
 
 #header h1 {
-  font-weight: 200;
+  font-weight: 700;
   font-size: 30px;
   line-height: 1em;
   margin-bottom: 0;
 }
 
-#section1, #section2 {
+#section1, 
+#section2 {
   box-sizing: border-box;
   padding: 20px;
 }
 
-#section1, #section2 {
+#section1, 
+#section2 {
   background-color: white;
-  font-family: Roboto, helvetica, arial, sans-serif;
+  font-family: Nunito, sans-serif;
   font-weight: 100;
   font-size: 18px;
 }
 
-#section1 #signin, #section1 #guestForm {
+#section1 #signin, 
+#section1 #guestForm {
   background-color: #f5f5f5;
   padding: 1em;
 }
 
-#section1 #signin label, #section1 #guestForm label {
+#section1 #signin label, 
+#section1 #guestForm label {
   font-size: 1.2em;
   font-weight: 200;
   padding-top: 12px;
   display: block;
 }
 
-#section1 #signin input, #section1 #guestForm input {
+#section1 #signin input, 
+#section1 #guestForm input {
   width: 100%;
   font-size: 18px;
   font-weight: 200;
@@ -57,7 +62,8 @@ body {
   box-sizing: border-box;
 }
 
-#section1 #signin input[type=submit], #section1 #guestForm input[type=submit] {
+#section1 #signin input[type=submit], 
+#section1 #guestForm input[type=submit] {
   background-color: hsl(8, 70%, 54%);
   color: white;
   margin-top: 20px;
@@ -66,8 +72,8 @@ body {
   box-sizing: border-box;
   font-size: 18px;
 }
-
-#section1 #guestForm, #section2 {
+ 
+#section2 {
   text-align: center;
 }
 
@@ -82,8 +88,8 @@ a:hover, a:focus {
 }
 
 #footer {
-  font-family: Roboto, helvetica, arial, sans-serif;
-  font-weight: 300;
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
   font-size: 20px;
   text-align: center;
   background-color: white;
