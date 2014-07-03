@@ -22,9 +22,11 @@ object notFound extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendab
 Seq[Any](format.raw/*1.16*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
-<div id="section1">
+<div id="section">
   <div id="container">
-    <strong>Page not found: """),_display_(Seq[Any](/*6.30*/path)),format.raw/*6.34*/("""</strong>
+    <div id="warning">
+      <strong>Page not found: """),_display_(Seq[Any](/*7.32*/path)),format.raw/*7.36*/("""</strong>
+    </div>
   </div>
 </div>
 """)))})))}
@@ -39,11 +41,11 @@ Seq[Any](format.raw/*1.16*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jul 02 14:27:28 CDT 2014
+                    DATE: Thu Jul 03 12:04:12 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/notFound.scala.html
-                    HASH: 1b736049311509fb0f189b862d5c787acd0445ac
-                    MATRIX: 559->1|667->15|704->18|747->53|786->55|894->128|919->132
-                    LINES: 19->1|22->1|24->3|24->3|24->3|27->6|27->6
+                    HASH: a5b6b10dd63f9995cdc4728fbaed0214d1158b5c
+                    MATRIX: 559->1|667->15|704->18|747->53|786->55|918->152|943->156
+                    LINES: 19->1|22->1|24->3|24->3|24->3|28->7|28->7
                     -- GENERATED --
                 */
             

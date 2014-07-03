@@ -24,7 +24,7 @@ Seq[Any](format.raw/*1.15*/("""
 
 """),format.raw/*4.1*/("""
 """),_display_(Seq[Any](/*5.2*/frame(Messages("application.name"))/*5.37*/ {_display_(Seq[Any](format.raw/*5.39*/("""
-"""),_display_(Seq[Any](/*6.2*/helper/*6.8*/.form(action = routes.Files.upload, 'id -> "guestForm", 'enctype -> "multipart/form-data")/*6.98*/ {_display_(Seq[Any](format.raw/*6.100*/("""
+"""),_display_(Seq[Any](/*6.2*/helper/*6.8*/.form(action = routes.Files.upload, 'id -> "submissionForm", 'enctype -> "multipart/form-data")/*6.103*/ {_display_(Seq[Any](format.raw/*6.105*/("""
 <p>
   """),_display_(Seq[Any](/*8.4*/msg)),format.raw/*8.7*/("""
 </p>
@@ -45,10 +45,10 @@ Seq[Any](format.raw/*1.15*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jul 02 16:44:43 CDT 2014
+                    DATE: Thu Jul 03 12:04:12 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/test.scala.html
-                    HASH: 7f32b53ff3db2ab8094864f52bb171ff401d547d
-                    MATRIX: 555->1|678->14|706->33|742->35|785->70|824->72|860->74|873->80|971->170|1011->172|1053->180|1076->183|1219->295|1252->297
+                    HASH: 5a5d4f57b919a247cee5392c31dee758f442679f
+                    MATRIX: 555->1|678->14|706->33|742->35|785->70|824->72|860->74|873->80|977->175|1017->177|1059->185|1082->188|1225->300|1258->302
                     LINES: 19->1|23->1|25->4|26->5|26->5|26->5|27->6|27->6|27->6|27->6|29->8|29->8|33->12|34->13
                     -- GENERATED --
                 */

@@ -19,64 +19,20 @@ body {
   line-height: 1em;
   margin-bottom: 0;
 }
-
-#section1, 
-#section2 {
+ 
+#section {
   box-sizing: border-box;
   padding: 20px;
 }
-
-#section1, 
-#section2 {
+ 
+#section {
   background-color: white;
   font-family: Nunito, sans-serif;
   font-weight: 100;
   font-size: 18px;
 }
 
-#section1 #signup,
-#section1 #signin, 
-#section1 #submissionForm {
-  background-color: #f5f5f5;
-  padding: 1em;
-}
-
-#section1 #signup label,
-#section1 #signin label, 
-#section1 #submissionForm label {
-  font-size: 1.2em;
-  font-weight: 200;
-  padding-top: 12px;
-  display: block;
-}
-
-#section1 #signup input,
-#section1 #signin input, 
-#section1 #submissionForm input {
-  width: 100%;
-  font-size: 18px;
-  font-weight: 200;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-#section1 #signup input[type=submit],
-#section1 #signin input[type=submit], 
-#section1 #submissionForm input[type=submit] {
-  background-color: hsl(8, 70%, 54%);
-  color: white;
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  box-sizing: border-box;
-  font-size: 18px;
-}
- 
-#section2 {
-  text-align: center;
-}
-
-#section2 a {
+#section a {
   color: #0099FF;
   text-decoration: none;
   line-height: inherit;
@@ -84,6 +40,51 @@ body {
 }
 a:hover, a:focus {
   color: #0099FF; 
+}
+
+#section #link,
+#section #warning {
+  text-align: center;
+}
+
+#section #signup,
+#section #signin, 
+#section #submissionForm {
+  margin: 0 auto;
+  width: 50%;
+  background-color: #f5f5f5;
+  padding: 1em;
+}
+
+#section #signup label,
+#section #signin label, 
+#section #submissionForm label {
+  font-size: 1.2em;
+  font-weight: 200;
+  padding-top: 12px;
+  display: block;
+}
+
+#section #signup input,
+#section #signin input, 
+#section #submissionForm input {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 200;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#section #signup input[type=submit],
+#section #signin input[type=submit], 
+#section #submissionForm input[type=submit] {
+  background-color: hsl(8, 70%, 54%);
+  color: white;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  box-sizing: border-box;
+  font-size: 18px;
 }
 
 #footer {
