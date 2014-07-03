@@ -37,7 +37,7 @@ Seq[Any](format.raw/*1.1*/("""<div id="footer">
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jul 02 17:06:04 CDT 2014
+                    DATE: Thu Jul 03 15:37:26 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/footer.scala.html
                     HASH: 442598386c9db9978dd260d58bfb154660891715
                     MATRIX: 638->0|718->46|788->95|842->114|891->142

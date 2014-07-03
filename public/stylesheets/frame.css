@@ -32,6 +32,7 @@ body {
   font-size: 18px;
 }
 
+#header a,
 #section a {
   color: #0099FF;
   text-decoration: none;
@@ -65,6 +66,7 @@ a:hover, a:focus {
   display: block;
 }
 
+#section #signup dd input ,
 #section #signup input,
 #section #signin input, 
 #section #submissionForm input {

@@ -14,3 +14,5 @@ signup.label.username = Choose your username
 signup.label.password = Create a password
 signup.label.confirmPassword = Confirm your password
 signup.label.submit = Sign up
+signup.new.success = Successfully signup {0}
+signup.validation.errors = Please correct the errors in the form.

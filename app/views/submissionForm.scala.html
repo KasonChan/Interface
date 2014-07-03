@@ -1,0 +1,13 @@
+<div id="section">
+  <div id="container">
+    <form action="@routes.Files.upload" method="post" id="submissionForm" enctype="multipart/form-data">
+      Source 
+      <input type="file" name="files[]" id="source" multiple directory webkitdirectory required>
+      Destination Grid
+      <input type="text" name="gridUsername" id="gridUsername" placeholder="Username" required>
+      <input type="text" name="gridHostname" id="gridHostname" placeholder="Hostname" required>
+      <input type="password" name="password" id="gridPassword" placeholder="Password" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>

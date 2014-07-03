@@ -6,11 +6,15 @@ case class User(firstname: String, lastname: String, username: String,
 }
 
 object User {
-  val users = List(
+  var users = Set(
     User("Adam", "Smith", "adamsmith", "password"),
     User("Alice", "Osborn", "aliceosborn", "password"),
     User("Kason", "Chan", "kasonchan", "password"))
 
   def find(username: String): Option[User] =
     users.filter(_.username == username).headOption
+
+  def add(user: User) {
+    users = users + user
+  }
 }
