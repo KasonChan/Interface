@@ -1,12 +1,13 @@
 application.name = Interface
 
+signin.title = Signin to continue to Interface
 signin.label.username = Username
 signin.label.password = Password
 signin.label.submit = Sign in
 signin.link.signup = Create an account
 signin.link.guest = Guest session
 
-signup.form = Create your Interface Account
+signup.title = Create your Interface Account
 signup.label.name = Name
 signup.label.firstname = First
 signup.label.lastname = Last
@@ -17,7 +18,7 @@ signup.label.submit = Sign up
 signup.new.success = Successfully signup {0}
 signup.validation.errors = Please correct the errors in the form.
 
-update.form = Edit your Interface Account
+update.title = Edit your Interface Account
 update.label.name = Name
 update.label.username = Username
 update.label.password = Password

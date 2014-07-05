@@ -30,18 +30,10 @@ object User {
         row[String]("username"), row[String]("password"))).toList
   }
 
-  // TODO: Fix get user
   def get(un: String): List[User] = {
-    getAll.filter((x: User) => x.username == un)
+    // Call getAll to get all users and filter out by username
+    getAll.filter((x: User) => x.username == un).toList
   }
-
-  // def get(un: String): List[User] = DB.withConnection {
-  //   implicit connection =>
-  //     val get = SQL("""select * from users where username = 'kasonchan' 
-  //       order by firstname asc;""").on("username" -> un)().map(row =>
-  //       User(row[String]("firstname"), row[String]("lastname"),
-  //         row[String]("username"), row[String]("password"))).toList
-  // }
 
   def insert(user: User): Boolean = DB.withConnection { implicit connection =>
     // Identifiers surrounded by curly braces denote named parameters to be 

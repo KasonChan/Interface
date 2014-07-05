@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:896fffb4cc6acadd49ca6316a8bd76da63a65877
-// @DATE:Sat Jul 05 11:59:45 CDT 2014
+// @HASH:50b0310913ff5ca9459663cfbab9c47fa8947f42
+// @DATE:Sat Jul 05 12:15:59 CDT 2014
 
 package controllers;
 
