@@ -1,107 +1,13 @@
-2014-07-05 12:54:31,091 - [INFO] - from play in pool-4-thread-4 
+2014-07-05 13:33:28,419 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0:0:0:0:0:0:0:0:8080
 
-2014-07-05 12:54:57,833 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 12:54:58,217 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:04:28,400 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 13:04:28,453 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:06:56,307 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 13:06:56,332 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:13:16,152 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 13:13:16,178 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:16:13,778 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 13:16:13,809 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:18:26,876 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 13:18:26,919 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:22:17,788 - [ERROR] - from application in New I/O worker #1 
+2014-07-05 13:33:39,803 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6iml8edk0 - Internal server error, for (GET) [/update/berniceOsborn] ->
-
-play.PlayExceptions$CompilationException: Compilation error[value html is not a member of object controllers.routes]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2014-07-05 13:23:05,334 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:/data/interface
-
-2014-07-05 13:23:05,359 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2014-07-05 13:27:23,410 - [ERROR] - from application in New I/O worker #3 
-
-
-! @6iml95nn5 - Internal server error, for (GET) [/update/kasonchan] ->
-
-play.PlayExceptions$CompilationException: Compilation error[user is already defined as value user]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2014-07-05 13:28:31,465 - [ERROR] - from application in New I/O worker #3 
-
-
-! @6iml99kej - Internal server error, for (GET) [/update/kasonchan] ->
+! @6imla18g1 - Internal server error, for (GET) [/] ->
 
 play.PlayExceptions$CompilationException: Compilation error[type mismatch;
- found   : Boolean
+ found   : Unit
  required: play.api.mvc.Result]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
@@ -123,65 +29,13 @@ play.PlayExceptions$CompilationException: Compilation error[type mismatch;
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
 
-2014-07-05 13:28:43,159 - [ERROR] - from application in New I/O worker #3 
+2014-07-05 13:33:40,038 - [WARN] - from play in New I/O worker #1 
+No application found at invoker init
+
+2014-07-05 13:34:09,519 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6iml9abmc - Internal server error, for (GET) [/update/kasonchan] ->
-
-play.PlayExceptions$CompilationException: Compilation error[type mismatch;
- found   : Boolean
- required: play.api.mvc.Result]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2014-07-05 13:29:01,364 - [ERROR] - from application in New I/O worker #3 
-
-
-! @6iml9bckh - Internal server error, for (GET) [/update/kasonchan] ->
-
-play.PlayExceptions$CompilationException: Compilation error[missing arguments for method update in class ReverseUsers;
-follow this method with `_' if you want to treat it as a partially applied function]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
-	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
-	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2014-07-05 13:29:38,033 - [ERROR] - from application in New I/O worker #3 
-
-
-! @6iml9df11 - Internal server error, for (GET) [/update/kasonchan] ->
+! @6imla30gl - Internal server error, for (GET) [/] ->
 
 play.PlayExceptions$CompilationException: Compilation error[forward reference extends over definition of value user]
 	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
@@ -204,9 +58,283 @@ play.PlayExceptions$CompilationException: Compilation error[forward reference ex
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
 
-2014-07-05 13:30:06,692 - [INFO] - from play in play-internal-execution-context-4 
+2014-07-05 13:34:48,787 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6imla56j2 - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[type mismatch;
+ found   : String
+ required: List[models.User]]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-07-05 13:35:38,199 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6imla81lf - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[type mismatch;
+ found   : String
+ required: List[models.User]]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-07-05 13:36:24,277 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6imlaahpk - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[forward reference extends over definition of value user]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-07-05 13:40:32,246 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6imlaokl1 - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[not found: value user]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-07-05 13:41:05,611 - [ERROR] - from application in New I/O worker #2 
+
+
+! @6imlb0i45 - Internal server error, for (GET) [/] ->
+
+play.PlayExceptions$CompilationException: Compilation error[type mismatch;
+ found   : String
+ required: List[models.User]]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14$$anonfun$apply$16.apply(PlayReloader.scala:304) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:304) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2$$anonfun$apply$14.apply(PlayReloader.scala:298) ~[na:na]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:298) ~[na:na]
+	at play.PlayReloader$$anon$1$$anonfun$reload$2.apply(PlayReloader.scala:296) ~[na:na]
+	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library.jar:na]
+	at play.PlayReloader$$anon$1.reload(PlayReloader.scala:296) ~[na:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.2.3]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2014-07-05 13:42:28,792 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:/data/interface
 
-2014-07-05 13:30:06,714 - [INFO] - from play in play-internal-execution-context-4 
+2014-07-05 13:42:29,203 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-05 13:44:49,982 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-05 13:44:50,027 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-05 13:46:43,708 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-05 13:46:43,734 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-05 13:46:49,428 - [ERROR] - from play in play-akka.actor.default-dispatcher-8 
+Cannot invoke the action, eventually got an error: org.h2.jdbc.JdbcSQLException: Table "PRODUCTS" not found; SQL statement:
+update products set firstname = ?,       lastname = ?, password = ?        where username = ? [42102-172]
+
+2014-07-05 13:46:49,462 - [ERROR] - from application in play-akka.actor.default-dispatcher-8 
+
+
+! @6imlbk6l7 - Internal server error, for (POST) [/update/user.username] ->
+
+play.api.Application$$anon$1: Execution exception[[JdbcSQLException: Table "PRODUCTS" not found; SQL statement:
+update products set firstname = ?,       lastname = ?, password = ?        where username = ? [42102-172]]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.3]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:264) [play_2.10.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:264) [play_2.10.jar:2.2.3]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:260) [play_2.10.jar:2.2.3]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$2.execute(Execution.scala:70) [play-iteratees_2.10.jar:2.2.3]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) [akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) [akka-actor_2.10.jar:2.2.0]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: org.h2.jdbc.JdbcSQLException: Table "PRODUCTS" not found; SQL statement:
+update products set firstname = ?,       lastname = ?, password = ?        where username = ? [42102-172]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.get(DbException.java:169) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.get(DbException.java:146) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.readTableOrView(Parser.java:4824) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.readTableOrView(Parser.java:4802) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.readSimpleTableFilter(Parser.java:713) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.parseUpdate(Parser.java:662) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.parsePrepared(Parser.java:427) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.parse(Parser.java:279) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.parse(Parser.java:251) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.prepareCommand(Parser.java:218) ~[h2.jar:1.3.172]
+	at org.h2.engine.Session.prepareLocal(Session.java:425) ~[h2.jar:1.3.172]
+	at org.h2.engine.Session.prepareCommand(Session.java:374) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:70) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:267) ~[h2.jar:1.3.172]
+	at com.jolbox.bonecp.ConnectionHandle.prepareStatement(ConnectionHandle.java:1024) ~[bonecp.jar:na]
+	at play.api.db.AutoCleanConnection$$anonfun$prepareStatement$1.apply(DB.scala:470) ~[play-jdbc_2.10.jar:2.2.3]
+	at play.api.db.AutoCleanConnection$$anonfun$prepareStatement$1.apply(DB.scala:470) ~[play-jdbc_2.10.jar:2.2.3]
+	at play.api.db.AutoCleanConnection.registering(DB.scala:449) ~[play-jdbc_2.10.jar:2.2.3]
+	at play.api.db.AutoCleanConnection.prepareStatement(DB.scala:470) ~[play-jdbc_2.10.jar:2.2.3]
+	at anorm.SimpleSql.getFilledStatement(Anorm.scala:391) ~[anorm_2.10.jar:2.2.3]
+	at anorm.Sql$class.executeUpdate(Anorm.scala:473) ~[anorm_2.10.jar:2.2.3]
+	at anorm.SimpleSql.executeUpdate(Anorm.scala:372) ~[anorm_2.10.jar:2.2.3]
+	at models.User$$anonfun$update$1.apply(User.scala:59) ~[na:na]
+	at models.User$$anonfun$update$1.apply(User.scala:52) ~[na:na]
+	at play.api.db.DBApi$class.withConnection(DB.scala:82) ~[play-jdbc_2.10.jar:2.2.3]
+	at play.api.db.BoneCPApi.withConnection(DB.scala:276) ~[play-jdbc_2.10.jar:2.2.3]
+	at play.api.db.DB$$anonfun$withConnection$3.apply(DB.scala:162) ~[play-jdbc_2.10.jar:2.2.3]
+	at play.api.db.DB$$anonfun$withConnection$3.apply(DB.scala:162) ~[play-jdbc_2.10.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.db.DB$.withConnection(DB.scala:162) ~[play-jdbc_2.10.jar:2.2.3]
+	at models.User$.update(User.scala:52) ~[na:na]
+	at controllers.Users$$anonfun$update$1.apply(Users.scala:53) ~[na:na]
+	at controllers.Users$$anonfun$update$1.apply(Users.scala:44) ~[na:na]
+	at play.api.mvc.ActionBuilder$$anonfun$apply$10.apply(Action.scala:221) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.ActionBuilder$$anonfun$apply$10.apply(Action.scala:220) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.Action$.invokeBlock(Action.scala:357) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.ActionBuilder$$anon$1.apply(Action.scala:309) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:109) ~[play_2.10.jar:2.2.3]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:108) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:107) ~[play_2.10.jar:2.2.3]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:107) ~[play_2.10.jar:2.2.3]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:100) ~[play_2.10.jar:2.2.3]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.3]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:481) ~[play-iteratees_2.10.jar:2.2.3]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.3]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:517) ~[play-iteratees_2.10.jar:2.2.3]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:494) ~[play-iteratees_2.10.jar:2.2.3]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:494) ~[play-iteratees_2.10.jar:2.2.3]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	... 6 common frames omitted
+
+2014-07-05 13:48:03,024 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-05 13:48:03,050 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-05 13:49:00,684 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-05 13:49:00,742 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-05 13:53:30,040 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-05 13:53:30,065 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 

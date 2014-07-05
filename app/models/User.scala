@@ -50,7 +50,7 @@ object User {
   }
 
   def update(user: User): Boolean = DB.withConnection { implicit connection =>
-    val updatedRows = SQL("""update products set firstname = {firstname},
+    val updatedRows = SQL("""update users set firstname = {firstname},
       lastname = {lastname}, password = {password} 
       where username = {username}""").on(
       "firstname" -> user.firstname,

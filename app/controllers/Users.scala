@@ -12,8 +12,8 @@ import play.mvc.Http.MultipartFormData._
 import models.User
 
 object Users extends Controller {
-  // Signup form fields and constraints validation
   def signup = Action { request =>
+    // Get user information from the form
     def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
     def username = request.body.asFormUrlEncoded.get("username")(0)
@@ -27,29 +27,38 @@ object Users extends Controller {
     // Insert user into the database
     val user = User(firstname, lastname, username, password)
     User.insert(user)
+    // Redirect the page to list all the users
     Redirect(routes.Users.list)
   }
 
   def list = Action { implicit request =>
+    // Get the list of users
     val users = User.getAll
+
+    // Show the list of users information
     Ok(views.html.list(users))
   }
 
-  def update(username: String) = Action { implicit request =>
+  def listUser(username: String) = Action { implicit request =>
     // Get user information from database
     val user = User.get(username)
+    // Show the user information
     Ok(views.html.update(user))
+  }
 
-    // def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
-    // def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
-    // def username = request.body.asFormUrlEncoded.get("username")(0)
-    // def password = request.body.asFormUrlEncoded.get("password")(0)
-    // def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
+  def update(username: String) = Action { implicit request =>
+    // Get user updated information from the form
+    def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
+    def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
+    def username = request.body.asFormUrlEncoded.get("username")(0)
+    def password = request.body.asFormUrlEncoded.get("password")(0)
+    def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
-    // // Update user into the database
-    // val updateUser = User(firstname, lastname, username, password)
-    // User.update(updateUser)
+    // Update user into the database
+    val updateUser = User(firstname, lastname, username, password)
+    User.update(updateUser)
 
-    // Ok(views.html.update(user))
+    // Redirect the page to show updated user information
+    Redirect(routes.Users.listUser(username))
   }
 }

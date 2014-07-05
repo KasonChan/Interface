@@ -8,7 +8,7 @@
 <div id="section">
   <div id="container">
     @for(user <- users) {
-    <form method="post" id="signup" action="@routes.Users.list">
+    <form method="post" id="signup" action="@routes.Users.update("@user.username")">
       <label for="username">@Messages("update.label.name")</label>
       <input type="text" name="firstname" id="firstname" value="@user.firstname" required title="???">
       <input type="text" name="lastname" id="lastname" value="@user.lastname" required>
