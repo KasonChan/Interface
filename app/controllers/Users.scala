@@ -20,11 +20,24 @@ object Users extends Controller {
     def password = request.body.asFormUrlEncoded.get("password")(0)
     def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
-    // Add validation
-    Ok(firstname + "\n" + 
-      lastname + "\n" +
-      username + "\n" + 
-      password + "\n" +
-      passwordConfirmation)
+    //
+    // TODO: Add validation
+    // 
+
+    // Insert user into the database
+    val user = User(firstname, lastname, username, password)
+    User.insert(user)
+    Redirect(routes.Users.list)
+  }
+
+  def list = Action { implicit request =>
+    val users = User.getAll
+    Ok(views.html.list(users))
+  }
+
+  // TODO: Fix update page
+  def update(username: String) = Action { implicit request =>
+    val users = User.getAll
+    Ok(views.html.update(users))
   }
 }

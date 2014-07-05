@@ -16,3 +16,11 @@ signup.label.confirmPassword = Confirm your password
 signup.label.submit = Sign up
 signup.new.success = Successfully signup {0}
 signup.validation.errors = Please correct the errors in the form.
+
+update.form = Edit your Interface Account
+update.label.name = Name
+update.label.username = Username
+update.label.password = Password
+update.label.submit = Update
+update.new.success = Successfully update {0}
+update.validation.errors = Please correct the errors in the form.

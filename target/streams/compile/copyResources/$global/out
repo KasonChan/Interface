@@ -1,4 +1,7 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
 [0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/conf/routes,/home/ka-son/Documents/Interface/target/scala-2.10/classes/routes)[0m
 [0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/conf/messages,/home/ka-son/Documents/Interface/target/scala-2.10/classes/messages)[0m
+[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/conf/evolutions,/home/ka-son/Documents/Interface/target/scala-2.10/classes/evolutions)[0m
 [0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/conf/application.conf,/home/ka-son/Documents/Interface/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/conf/evolutions/default,/home/ka-son/Documents/Interface/target/scala-2.10/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/conf/evolutions/default/1.sql,/home/ka-son/Documents/Interface/target/scala-2.10/classes/evolutions/default/1.sql)[0m

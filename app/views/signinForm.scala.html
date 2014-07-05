@@ -1,6 +1,5 @@
 <div id="section">
   <div id="container">
-    <!-- TODO: Add the action page -->
     <form method="post" id="signin" action="#">
       <input type="text" name="username" id="username" placeholder="@Messages("signin.label.username")" required>
       <input type="password" name="password" id="password" placeholder="@Messages("signin.label.password")" required>
@@ -13,6 +12,7 @@
     <div id="link">
       <a href="@routes.Users.signup">@Messages("signin.link.signup")</a><br>
       <a href="@routes.Application.guest">@Messages("signin.link.guest")</a>
+      <a href="@routes.Users.update("kaschan")">@Messages("update.label.submit")</a>
     </div>
   </div>
 </div>

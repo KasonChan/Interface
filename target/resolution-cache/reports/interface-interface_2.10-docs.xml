@@ -4,15 +4,15 @@
 	<info
 		organisation="interface"
 		module="interface_2.10"
-		revision="1.0-SNAPSHOT"
+		revision="1.0"
 		conf="docs"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20140703152432"/>
+		date="20140704180728"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-docs_2.10">
 			<revision name="2.2.3" status="release" pubdate="20140501103234" resolver="sbt-chain" artresolver="sbt-chain" downloaded="false" searched="false" default="false" conf="default(compile), compile" position="0">
 				<metadata-artifact status="no" details="" size="1926" time="0" location="/bin/framework/../repository/cache/com.typesafe.play/play-docs_2.10/ivy-2.2.3.xml" searched="false" origin-is-local="true" origin-location="/bin/repository/local/com.typesafe.play/play-docs_2.10/2.2.3/ivys/ivy.xml"/>
-				<caller organisation="interface" name="interface_2.10" conf="docs" rev="2.2.3" rev-constraint-default="2.2.3" rev-constraint-dynamic="2.2.3" callerrev="1.0-SNAPSHOT"/>
+				<caller organisation="interface" name="interface_2.10" conf="docs" rev="2.2.3" rev-constraint-default="2.2.3" rev-constraint-dynamic="2.2.3" callerrev="1.0"/>
 				<artifacts>
 					<artifact name="play-docs_2.10" type="jar" ext="jar" status="no" details="" size="9976322" time="0" location="/bin/repository/local/com.typesafe.play/play-docs_2.10/2.2.3/jars/play-docs_2.10.jar">
 						<origin-location is-local="true" location="/bin/repository/local/com.typesafe.play/play-docs_2.10/2.2.3/jars/play-docs_2.10.jar"/>
