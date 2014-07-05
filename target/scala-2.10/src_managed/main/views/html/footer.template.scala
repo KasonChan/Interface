@@ -21,8 +21,11 @@ object footer extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
 
 Seq[Any](format.raw/*1.1*/("""<div id="footer">
   <div id="container">
-    """),_display_(Seq[Any](/*3.6*/(new java.util.Date().format("yyyy-MM-dd HH:mm")))),format.raw/*3.55*/(""" <br>
-    <strong>"""),_display_(Seq[Any](/*4.14*/Messages("application.name"))),format.raw/*4.42*/(""" © 2014</strong>
+    """),_display_(Seq[Any](/*3.6*/(new java.util.Date().format("E MMM d, yyyy hh:mm:ss a zzz")))),format.raw/*3.67*/(""" <br>
+    """),_display_(Seq[Any](/*4.6*/(System.getProperty("os.name")))),format.raw/*4.37*/("""
+    """),_display_(Seq[Any](/*5.6*/(System.getProperty("os.version")))),format.raw/*5.40*/("""
+    """),_display_(Seq[Any](/*6.6*/(System.getProperty("os.arch")))),format.raw/*6.37*/(""" <br>
+    <strong>"""),_display_(Seq[Any](/*7.14*/Messages("application.name"))),format.raw/*7.42*/(""" © 2014</strong>
   </div>
 </div>
 """))}
@@ -37,11 +40,11 @@ Seq[Any](format.raw/*1.1*/("""<div id="footer">
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Jul 04 18:07:44 CDT 2014
+                    DATE: Sat Jul 05 15:08:10 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/footer.scala.html
-                    HASH: 442598386c9db9978dd260d58bfb154660891715
-                    MATRIX: 638->0|718->46|788->95|842->114|891->142
-                    LINES: 22->1|24->3|24->3|25->4|25->4
+                    HASH: d1bbff756adf8b173bd90e01d18c734013b7fd7d
+                    MATRIX: 638->0|718->46|800->107|845->118|897->149|937->155|992->189|1032->195|1084->226|1138->245|1187->273
+                    LINES: 22->1|24->3|24->3|25->4|25->4|26->5|26->5|27->6|27->6|28->7|28->7
                     -- GENERATED --
                 */
             
