@@ -1,5 +1,6 @@
 package models
 
+import anorm._
 import anorm.SQL
 import anorm.SqlQuery
 
@@ -13,11 +14,6 @@ case class User(
   password: String)
 
 object User {
-  var users = Set(
-    User("Adam", "Smith", "adamsmith", "password"),
-    User("Alice", "Osborn", "aliceosborn", "password"),
-    User("Kason", "Chan", "kasonchan", "password"))
-
   val selectAll: SqlQuery = SQL("select * from users order by firstname asc;")
 
   // Create connection before running code, and close it afterward
@@ -30,9 +26,23 @@ object User {
         row[String]("username"), row[String]("password"))).toList
   }
 
+  // def get(un: String): List[User] = {
+  //   // Call getAll to get all users and filter out by username
+  //   getAll.filter((x: User) => x.username == un).toList
+  // }
+
   def get(un: String): List[User] = {
-    // Call getAll to get all users and filter out by username
-    getAll.filter((x: User) => x.username == un).toList
+    val select1 = SQL("""select * from users u 
+      where u.username = {un} order by u.firstname asc;""").on("un" -> un)
+
+    // Create connection before running code, and close it afterward
+    // Make connection implicitly available
+    DB.withConnection { implicit connection =>
+      select1().map(row =>
+        // Create user from contents of each row
+        User(row[String]("firstname"), row[String]("lastname"),
+          row[String]("username"), row[String]("password"))).toList
+    }
   }
 
   def insert(user: User): Boolean = DB.withConnection { implicit connection =>

@@ -27,6 +27,7 @@ object Users extends Controller {
     // Insert user into the database
     val user = User(firstname, lastname, username, password)
     User.insert(user)
+    
     // Redirect the page to list all the users
     Redirect(routes.Users.list)
   }
@@ -42,6 +43,7 @@ object Users extends Controller {
   def listUser(username: String) = Action { implicit request =>
     // Get user information from database
     val user = User.get(username)
+    
     // Show the user information
     Ok(views.html.update(user))
   }
