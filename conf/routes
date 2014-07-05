@@ -13,8 +13,6 @@ POST    /guest                      controllers.Files.upload
 # Test page
 GET     /test                       controllers.Application.test
 
-POST    /test                       controllers.Files.upload
-
 # Signup page
 GET     /signup                     controllers.Application.signup
 

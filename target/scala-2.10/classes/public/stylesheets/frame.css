@@ -60,7 +60,7 @@ a:hover, a:focus {
 #section #signup label,
 #section #signin label, 
 #section #submissionForm label {
-  font-size: 1.2em;
+  font-size: 20px;
   font-weight: 200;
   padding-top: 12px;
   display: block;
@@ -86,7 +86,7 @@ a:hover, a:focus {
   padding: 10px;
   border: none;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #footer {

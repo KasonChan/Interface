@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:2a750e512a75d7beede953c9c598b65ed69009cc
-// @DATE:Fri Jul 04 18:50:53 CDT 2014
+// @HASH:896fffb4cc6acadd49ca6316a8bd76da63a65877
+// @DATE:Sat Jul 05 11:59:45 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -18,29 +18,19 @@ import Router.queryString
 // @LINE:23
 // @LINE:21
 // @LINE:19
-// @LINE:16
 // @LINE:14
 // @LINE:11
 // @LINE:9
 // @LINE:6
 package controllers {
 
-// @LINE:16
 // @LINE:11
 class ReverseFiles {
     
 
-// @LINE:16
 // @LINE:11
 def upload(): Call = {
-   () match {
-// @LINE:11
-case () if true => Call("POST", _prefix + { _defaultPrefix } + "guest")
-                                                        
-// @LINE:16
-case () if true => Call("POST", _prefix + { _defaultPrefix } + "test")
-                                                        
-   }
+   Call("POST", _prefix + { _defaultPrefix } + "guest")
 }
                                                 
     
@@ -129,30 +119,22 @@ def test(): Call = {
 // @LINE:23
 // @LINE:21
 // @LINE:19
-// @LINE:16
 // @LINE:14
 // @LINE:11
 // @LINE:9
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:16
 // @LINE:11
 class ReverseFiles {
     
 
-// @LINE:16
 // @LINE:11
 def upload : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Files.upload",
    """
       function() {
-      if (true) {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "guest"})
-      }
-      if (true) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "test"})
-      }
       }
    """
 )
@@ -283,7 +265,6 @@ def test : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:23
 // @LINE:21
 // @LINE:19
-// @LINE:16
 // @LINE:14
 // @LINE:11
 // @LINE:9
@@ -291,7 +272,6 @@ def test : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:16
 // @LINE:11
 class ReverseFiles {
     
