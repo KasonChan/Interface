@@ -11,7 +11,6 @@ body {
   color: #03a9f4;
   padding-bottom: 20px;
   padding-top: 20px;
-  box-shadow: 40px 25px 30px black;
 }
 
 #header h1 {
@@ -76,6 +75,7 @@ a:hover, a:focus {
 #section #signup label,
 #section #signin label, 
 #section #submissionForm label {
+  font-family: Nunito, sans-serif;
   font-size: 18px;
   font-weight: 200;
   padding-top: 12px;
@@ -87,6 +87,7 @@ a:hover, a:focus {
 #section #signin input, 
 #section #submissionForm input {
   width: 100%;
+  font-family: Nunito, sans-serif;
   font-size: 18px;
   font-weight: 200;
   padding: 10px;
@@ -102,6 +103,7 @@ a:hover, a:focus {
   padding: 10px;
   border: none;
   box-sizing: border-box;
+  font-family: Nunito, sans-serif;
   font-size: 18px;
 }
 
