@@ -27,30 +27,41 @@ Seq[Any](format.raw/*1.32*/("""
 <head>
   <title>"""),_display_(Seq[Any](/*7.11*/title)),format.raw/*7.16*/("""</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <!-- Fonts -->
   <link href="//fonts.googleapis.com/css?family=Nunito:700,400,300,&subset=latin" rel="stylesheet">
+  
   <!-- Style -->
-  <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*12.48*/routes/*12.54*/.Assets.at("stylesheets/frame.css"))),format.raw/*12.89*/("""">
+  <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*14.48*/routes/*14.54*/.Assets.at("stylesheets/frame.css"))),format.raw/*14.89*/("""">
+  
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*14.53*/routes/*14.59*/.Assets.at("images/favicon.png"))),format.raw/*14.91*/("""">
-  <script src=""""),_display_(Seq[Any](/*15.17*/routes/*15.23*/.Assets.at("javascripts/jquery-1.9.0.min.js"))),format.raw/*15.68*/("""" type="text/javascript"></script>
+  <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*17.53*/routes/*17.59*/.Assets.at("images/favicon.png"))),format.raw/*17.91*/("""">
+  
+  <!-- Script -->
+  <script src=""""),_display_(Seq[Any](/*20.17*/routes/*20.23*/.Assets.at("javascripts/jquery-1.9.0.min.js"))),format.raw/*20.68*/("""" type="text/javascript"></script>
+  <script src=""""),_display_(Seq[Any](/*21.17*/routes/*21.23*/.Assets.at("javascripts/interface.js"))),format.raw/*21.61*/("""" type="text/javascript"></script>
 </head>
 <body>
   <!-- Reactive ribbon -->
   <a href="http://www.reactivemanifesto.org/"> <img style="border: 0; position: fixed; right: 0; top:0; z-index: 9000" src="//d379ifj7s9wntv.cloudfront.net/reactivemanifesto/images/ribbons/we-are-reactive-blue-right.png"> </a>
+  
   <div class="application_wrapper">
+    
     <!-- Header -->
     <div id="header">
       <div class="container">
         <h1>
-          <a href=""""),_display_(Seq[Any](/*25.21*/routes/*25.27*/.Application.index)),format.raw/*25.45*/("""">"""),_display_(Seq[Any](/*25.48*/title)),format.raw/*25.53*/("""</a>
+          <a href=""""),_display_(Seq[Any](/*33.21*/routes/*33.27*/.Application.index)),format.raw/*33.45*/("""">"""),_display_(Seq[Any](/*33.48*/title)),format.raw/*33.53*/("""</a>
         </h1>
       </div>
     </div>
+    
     <!-- Output page content block -->
-    """),_display_(Seq[Any](/*30.6*/content)),format.raw/*30.13*/("""
+    """),_display_(Seq[Any](/*39.6*/content)),format.raw/*39.13*/("""
+    
     <!-- Footer -->
-    """),_display_(Seq[Any](/*32.6*/footer())),format.raw/*32.14*/("""
+    """),_display_(Seq[Any](/*42.6*/footer())),format.raw/*42.14*/("""
+  
   </div>
 </body>
 </html>
@@ -66,11 +77,11 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 07 19:41:55 CDT 2014
+                    DATE: Mon Jul 07 23:47:28 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/frame.scala.html
-                    HASH: 60e9e4519a6fa64629c104593f544cb00d8c01bf
-                    MATRIX: 561->1|685->31|763->74|789->79|1088->342|1103->348|1160->383|1270->457|1285->463|1339->495|1394->514|1409->520|1476->565|1957->1010|1972->1016|2012->1034|2051->1037|2078->1042|2200->1129|2229->1136|2290->1162|2320->1170
-                    LINES: 19->1|22->1|28->7|28->7|33->12|33->12|33->12|35->14|35->14|35->14|36->15|36->15|36->15|46->25|46->25|46->25|46->25|46->25|51->30|51->30|53->32|53->32
+                    HASH: b5e9a4b569ec0a069a8d247010078165c781bf7b
+                    MATRIX: 561->1|685->31|763->74|789->79|1094->348|1109->354|1166->389|1279->466|1294->472|1348->504|1424->544|1439->550|1506->595|1593->646|1608->652|1668->690|2157->1143|2172->1149|2212->1167|2251->1170|2278->1175|2405->1267|2434->1274|2500->1305|2530->1313
+                    LINES: 19->1|22->1|28->7|28->7|35->14|35->14|35->14|38->17|38->17|38->17|41->20|41->20|41->20|42->21|42->21|42->21|54->33|54->33|54->33|54->33|54->33|60->39|60->39|63->42|63->42
                     -- GENERATED --
                 */
             

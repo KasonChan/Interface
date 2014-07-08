@@ -5,19 +5,23 @@
 </div>
 <div id="section">
   <div id="container">
-    <form method="post" id="signup" action="@routes.Users.signup">
-      <label for="username">@Messages("signup.label.name")</label>
-      <input type="text" name="firstname" id="firstname" placeholder="First" required title="???">
-      <input type="text" name="lastname" id="lastname" placeholder="Last" required>
+    <form method="post" id="signup" action="" onsubmit="return validateSignupForm()">
+      <label for="name">@Messages("signup.label.name")</label>
+      <input type="text" name="firstname" id="firstname" placeholder="First">
+      <input type="text" name="lastname" id="lastname" placeholder="Last">
+      <p id="nameEmptyMessage" class="invalid">You can't leave this empty.</p>
 
       <label for="username">@Messages("signup.label.username")</label>
-      <input type="text" name="username" id="username" required>
+      <input type="text" name="username" id="username">
+      <p id="usernameEmptyMessage" class="invalid">You can't leave this empty.</p>
       
       <label for="password">@Messages("signup.label.password")</label>
-      <input type="password" name="password" id="password" required>
+      <input type="password" name="password" id="password">
+      <p id="passwordEmptyMessage" class="invalid">You can't leave this empty.</p>
       
       <label for="password">@Messages("signup.label.confirmPassword")</label>
-      <input type="password" name="passwordConfirmation" id="passwordConfirmation" required>
+      <input type="password" name="passwordConfirmation" id="passwordConfirmation">
+      <p id="passwordConfirmEmptyMessage" class="invalid">You can't leave this empty.</p>
       
       <input type="submit" value="@Messages("signup.label.submit")">
     </form>

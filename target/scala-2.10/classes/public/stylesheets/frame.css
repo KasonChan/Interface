@@ -8,6 +8,10 @@ strong {
   font-weight: 700;
 }
 
+p.invalid {
+  color: #e51c23;
+}
+
 /*.application_wrapper {
   width: 700px;
   margin: 50px auto;
@@ -117,7 +121,7 @@ a:hover, a:focus {
 #section #signup input[type=submit],
 #section #signin input[type=submit], 
 #section #submissionForm input[type=submit] {
-  background-color: hsl(8, 70%, 54%);
+  background-color: #29b6f6;
   color: white;
   margin-top: 20px;
   padding: 10px;
@@ -132,7 +136,7 @@ a:hover, a:focus {
   font-weight: 300;
   font-size: 16px;
   text-align: center;
-  background-color: #212121;
+  background-color: #343434;
   color: white;
   padding: 20px;
   box-sizing: border-box;

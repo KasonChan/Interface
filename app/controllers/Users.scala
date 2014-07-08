@@ -20,15 +20,24 @@ object Users extends Controller {
     def password = request.body.asFormUrlEncoded.get("password")(0)
     def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
+    val user = User(firstname, lastname, username, password)
+
     //
     // TODO: Add validation
-    // 
+    //
+    if (firstname.trim == "") {
+      Ok(views.html.signup())
+    }
+    if (lastname.trim == "") {
+      Ok(views.html.signup())
+    }
+    if (username.trim == "") {
+      Ok(views.html.signup())
+    }
 
-    // Insert user into the database
-    val user = User(firstname, lastname, username, password)
     User.insert(user)
-    
-    // Redirect the page to list all the users
+
+    // // Redirect the page to list all the users
     Redirect(routes.Users.list)
   }
 
@@ -43,7 +52,7 @@ object Users extends Controller {
   def listUser(username: String) = Action { implicit request =>
     // Get user information from database
     val user = User.get(username)
-    
+
     // Show the user information
     Ok(views.html.update(user))
   }
