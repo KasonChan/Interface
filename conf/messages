@@ -30,3 +30,9 @@ submission.label.sources = Source(s)
 submission.label.compositions = Compositions
 submission.label.executables = Executable
 submission.label.destination = Destination
+
+destination.title = Add your destination
+destination.label.username = Username
+destination.label.hostname = Hostname
+destination.label.password = Password
+destination.label.submit = Add

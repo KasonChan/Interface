@@ -1,15 +1,33 @@
-2014-07-08 17:12:50,879 - [INFO] - from play in pool-4-thread-5 
+2014-07-08 17:20:25,953 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:8080
 
-2014-07-08 17:14:12,488 - [INFO] - from play in play-internal-execution-context-1 
+2014-07-08 17:20:45,784 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:/data/interface
 
-2014-07-08 17:14:12,792 - [INFO] - from play in play-internal-execution-context-1 
+2014-07-08 17:20:46,078 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2014-07-08 17:17:26,622 - [INFO] - from play in play-internal-execution-context-1 
+2014-07-08 17:54:31,858 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:/data/interface
 
-2014-07-08 17:17:26,649 - [INFO] - from play in play-internal-execution-context-1 
+2014-07-08 17:54:31,877 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-08 18:00:59,036 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-08 18:00:59,089 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-08 18:02:12,307 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-08 18:02:12,324 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2014-07-08 18:03:03,971 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:file:/data/interface
+
+2014-07-08 18:03:03,989 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 

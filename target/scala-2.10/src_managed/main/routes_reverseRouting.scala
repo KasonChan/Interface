@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:00c56baf052d796faa9cfc8c4a052b3ac18153c7
-// @DATE:Tue Jul 08 17:13:26 CDT 2014
+// @HASH:27589cac39641417900b7a5cfcb0cd28f264fefe
+// @DATE:Tue Jul 08 18:00:21 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,9 +13,10 @@ import play.api.mvc._
 import Router.queryString
 
 
-// @LINE:28
-// @LINE:25
-// @LINE:23
+// @LINE:32
+// @LINE:29
+// @LINE:26
+// @LINE:24
 // @LINE:21
 // @LINE:19
 // @LINE:17
@@ -38,8 +39,8 @@ def upload(): Call = {
 }
                           
 
-// @LINE:25
-// @LINE:23
+// @LINE:26
+// @LINE:24
 // @LINE:21
 // @LINE:19
 class ReverseUsers {
@@ -57,13 +58,13 @@ def signup(): Call = {
 }
                                                 
 
-// @LINE:23
+// @LINE:24
 def listUser(username:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "update/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
 }
                                                 
 
-// @LINE:25
+// @LINE:26
 def update(username:String): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "update/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
 }
@@ -72,11 +73,11 @@ def update(username:String): Call = {
 }
                           
 
-// @LINE:28
+// @LINE:32
 class ReverseAssets {
     
 
-// @LINE:28
+// @LINE:32
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -85,6 +86,7 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:29
 // @LINE:17
 // @LINE:14
 // @LINE:9
@@ -92,9 +94,9 @@ def at(file:String): Call = {
 class ReverseApplication {
     
 
-// @LINE:9
-def guest(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "guest")
+// @LINE:29
+def destination(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "destination")
 }
                                                 
 
@@ -104,15 +106,21 @@ def signup(): Call = {
 }
                                                 
 
-// @LINE:6
-def index(): Call = {
-   Call("GET", _prefix)
-}
-                                                
-
 // @LINE:14
 def test(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "test")
+}
+                                                
+
+// @LINE:9
+def guest(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "guest")
+}
+                                                
+
+// @LINE:6
+def index(): Call = {
+   Call("GET", _prefix)
 }
                                                 
     
@@ -122,9 +130,10 @@ def test(): Call = {
                   
 
 
-// @LINE:28
-// @LINE:25
-// @LINE:23
+// @LINE:32
+// @LINE:29
+// @LINE:26
+// @LINE:24
 // @LINE:21
 // @LINE:19
 // @LINE:17
@@ -152,8 +161,8 @@ def upload : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:25
-// @LINE:23
+// @LINE:26
+// @LINE:24
 // @LINE:21
 // @LINE:19
 class ReverseUsers {
@@ -181,7 +190,7 @@ def signup : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:23
+// @LINE:24
 def listUser : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Users.listUser",
    """
@@ -192,7 +201,7 @@ def listUser : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:25
+// @LINE:26
 def update : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Users.update",
    """
@@ -206,11 +215,11 @@ def update : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:28
+// @LINE:32
 class ReverseAssets {
     
 
-// @LINE:28
+// @LINE:32
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -224,6 +233,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:29
 // @LINE:17
 // @LINE:14
 // @LINE:9
@@ -231,12 +241,12 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseApplication {
     
 
-// @LINE:9
-def guest : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.guest",
+// @LINE:29
+def destination : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.destination",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "guest"})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "destination"})
       }
    """
 )
@@ -253,23 +263,34 @@ def signup : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:6
-def index : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.index",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + """"})
-      }
-   """
-)
-                        
-
 // @LINE:14
 def test : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.test",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "test"})
+      }
+   """
+)
+                        
+
+// @LINE:9
+def guest : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.guest",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "guest"})
+      }
+   """
+)
+                        
+
+// @LINE:6
+def index : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.index",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + """"})
       }
    """
 )
@@ -281,9 +302,10 @@ def test : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:28
-// @LINE:25
-// @LINE:23
+// @LINE:32
+// @LINE:29
+// @LINE:26
+// @LINE:24
 // @LINE:21
 // @LINE:19
 // @LINE:17
@@ -307,8 +329,8 @@ def upload(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:25
-// @LINE:23
+// @LINE:26
+// @LINE:24
 // @LINE:21
 // @LINE:19
 class ReverseUsers {
@@ -326,13 +348,13 @@ def signup(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:23
+// @LINE:24
 def listUser(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Users.listUser(username), HandlerDef(this, "controllers.Users", "listUser", Seq(classOf[String]), "GET", """""", _prefix + """update/$username<[^/]+>""")
+   controllers.Users.listUser(username), HandlerDef(this, "controllers.Users", "listUser", Seq(classOf[String]), "GET", """ Update page""", _prefix + """update/$username<[^/]+>""")
 )
                       
 
-// @LINE:25
+// @LINE:26
 def update(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Users.update(username), HandlerDef(this, "controllers.Users", "update", Seq(classOf[String]), "POST", """""", _prefix + """update/$username<[^/]+>""")
 )
@@ -341,11 +363,11 @@ def update(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.Handl
 }
                           
 
-// @LINE:28
+// @LINE:32
 class ReverseAssets {
     
 
-// @LINE:28
+// @LINE:32
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -354,6 +376,7 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:29
 // @LINE:17
 // @LINE:14
 // @LINE:9
@@ -361,9 +384,9 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 class ReverseApplication {
     
 
-// @LINE:9
-def guest(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.guest(), HandlerDef(this, "controllers.Application", "guest", Seq(), "GET", """ Guest page""", _prefix + """guest""")
+// @LINE:29
+def destination(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.destination(), HandlerDef(this, "controllers.Application", "destination", Seq(), "GET", """ Destination page""", _prefix + """destination""")
 )
                       
 
@@ -373,15 +396,21 @@ def signup(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:6
-def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
-)
-                      
-
 // @LINE:14
 def test(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.test(), HandlerDef(this, "controllers.Application", "test", Seq(), "GET", """ Test page""", _prefix + """test""")
+)
+                      
+
+// @LINE:9
+def guest(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.guest(), HandlerDef(this, "controllers.Application", "guest", Seq(), "GET", """ Guest page""", _prefix + """guest""")
+)
+                      
+
+// @LINE:6
+def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
 )
                       
     

@@ -10,10 +10,10 @@
       <label for="executables">@Messages("submission.label.executables")</label>
       <input type="file" name="files[]" id="executables">
 
-      <label for="source">@Messages("submission.label.destination")</label>
-      <input type="text" name="gridUsername" id="gridUsername" placeholder="Username" required>
-      <input type="text" name="gridHostname" id="gridHostname" placeholder="Hostname" required>
-      <input type="password" name="password" id="gridPassword" placeholder="Password" required>
+      <label for="destination">@Messages("submission.label.destination")</label>
+      <input type="text" name="destinationUsername" id="destinationUsername" placeholder="@Messages("destination.label.username")" required>
+      <input type="text" name="destinationHostname" id="destinationHostname" placeholder="@Messages("destination.label.hostname")" required>
+      <input type="password" name="destinationPassword" id="destinationPassword" placeholder="@Messages("destination.label.password")" required>
       <input type="submit" value="Submit">
     </form>
   </div>
