@@ -21,6 +21,6 @@ object Application extends Controller {
 
   // Test page
   def test = Action {
-    Ok(views.html.test("None"))
+    Ok(views.html.test())
   }
 }

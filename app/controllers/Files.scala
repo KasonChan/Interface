@@ -19,7 +19,7 @@ object Files extends Controller {
       val filename = f.filename
       fn = fn + "\n" + filename.toString
       val contentType = f.contentType.get
-      f.ref.moveTo(new File("guest/compositions/" + f.filename), true)
+      f.ref.moveTo(new File("guest/" + f.filename), true)
     })
     Ok("File(s) is/are uploaded: " + "\n" + fn)
   }

@@ -1,8 +1,15 @@
 <div id="section">
   <div id="container">
     <form action="@routes.Files.upload" method="post" id="submissionForm" enctype="multipart/form-data">
-      Source 
-      <input type="file" name="files[]" id="source" multiple directory webkitdirectory required>
+      <label for="source">@Messages("submission.label.sources")</label>
+      <input type="file" name="files[]" id="sources" multiple directory webkitdirectory disabled>
+      
+      <label for="source">@Messages("submission.label.compositions")</label>
+      <input type="file" name="files[]" id="compositions" multiple directory webkitdirectory required>
+
+      <label for="source">@Messages("submission.label.executables")</label>
+      <input type="file" name="files[]" id="executables" directory webkitdirectory>
+
       Destination Grid
       <input type="text" name="gridUsername" id="gridUsername" placeholder="Username" required>
       <input type="text" name="gridHostname" id="gridHostname" placeholder="Hostname" required>

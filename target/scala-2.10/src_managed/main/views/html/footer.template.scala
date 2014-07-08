@@ -17,15 +17,25 @@ object footer extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable
 
     /**/
     def apply():play.api.templates.HtmlFormat.Appendable = {
-        _display_ {
+        _display_ {import models.OS
 
-Seq[Any](format.raw/*1.1*/("""<div id="footer">
+
+Seq[Any](format.raw/*2.1*/("""
+<div id="footer">
   <div id="container">
-    """),_display_(Seq[Any](/*3.6*/(new java.util.Date().format("E MMM d, yyyy hh:mm:ss a zzz")))),format.raw/*3.67*/(""" <br>
-    """),_display_(Seq[Any](/*4.6*/(System.getProperty("os.name")))),format.raw/*4.37*/("""
-    """),_display_(Seq[Any](/*5.6*/(System.getProperty("os.version")))),format.raw/*5.40*/("""
-    """),_display_(Seq[Any](/*6.6*/(System.getProperty("os.arch")))),format.raw/*6.37*/(""" <br>
-    <strong>"""),_display_(Seq[Any](/*7.14*/Messages("application.name"))),format.raw/*7.42*/(""" © 2014</strong>
+    <!-- Display current date and time -->
+    """),_display_(Seq[Any](/*6.6*/(new java.util.Date().format("E MMM d, yyyy hh:mm:ss a zzz")))),format.raw/*6.67*/(""" <br>
+    
+    <!-- Display OS name, version and arch -->
+    """),_display_(Seq[Any](/*9.6*/(OS.getName))),format.raw/*9.18*/("""
+    """),_display_(Seq[Any](/*10.6*/(OS.getVersion))),format.raw/*10.21*/("""
+    """),_display_(Seq[Any](/*11.6*/(OS.getArch))),format.raw/*11.18*/("""<br>
+    
+    <!-- Display browser name -->
+    <strong id="browserName">Browser Name</strong><br>
+
+    <!-- Copyright -->
+    <strong>"""),_display_(Seq[Any](/*17.14*/Messages("application.name"))),format.raw/*17.42*/(""" © 2014</strong>
   </div>
 </div>
 """))}
@@ -40,11 +50,11 @@ Seq[Any](format.raw/*1.1*/("""<div id="footer">
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 07 16:50:23 CDT 2014
+                    DATE: Tue Jul 08 16:20:03 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/footer.scala.html
-                    HASH: d1bbff756adf8b173bd90e01d18c734013b7fd7d
-                    MATRIX: 638->0|718->46|800->107|845->118|897->149|937->155|992->189|1032->195|1084->226|1138->245|1187->273
-                    LINES: 22->1|24->3|24->3|25->4|25->4|26->5|26->5|27->6|27->6|28->7|28->7
+                    HASH: 02df67657585f9dce49ce19d78e6d2f0a803ea94
+                    MATRIX: 655->18|779->108|861->169|958->232|991->244|1032->250|1069->265|1110->271|1144->283|1316->419|1366->447
+                    LINES: 23->2|27->6|27->6|30->9|30->9|31->10|31->10|32->11|32->11|38->17|38->17
                     -- GENERATED --
                 */
             

@@ -1,14 +1,21 @@
-@(msg: String)
-
 @import helper._
 
-@frame(Messages("application.name")) {
-@helper.form(action = routes.Files.upload, 'id -> "submissionForm", 'enctype -> "multipart/form-data") {
-<p>
-  @msg
-</p>
-<input type="file" name="files[]" id="files[]" webkitdirectory directory multiple>
-<input type="submit">
-}
-}
+@frame("Test") {
+<div id="section">
+  <div id="container">
+    @helper.form(action = routes.Files.upload, 'id -> "submissionForm", 'enctype -> "multipart/form-data") {
 
+    <label for="source">@Messages("submission.label.sources")</label>
+    <input type="file" name="files[]" id="sources" multiple directory webkitdirectory disabled>
+
+    <label for="source">@Messages("submission.label.compositions")</label>
+    <input type="file" name="files[]" id="compositions" multiple directory webkitdirectory required>
+
+    <label for="source">@Messages("submission.label.executables")</label>
+    <input type="file" name="files[]" id="executables" directory webkitdirectory>
+
+    <input type="submit" value="Submit">
+  }
+</div>
+</div>
+}

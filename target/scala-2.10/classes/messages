@@ -25,3 +25,7 @@ update.label.password = Password
 update.label.submit = Update
 update.new.success = Successfully update {0}
 update.validation.errors = Please correct the errors in the form.
+
+submission.label.sources = Source(s)
+submission.label.compositions = Compositions
+submission.label.executables = Executable

@@ -13,43 +13,50 @@ import play.api.mvc._
 import play.api.data._
 import views.html._
 /**/
-object test extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template1[String,play.api.templates.HtmlFormat.Appendable] {
+object test extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(msg: String):play.api.templates.HtmlFormat.Appendable = {
+    def apply():play.api.templates.HtmlFormat.Appendable = {
         _display_ {import helper._
 
 
-Seq[Any](format.raw/*1.15*/("""
+Seq[Any](format.raw/*2.1*/("""
+"""),_display_(Seq[Any](/*3.2*/frame("Test")/*3.15*/ {_display_(Seq[Any](format.raw/*3.17*/("""
+<div id="section">
+  <div id="container">
+    """),_display_(Seq[Any](/*6.6*/helper/*6.12*/.form(action = routes.Files.upload, 'id -> "submissionForm", 'enctype -> "multipart/form-data")/*6.107*/ {_display_(Seq[Any](format.raw/*6.109*/("""
 
-"""),format.raw/*4.1*/("""
-"""),_display_(Seq[Any](/*5.2*/frame(Messages("application.name"))/*5.37*/ {_display_(Seq[Any](format.raw/*5.39*/("""
-"""),_display_(Seq[Any](/*6.2*/helper/*6.8*/.form(action = routes.Files.upload, 'id -> "submissionForm", 'enctype -> "multipart/form-data")/*6.103*/ {_display_(Seq[Any](format.raw/*6.105*/("""
-<p>
-  """),_display_(Seq[Any](/*8.4*/msg)),format.raw/*8.7*/("""
-</p>
-<input type="file" name="files[]" id="files[]" webkitdirectory directory multiple>
-<input type="submit">
-""")))})),format.raw/*12.2*/("""
-""")))})),format.raw/*13.2*/("""
+    <label for="source">"""),_display_(Seq[Any](/*8.26*/Messages("submission.label.sources"))),format.raw/*8.62*/("""</label>
+    <input type="file" name="files[]" id="sources" multiple directory webkitdirectory disabled>
 
+    <label for="source">"""),_display_(Seq[Any](/*11.26*/Messages("submission.label.compositions"))),format.raw/*11.67*/("""</label>
+    <input type="file" name="files[]" id="compositions" multiple directory webkitdirectory required>
+
+    <label for="source">"""),_display_(Seq[Any](/*14.26*/Messages("submission.label.executables"))),format.raw/*14.66*/("""</label>
+    <input type="file" name="files[]" id="executables" directory webkitdirectory>
+
+    <input type="submit" value="Submit">
+  """)))})),format.raw/*18.4*/("""
+</div>
+</div>
+""")))})),format.raw/*21.2*/("""
 """))}
     }
     
-    def render(msg:String): play.api.templates.HtmlFormat.Appendable = apply(msg)
+    def render(): play.api.templates.HtmlFormat.Appendable = apply()
     
-    def f:((String) => play.api.templates.HtmlFormat.Appendable) = (msg) => apply(msg)
+    def f:(() => play.api.templates.HtmlFormat.Appendable) = () => apply()
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Jul 04 18:07:44 CDT 2014
+                    DATE: Tue Jul 08 16:20:04 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/test.scala.html
-                    HASH: 5a5d4f57b919a247cee5392c31dee758f442679f
-                    MATRIX: 555->1|678->14|706->33|742->35|785->70|824->72|860->74|873->80|977->175|1017->177|1059->185|1082->188|1225->300|1258->302
-                    LINES: 19->1|23->1|25->4|26->5|26->5|26->5|27->6|27->6|27->6|27->6|29->8|29->8|33->12|34->13
+                    HASH: b33e476fb3c0deaa7cede0323140fc7de2a30121
+                    MATRIX: 652->17|688->19|709->32|748->34|830->82|844->88|948->183|988->185|1050->212|1107->248|1274->379|1337->420|1509->556|1571->596|1738->732|1785->748
+                    LINES: 23->2|24->3|24->3|24->3|27->6|27->6|27->6|27->6|29->8|29->8|32->11|32->11|35->14|35->14|39->18|42->21
                     -- GENERATED --
                 */
             
