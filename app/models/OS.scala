@@ -3,7 +3,7 @@ package models
 import play.api._
 
 import java.util.Properties
-// import java.net._
+import java.net._
 
 import System._
 
@@ -16,8 +16,9 @@ object OS {
   val name = System.getProperty("os.name")
   val version = System.getProperty("os.version")
   val arch = System.getProperty("os.arch")
-  // val localhost = InetAddress.getLocalHost
-  // val localIpAddress = localhost.getHostAddress 
+  val localhost = InetAddress.getLocalHost
+  val localhostString = localhost.toString
+  // val localIpAddress = localhost.getHostAddress
   // val localNetworkInterface = NetworkInterface.getByInetAddress(localhost)
   // val localMacAddress = localNetworkInterface.getHardwareAddress.toList.map(b => String.format("%02x",b.asInstanceOf[AnyRef])).mkString(":") 
 
@@ -33,6 +34,6 @@ object OS {
   // Get system arch
   def getArch: String = arch
 
-  // // Get mac address
-  // def getMACAddress: String = localMacAddress
+  // Get id
+  def getID: String = localhostString
 }
