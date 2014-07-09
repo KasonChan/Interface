@@ -24,7 +24,7 @@ Seq[Any](format.raw/*1.16*/("""
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
 <div id="section">
   <div id="container">
-    <div id="warning">
+    <div id="errors">
       <strong>Page not found: """),_display_(Seq[Any](/*7.32*/path)),format.raw/*7.36*/("""</strong>
     </div>
   </div>
@@ -41,10 +41,10 @@ Seq[Any](format.raw/*1.16*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 08 16:15:42 CDT 2014
+                    DATE: Wed Jul 09 12:10:34 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/notFound.scala.html
-                    HASH: a5b6b10dd63f9995cdc4728fbaed0214d1158b5c
-                    MATRIX: 559->1|667->15|704->18|747->53|786->55|918->152|943->156
+                    HASH: e33b1a8d18203390ccc4968c4be8c9859194d9a8
+                    MATRIX: 559->1|667->15|704->18|747->53|786->55|917->151|942->155
                     LINES: 19->1|22->1|24->3|24->3|24->3|28->7|28->7
                     -- GENERATED --
                 */

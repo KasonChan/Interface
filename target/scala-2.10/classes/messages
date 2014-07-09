@@ -6,6 +6,7 @@ signin.label.password = Password
 signin.label.submit = Sign in
 signin.link.signup = Create an account
 signin.link.guest = Guest session
+signin.error = The email or password you entered is incorrect.
 
 signup.title = Create your Interface Account
 signup.label.name = Name
@@ -17,6 +18,10 @@ signup.label.confirmPassword = Confirm your password
 signup.label.submit = Sign up
 signup.new.success = Successfully signup {0}
 signup.validation.errors = Please correct the errors in the form.
+signup.error.username.existed = Someone already has that username. Try another?
+signup.error.username.length = Please use between 6 and 30 characters.
+signup.error.password.length = Short passwords are easy to guess. Try one with at least 8 characters.
+signup.error.passwordConfirmation = These passwords don't match. Try again?
 
 update.title = Edit your Interface Account
 update.label.name = Name

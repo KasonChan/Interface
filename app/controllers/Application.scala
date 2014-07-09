@@ -3,15 +3,19 @@ package controllers
 import play.api._
 import play.api.mvc._
 
+import models.User
+
 object Application extends Controller {
   // Homepage
   def index = Action {
-    Ok(views.html.index())
+    val emptyUser = User("", "", "", "")
+    Ok(views.html.index(List(""))(emptyUser))
   }
 
   // Signup page
   def signup = Action {
-    Ok(views.html.signup())
+    val emptyUser = User("", "", "", "")
+    Ok(views.html.signup(List(""))(emptyUser))
   }
 
   // Guest page

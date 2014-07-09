@@ -20,16 +20,36 @@ object Users extends Controller {
     def password = request.body.asFormUrlEncoded.get("password")(0)
     def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
-    val user = User(firstname, lastname, username, password)
+    val user = User.get(username)
+    var errors = List("")
 
-    //
-    // TODO: Add validation
-    //
+    // Check if the username is between 6 and 30 characters
+    if ((username.length < 6) || (username.length > 30))
+      errors = List(Messages("signup.error.username.length"))
 
-    User.insert(user)
+    // Check if the username is existed in the database
+    if (!user.isEmpty)
+      errors = errors :+ Messages("signup.error.username.existed")
 
-    // // Redirect the page to list all the users
-    Redirect(routes.Users.list)
+    // Check if the password length >= 8
+    if ((password.length < 8))
+      errors = errors :+ Messages("signup.error.password.length")
+
+    // Check if the password confirmation is equaled to password
+    if (passwordConfirmation != password)
+      errors = errors :+ Messages("signup.error.passwordConfirmation")
+
+    // If there is no errors
+    if (errors == List("")) {
+      val newUser = User(firstname, lastname, username, password)
+      User.insert(newUser)
+      Ok(views.html.destination())
+    } else {
+      val invalidUser = User(firstname, lastname, username, password)
+
+      // Return to the form with error messages
+      Ok(views.html.signup(errors)(invalidUser))
+    }
   }
 
   def signin = Action { request =>
@@ -38,19 +58,26 @@ object Users extends Controller {
     def password = request.body.asFormUrlEncoded.get("password")(0)
 
     val user = User.get(username)
-    // Ok(views.html.list(users))
 
-    // Ok(user(0).username + " " + user(0).password)
-    // Ok(username + " " + password)
-
+    // Check if the username not existed
     if (user.isEmpty) {
-      Ok("I don't know")
-    }
+      val errors = List(Messages("signin.error"))
+      val invalidUser = User("", "", username, password)
+
+      // Return to the form with error message
+      Ok(views.html.index(errors)(invalidUser))
+    } // Check if the username and password is matching with the database
     else if ((user(0).username == username) && (user(0).password == password)) {
+      
+      // Display destination
       Ok(views.html.destination())
+    } else {
+      val errors = List(Messages("signin.error"))
+      val invalidUser = User("", "", username, password)
+
+      // Return to the form with error messages
+      Ok(views.html.index(errors)(invalidUser))
     }
-    else 
-      Ok("I don't know")
   }
 
   def list = Action { implicit request =>

@@ -13,33 +13,33 @@ import play.api.mvc._
 import play.api.data._
 import views.html._
 /**/
-object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template0[play.api.templates.HtmlFormat.Appendable] {
+object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template2[List[String],User,play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/():play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(errors: List[String])(user: User):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*1.4*/("""
+Seq[Any](format.raw/*1.36*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
-  """),_display_(Seq[Any](/*4.4*/signinForm())),format.raw/*4.16*/("""
+  """),_display_(Seq[Any](/*4.4*/signinForm(errors)/*4.22*/(user))),format.raw/*4.28*/("""
 """)))})))}
     }
     
-    def render(): play.api.templates.HtmlFormat.Appendable = apply()
+    def render(errors:List[String],user:User): play.api.templates.HtmlFormat.Appendable = apply(errors)(user)
     
-    def f:(() => play.api.templates.HtmlFormat.Appendable) = () => apply()
+    def f:((List[String]) => (User) => play.api.templates.HtmlFormat.Appendable) = (errors) => (user) => apply(errors)(user)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jul 08 16:15:42 CDT 2014
+                    DATE: Wed Jul 09 14:26:15 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/index.scala.html
-                    HASH: 7b9d4c08424e29dfd1d560a7d1fb366571e81a49
-                    MATRIX: 549->1|644->3|681->6|724->41|763->43|801->47|834->59
-                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4
+                    HASH: f7aa32e372dd154e10bb8689d9801a71c225a8b4
+                    MATRIX: 567->1|695->35|732->38|775->73|814->75|852->79|878->97|905->103
+                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4
                     -- GENERATED --
                 */
             
