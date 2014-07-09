@@ -8,8 +8,10 @@
 <!-- Section content -->
 <div id="section">
   <div id="container">
-    <form method="post" id="destination" action="#" enctype="multipart/form-data">
-      <input type="text" name="username" id="username" 
+    <form method="post" id="destination" action="@routes.Destinations.create">
+      <!-- User -->
+      <!-- Username -->
+      <input type="text" name="userUsername" id="userUsername" 
       placeholder="@Messages("destination.label.username")" required>
 
       <!-- Destination -->

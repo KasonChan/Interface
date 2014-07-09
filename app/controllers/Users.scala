@@ -42,8 +42,10 @@ object Users extends Controller {
     // If there is no errors
     if (errors == List("")) {
       val newUser = User(firstname, lastname, username, password)
+      
       // Insert user into database
       User.insert(newUser)
+      
       // Display destination
       // Store usename in session
       Ok(views.html.destination()).withSession(
@@ -71,10 +73,9 @@ object Users extends Controller {
 
       // Return to the form with error message
       // Discard the whole session
-      Ok(views.html.index(errors)(invalidUser)).withNewSession
+      Ok(views.html.index(errors)(invalidUser))
     } // Check if the username and password is matching with the database
     else if ((user(0).username == username) && (user(0).password == password)) {
-
       // Display destination
       Ok(views.html.destination()).withSession(
         "connected" -> username)
@@ -84,7 +85,7 @@ object Users extends Controller {
 
       // Return to the form with error messages
       // Discard the whole session
-      Ok(views.html.index(errors)(invalidUser)).withNewSession
+      Ok(views.html.index(errors)(invalidUser))
     }
   }
 

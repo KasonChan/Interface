@@ -23,9 +23,6 @@ POST    /signup                     controllers.Users.create
 # Users page
 GET     /users                      controllers.Users.list
 
-# Destinations page
-GET     /destinations               controllers.Destinations.list
-
 # Update page
 GET     /update/:username           controllers.Users.listUser(username: String)
 
@@ -33,6 +30,11 @@ POST    /update/:username           controllers.Users.update(username: String)
 
 # Destination page
 GET     /destination                controllers.Application.destination
+
+POST    /destination                controllers.Destinations.create
+
+# Destinations page
+GET    /destinations                controllers.Destinations.list
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

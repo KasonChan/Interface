@@ -4,21 +4,22 @@
 <div id="section">
   <div id="container">
     @for(destination <- destinations) {
-    <form method="post" id="signup" action="">
+    <form method="post" id="destinaion" action="#">
       <label for="username">@Messages("update.label.name")</label>
 
-      <input type="text" name="username" id="username" value="@destination.username" required >
+      <input type="text" name="username" id="username" 
+      value="@destination.username" required >
       
       <input type="text" name="destinationUsername" id="destinationUsername" 
-        value="@destination.destinationUsername" required>
+      value="@destination.destinationUsername" required>
 
       <label for="username">@Messages("update.label.username")</label>
       <input type="text" name="destinationUsername" id="destinationUsername" 
-        value="@destination.destinationUsername" required>
+      value="@destination.destinationUsername" required>
       
       <label for="password">@Messages("update.label.password")</label>
       <input type="password" name="destinationPassword" id="destinationPassword"
-        value="@destination.destinationPassword" required>      
+      value="@destination.destinationPassword" required>      
     </form>
     }
 </div>

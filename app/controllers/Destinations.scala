@@ -9,12 +9,13 @@ import play.api.i18n.Messages
 import play.mvc.Http.MultipartFormData
 import play.mvc.Http.MultipartFormData._
 
+import models.User
 import models.Destination
 
 object Destinations extends Controller {
   def create = Action { request =>
     // Get destination information from the form
-    def username = request.body.asFormUrlEncoded.get("username")(0)
+    def userUsername = request.body.asFormUrlEncoded.get("userUsername")(0)
     def destinationUsername =
       request.body.asFormUrlEncoded.get("destinationUsername")(0)
     def destinationHostname =
@@ -22,41 +23,33 @@ object Destinations extends Controller {
     def destinationPassword =
       request.body.asFormUrlEncoded.get("destinationPassword")(0)
 
-    val destination = Destination.get(username)
+    val user = User.get(userUsername)
     var errors = List("")
 
-    // // Check if the username is between 6 and 30 characters
-    // if ((username.length < 6) || (username.length > 30))
-    //   errors = List(Messages("signup.error.username.length"))
+    Ok(userUsername + " " + destinationUsername + " " + destinationHostname + " "
+      + destinationPassword)
 
-    // // Check if the username is existed in the database
-    // if (!user.isEmpty)
-    //   errors = errors :+ Messages("signup.error.username.existed")
-
-    // // Check if the password length >= 8
-    // if ((password.length < 8))
-    //   errors = errors :+ Messages("signup.error.password.length")
-
-    // // Check if the password confirmation is equaled to password
-    // if (passwordConfirmation != password)
-    //   errors = errors :+ Messages("signup.error.passwordConfirmation")
-
-    // If there is no errors
-    if (errors == List("")) {
-      val newDestination = Destination(username, destinationUsername, 
-        destinationHostname, destinationPassword)
+    // // Check if user existed in user table
+    // if (user.isEmpty) {
+    //   val errors = List(Messages("destination.error.user.existed"))
+    // }
+  
+    // // If there is no errors
+    // if (errors == List("")) {
+    //   val newDestination = Destination(username, destinationUsername, 
+    //     destinationHostname, destinationPassword)
       
-      Destination.insert(newDestination)
-      // Display destination
-      // Store usename in session
-      Redirect(routes.Destinations.list)
-    } else {
-      val invalidDestination = Destination(username, destinationUsername, 
-        destinationHostname, destinationPassword)
+    //   Destination.insert(newDestination)
+    //   // Display destination
+    //   // Store usename in session
+    //   Redirect(routes.Destinations.list)
+    // } else {
+    //   val invalidDestination = Destination(username, destinationUsername, 
+    //     destinationHostname, destinationPassword)
 
-      // Return to the form with error messages
-      Redirect(routes.Destinations.list)
-    }
+    //   // Return to the form with error messages
+    //   Redirect(routes.Destinations.list)
+    // }
   }
 
   // def signin = Action { request =>

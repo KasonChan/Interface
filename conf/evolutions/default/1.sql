@@ -1,9 +1,4 @@
--- # --- !Downs
-
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS destinations;
-
--- # --- !Ups 
+# --- !Ups 
 
 -- Table users for storing users' firstname, lastname, username and password
 CREATE TABLE users (
@@ -16,10 +11,17 @@ CREATE TABLE users (
 
 -- Table destinations for storing users' destination username, host and password
 CREATE TABLE destinations (
-  FOREIGN KEY (username) REFERENCES User(username),
-  destination_username varchar(30),
+  username varchar(30),
+  destination_username varchar,
   destination_hostname varchar,
-  destination_password varchar
+  destination_password varchar,
+  PRIMARY KEY (destination_username),
+  CONSTRAINT fk_PerOrders FOREIGN KEY (username)
+  REFERENCES users(username)
 );
 
 
+# --- !Downs
+
+DROP TABLE users;
+DROP TABLE destinations;
