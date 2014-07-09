@@ -9,18 +9,21 @@
   <div id="container">
     @for(user <- users) {
     <form method="post" id="signup" action="@routes.Users.update("@user.username")">
-      <label for="username">@Messages("update.label.name")</label>
-      <input type="text" name="firstname" id="firstname" value="@user.firstname" required title="???">
+      <!-- Name -->
+      <label for="name">@Messages("update.label.name")</label>
+      <input type="text" name="firstname" id="firstname" value="@user.firstname" required>
       <input type="text" name="lastname" id="lastname" value="@user.lastname" required>
 
+      <!-- Username -->
       <label for="username">@Messages("update.label.username")</label>
       <input type="text" name="username" id="username" value="@user.username" required readonly>
       
+      <!-- Password -->
       <label for="password">@Messages("update.label.password")</label>
       <input type="password" name="password" id="password" value="@user.password" required>
       
       <input type="submit" value="@Messages("update.label.submit")">
     </form>
-    }
+  }
 </div>
 </div>

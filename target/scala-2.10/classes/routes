@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index
 
+POST    /                           controllers.Users.signin
+
 # Guest page
 GET     /guest                      controllers.Application.guest
 
@@ -16,7 +18,7 @@ GET     /test                       controllers.Application.test
 # Signup page
 GET     /signup                     controllers.Application.signup
 
-POST    /signup                     controllers.Users.signup
+POST    /signup                     controllers.Users.create
 
 GET     /users                      controllers.Users.list
 

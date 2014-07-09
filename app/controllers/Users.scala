@@ -12,7 +12,7 @@ import play.mvc.Http.MultipartFormData._
 import models.User
 
 object Users extends Controller {
-  def signup = Action { request =>
+  def create = Action { request =>
     // Get user information from the form
     def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
@@ -25,20 +25,32 @@ object Users extends Controller {
     //
     // TODO: Add validation
     //
-    if (firstname.trim == "") {
-      Ok(views.html.signup())
-    }
-    if (lastname.trim == "") {
-      Ok(views.html.signup())
-    }
-    if (username.trim == "") {
-      Ok(views.html.signup())
-    }
 
     User.insert(user)
 
     // // Redirect the page to list all the users
     Redirect(routes.Users.list)
+  }
+
+  def signin = Action { request =>
+    // Get username and password from the form
+    def username = request.body.asFormUrlEncoded.get("username")(0)
+    def password = request.body.asFormUrlEncoded.get("password")(0)
+
+    val user = User.get(username)
+    // Ok(views.html.list(users))
+
+    // Ok(user(0).username + " " + user(0).password)
+    // Ok(username + " " + password)
+
+    if (user.isEmpty) {
+      Ok("I don't know")
+    }
+    else if ((user(0).username == username) && (user(0).password == password)) {
+      Ok(views.html.destination())
+    }
+    else 
+      Ok("I don't know")
   }
 
   def list = Action { implicit request =>
