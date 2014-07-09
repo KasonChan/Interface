@@ -42,8 +42,12 @@ object Users extends Controller {
     // If there is no errors
     if (errors == List("")) {
       val newUser = User(firstname, lastname, username, password)
+      // Insert user into database
       User.insert(newUser)
-      Ok(views.html.destination())
+      // Display destination
+      // Store usename in session
+      Ok(views.html.destination()).withSession(
+        "connected" -> username)
     } else {
       val invalidUser = User(firstname, lastname, username, password)
 
@@ -57,6 +61,7 @@ object Users extends Controller {
     def username = request.body.asFormUrlEncoded.get("username")(0)
     def password = request.body.asFormUrlEncoded.get("password")(0)
 
+    // Get user from database
     val user = User.get(username)
 
     // Check if the username not existed
@@ -65,18 +70,21 @@ object Users extends Controller {
       val invalidUser = User("", "", username, password)
 
       // Return to the form with error message
-      Ok(views.html.index(errors)(invalidUser))
+      // Discard the whole session
+      Ok(views.html.index(errors)(invalidUser)).withNewSession
     } // Check if the username and password is matching with the database
     else if ((user(0).username == username) && (user(0).password == password)) {
-      
+
       // Display destination
-      Ok(views.html.destination())
+      Ok(views.html.destination()).withSession(
+        "connected" -> username)
     } else {
       val errors = List(Messages("signin.error"))
       val invalidUser = User("", "", username, password)
 
       // Return to the form with error messages
-      Ok(views.html.index(errors)(invalidUser))
+      // Discard the whole session
+      Ok(views.html.index(errors)(invalidUser)).withNewSession
     }
   }
 

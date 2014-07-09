@@ -1,14 +1,26 @@
+<!-- Section title -->
 <div id="section">
   <div id="container">
     <div id="title">@Messages("destination.title")</div>
     </div>
 </div>
+
+<!-- Section content -->
 <div id="section">
   <div id="container">
-    <form method="post" id="signup" action="#" enctype="multipart/form-data">
+    <form method="post" id="destination" action="#" enctype="multipart/form-data">
+      <input type="text" name="username" id="username" 
+      placeholder="@Messages("destination.label.username")" required>
+
+      <!-- Destination -->
       <label for="destination">@Messages("submission.label.destination")</label>
+      <!-- Username -->
       <input type="text" name="destinationUsername" id="destinationUsername" placeholder="@Messages("destination.label.username")" required>
+      
+      <!-- Hostname -->
       <input type="text" name="destinationHostname" id="destinationHostname" placeholder="@Messages("destination.label.hostname")" required>
+      
+      <!-- Password -->
       <input type="password" name="destinationPassword" id="destinationPassword" placeholder="@Messages("destination.label.password")" required>
       <input type="submit" value="@Messages("destination.label.submit")">
     </form>
