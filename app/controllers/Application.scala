@@ -8,9 +8,13 @@ import models.Destination
 
 object Application extends Controller {
   // Homepage
-  def index = Action {
-    val emptyUser = User("", "", "", "")
-    Ok(views.html.index(List(""))(emptyUser))
+  def index = Action { request =>
+    request.session.get("connected").map { username =>
+      Redirect(routes.Submissions.submit)
+    }.getOrElse {
+      val emptyUser = User("", "", "", "")
+      Ok(views.html.index(List(""))(emptyUser))
+    }
   }
 
   // Signup page
@@ -36,7 +40,11 @@ object Application extends Controller {
   }
 
   // Submission page
-  def submission = Action {
-    Ok(views.html.submission())
+  def submission = Action { request =>
+    request.session.get("connected").map { username =>
+      Ok(views.html.submission(username))
+    }.getOrElse {
+      Ok(views.html.badRequest("Oops, you are connected"))
+    }
   }
 }

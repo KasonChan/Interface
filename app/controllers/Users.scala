@@ -82,8 +82,7 @@ object Users extends Controller {
     else if ((user(0).username == username) && (user(0).password == password)) {
       // Display destination
       // Store username as connected session data
-      val emptyDestination = Destination("", "", "", "")
-      Ok(views.html.submission()).withSession(
+      Redirect(routes.Submissions.submit).withSession(
         "connected" -> username)
     } else {
       val errors = List(Messages("signin.error"))

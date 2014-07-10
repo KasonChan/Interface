@@ -1,5 +1,6 @@
-@()
+@(username: String)
 
 @frame(Messages("application.name")) {
+  @dashboard(username)
   @submissionForm()
 }

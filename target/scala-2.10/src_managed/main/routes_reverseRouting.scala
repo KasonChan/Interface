@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:711f92a740bbede60def7063219ebde675354ec3
-// @DATE:Thu Jul 10 02:04:46 CDT 2014
+// @HASH:83525a759edca1715a9a48ab268f0b4e90187370
+// @DATE:Thu Jul 10 15:23:03 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -85,6 +85,19 @@ def update(username:String): Call = {
 }
                           
 
+// @LINE:40
+class ReverseSubmissions {
+    
+
+// @LINE:40
+def submit(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "submission")
+}
+                                                
+    
+}
+                          
+
 // @LINE:37
 // @LINE:34
 class ReverseDestinations {
@@ -127,7 +140,6 @@ case () if true => Call("POST", _prefix + { _defaultPrefix } + "submission")
 }
                           
 
-// @LINE:40
 // @LINE:32
 // @LINE:19
 // @LINE:16
@@ -163,12 +175,6 @@ def guest(): Call = {
 // @LINE:6
 def index(): Call = {
    Call("GET", _prefix)
-}
-                                                
-
-// @LINE:40
-def submission(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "submission")
 }
                                                 
     
@@ -280,6 +286,24 @@ def update : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:40
+class ReverseSubmissions {
+    
+
+// @LINE:40
+def submit : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Submissions.submit",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
+      }
+   """
+)
+                        
+    
+}
+              
+
 // @LINE:37
 // @LINE:34
 class ReverseDestinations {
@@ -335,7 +359,6 @@ def upload : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:40
 // @LINE:32
 // @LINE:19
 // @LINE:16
@@ -394,17 +417,6 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + """"})
-      }
-   """
-)
-                        
-
-// @LINE:40
-def submission : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.submission",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
       }
    """
 )
@@ -489,6 +501,19 @@ def update(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.Handl
 }
                           
 
+// @LINE:40
+class ReverseSubmissions {
+    
+
+// @LINE:40
+def submit(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Submissions.submit(), HandlerDef(this, "controllers.Submissions", "submit", Seq(), "GET", """ Submission page""", _prefix + """submission""")
+)
+                      
+    
+}
+                          
+
 // @LINE:37
 // @LINE:34
 class ReverseDestinations {
@@ -523,7 +548,6 @@ def upload(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:40
 // @LINE:32
 // @LINE:19
 // @LINE:16
@@ -559,12 +583,6 @@ def guest(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:6
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
-)
-                      
-
-// @LINE:40
-def submission(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.submission(), HandlerDef(this, "controllers.Application", "submission", Seq(), "GET", """ Submission page""", _prefix + """submission""")
 )
                       
     

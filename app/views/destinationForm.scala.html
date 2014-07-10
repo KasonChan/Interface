@@ -4,7 +4,7 @@
 <div id="section">
   <div id="container">
     <div id="title">@Messages("destination.title.add")</div>
-    </div>
+  </div>
 </div>
 
 <!-- Section errors -->
@@ -49,9 +49,10 @@
       
       <!-- Submit -->
       <input type="submit" value="@Messages("destination.label.submit")">
-      
+    </form>
+    <form method="post" id="destination" action="@routes.Submissions.submit">
       <!-- Skip -->
-      <a href="@routes.Application.submission"><input type="button" value="@Messages("destination.label.skip")"></a>
+      <input type="submit" value="@Messages("destination.label.skip")">
     </form>
   </div>
 </div>

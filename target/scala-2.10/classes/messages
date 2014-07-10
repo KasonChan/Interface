@@ -45,3 +45,5 @@ destination.label.password = Password
 destination.label.submit = Add
 destination.label.skip = Skip
 destination.error.user.existed = Username is not existed.
+
+bad.request.not.connected = Oops, you are connected

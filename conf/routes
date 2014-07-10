@@ -34,10 +34,10 @@ GET     /destination                controllers.Application.destination
 POST    /destination                controllers.Destinations.create
 
 # Destinations page
-GET    /destinations                controllers.Destinations.list
+GET     /destinations               controllers.Destinations.list
 
 # Submission page
-GET     /submission                 controllers.Application.submission
+GET     /submission                 controllers.Submissions.submit
 
 POST    /submission                 controllers.Files.upload 
 
