@@ -83,7 +83,7 @@ object Users extends Controller {
       // Display destination
       // Store username as connected session data
       val emptyDestination = Destination("", "", "", "")
-      Ok(views.html.destination(List(""))(emptyDestination)).withSession(
+      Ok(views.html.submission()).withSession(
         "connected" -> username)
     } else {
       val errors = List(Messages("signin.error"))

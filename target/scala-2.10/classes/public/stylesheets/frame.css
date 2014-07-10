@@ -162,6 +162,17 @@ a:hover, a:focus {
   font-size: 18px;
 }
 
+#section #destination input[type=button] {
+  background-color: #29b6f6;
+  color: white;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  box-sizing: border-box;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+}
+
 /**
  * Footer
  */

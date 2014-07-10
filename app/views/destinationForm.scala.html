@@ -8,6 +8,7 @@
 </div>
 
 <!-- Section errors -->
+@if(errors != List("")) { 
 <div id="section">
   <div id="container">
     <div id="errors">
@@ -17,6 +18,7 @@
   </div>
 </div>
 </div>
+}
 
 <!-- Section content -->
 <div id="section">
@@ -41,9 +43,15 @@
       value="@destination.destinationHostname" required>
       
       <!-- Password -->
-      <input type="password" name="destinationPassword" id="destinationPassword" placeholder="@Messages("destination.label.password")" 
+      <input type="password" name="destinationPassword" id="destinationPassword" 
+      placeholder="@Messages("destination.label.password")" 
       value="@destination.destinationPassword" required>
+      
+      <!-- Submit -->
       <input type="submit" value="@Messages("destination.label.submit")">
+      
+      <!-- Skip -->
+      <a href="@routes.Application.submission"><input type="button" value="@Messages("destination.label.skip")"></a>
     </form>
   </div>
 </div>

@@ -34,4 +34,9 @@ object Application extends Controller {
     val emptyDestination = Destination("", "", "", "")
     Ok(views.html.destination(List(""))(emptyDestination))
   }
+
+  // Submission page
+  def submission = Action {
+    Ok(views.html.submission())
+  }
 }

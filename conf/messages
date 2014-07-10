@@ -43,4 +43,5 @@ destination.label.username = Username
 destination.label.hostname = Hostname
 destination.label.password = Password
 destination.label.submit = Add
+destination.label.skip = Skip
 destination.error.user.existed = Username is not existed.
