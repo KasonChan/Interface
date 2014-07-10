@@ -15,7 +15,7 @@ import models.Destination
 object Destinations extends Controller {
   def create = Action { request =>
     // Get destination information from the form
-    def userUsername = request.body.asFormUrlEncoded.get("userUsername")(0)
+    def username = request.body.asFormUrlEncoded.get("username")(0)
     def destinationUsername =
       request.body.asFormUrlEncoded.get("destinationUsername")(0)
     def destinationHostname =
@@ -23,65 +23,30 @@ object Destinations extends Controller {
     def destinationPassword =
       request.body.asFormUrlEncoded.get("destinationPassword")(0)
 
-    val user = User.get(userUsername)
+    val user = User.get(username)
     var errors = List("")
 
-    Ok(userUsername + " " + destinationUsername + " " + destinationHostname + " "
-      + destinationPassword)
+    // Check if user existed in user table
+    if (user.isEmpty) {
+      errors = List(Messages("destination.error.user.existed"))
+    }
 
-    // // Check if user existed in user table
-    // if (user.isEmpty) {
-    //   val errors = List(Messages("destination.error.user.existed"))
-    // }
-  
-    // // If there is no errors
-    // if (errors == List("")) {
-    //   val newDestination = Destination(username, destinationUsername, 
-    //     destinationHostname, destinationPassword)
-      
-    //   Destination.insert(newDestination)
-    //   // Display destination
-    //   // Store usename in session
-    //   Redirect(routes.Destinations.list)
-    // } else {
-    //   val invalidDestination = Destination(username, destinationUsername, 
-    //     destinationHostname, destinationPassword)
+    // If there is no errors
+    if (errors == List("")) {
+      val newDestination = Destination(username, destinationUsername,
+        destinationHostname, destinationPassword)
 
-    //   // Return to the form with error messages
-    //   Redirect(routes.Destinations.list)
-    // }
+      Destination.insert(newDestination)
+      // Display destinations
+      Redirect(routes.Destinations.list)
+    } else {
+      val invalidDestination = Destination(username, destinationUsername,
+        destinationHostname, destinationPassword)
+
+      // Return to the form with error messages
+      Ok(views.html.destination(errors)(invalidDestination))
+    }
   }
-
-  // def signin = Action { request =>
-  //   // Get username and password from the form
-  //   def username = request.body.asFormUrlEncoded.get("username")(0)
-  //   def password = request.body.asFormUrlEncoded.get("password")(0)
-
-  //   val user = User.get(username)
-
-  //   // Check if the username not existed
-  //   if (user.isEmpty) {
-  //     val errors = List(Messages("signin.error"))
-  //     val invalidUser = User("", "", username, password)
-
-  //     // Return to the form with error message
-  //     // Discard the whole session
-  //     Ok(views.html.index(errors)(invalidUser)).withNewSession
-  //   } // Check if the username and password is matching with the database
-  //   else if ((user(0).username == username) && (user(0).password == password)) {
-
-  //     // Display destination
-  //     Ok(views.html.destination()).withSession(
-  //       "connected" -> username)
-  //   } else {
-  //     val errors = List(Messages("signin.error"))
-  //     val invalidUser = User("", "", username, password)
-
-  //     // Return to the form with error messages
-  //     // Discard the whole session
-  //     Ok(views.html.index(errors)(invalidUser)).withNewSession
-  //   }
-  // }
 
   def list = Action { implicit request =>
     // Get the list of destinations

@@ -29,16 +29,18 @@ update.label.username = Username
 update.label.password = Password
 update.label.submit = Update
 update.new.success = Successfully update {0}
-update.validation.errors = Please correct the errors in the form.
+update.error.not.existed = Username is not existed.
 
 submission.label.sources = Source(s)
 submission.label.compositions = Compositions
 submission.label.executables = Executable
 submission.label.destination = Destination
 
-destination.title = Add your destination
+destination.title.add = Add your destination
+destination.title.edit = Edit your destination
+destination.label.destination = Destination
 destination.label.username = Username
 destination.label.hostname = Hostname
 destination.label.password = Password
 destination.label.submit = Add
-destination.error.user.existed = Username not existed...
+destination.error.user.existed = Username is not existed.

@@ -12,16 +12,15 @@ CREATE TABLE users (
 -- Table destinations for storing users' destination username, host and password
 CREATE TABLE destinations (
   username varchar(30),
-  destination_username varchar,
-  destination_hostname varchar,
-  destination_password varchar,
-  PRIMARY KEY (destination_username),
+  destinationUsername varchar,
+  destinationHostname varchar,
+  destinationPassword varchar,
+  PRIMARY KEY (destinationUsername),
   CONSTRAINT fk_PerOrders FOREIGN KEY (username)
   REFERENCES users(username)
 );
 
-
 # --- !Downs
 
-DROP TABLE users;
-DROP TABLE destinations;
+-- DROP TABLE if exists users;
+-- DROP TABLE if exists destinations;

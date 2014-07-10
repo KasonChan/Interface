@@ -1,5 +1,5 @@
-@()
+@(errors: List[String])(destination: Destination)
 
 @frame(Messages("application.name")) {
-@destinationForm()
+  @destinationForm(errors)(destination)
 }

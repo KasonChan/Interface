@@ -4,6 +4,7 @@ import play.api._
 import play.api.mvc._
 
 import models.User
+import models.Destination
 
 object Application extends Controller {
   // Homepage
@@ -30,6 +31,7 @@ object Application extends Controller {
 
   // Destination page
   def destination = Action {
-    Ok(views.html.destination())
+    val emptyDestination = Destination("", "", "", "")
+    Ok(views.html.destination(List(""))(emptyDestination))
   }
 }

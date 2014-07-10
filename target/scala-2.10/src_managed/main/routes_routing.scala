@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
 // @HASH:9c4fc8c445f49263cedb3731412e1d686d8dd9b1
-// @DATE:Wed Jul 09 18:13:04 CDT 2014
+// @DATE:Wed Jul 09 23:46:42 CDT 2014
 
 
 import play.core._

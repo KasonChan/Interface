@@ -1,8 +1,21 @@
+@(errors: List[String])(destination: Destination)
+
 <!-- Section title -->
 <div id="section">
   <div id="container">
-    <div id="title">@Messages("destination.title")</div>
+    <div id="title">@Messages("destination.title.add")</div>
     </div>
+</div>
+
+<!-- Section errors -->
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      @for(error <- errors) {
+      @error<br>
+    }
+  </div>
+</div>
 </div>
 
 <!-- Section content -->
@@ -11,19 +24,25 @@
     <form method="post" id="destination" action="@routes.Destinations.create">
       <!-- User -->
       <!-- Username -->
-      <input type="text" name="userUsername" id="userUsername" 
-      placeholder="@Messages("destination.label.username")" required>
+      <input type="text" name="username" id="username" 
+      placeholder="@Messages("destination.label.username")" 
+      value="@destination.username" required>
 
       <!-- Destination -->
       <label for="destination">@Messages("submission.label.destination")</label>
       <!-- Username -->
-      <input type="text" name="destinationUsername" id="destinationUsername" placeholder="@Messages("destination.label.username")" required>
+      <input type="text" name="destinationUsername" id="destinationUsername" 
+      placeholder="@Messages("destination.label.username")" 
+      value="@destination.destinationUsername" required>
       
       <!-- Hostname -->
-      <input type="text" name="destinationHostname" id="destinationHostname" placeholder="@Messages("destination.label.hostname")" required>
+      <input type="text" name="destinationHostname" id="destinationHostname" 
+      placeholder="@Messages("destination.label.hostname")" 
+      value="@destination.destinationHostname" required>
       
       <!-- Password -->
-      <input type="password" name="destinationPassword" id="destinationPassword" placeholder="@Messages("destination.label.password")" required>
+      <input type="password" name="destinationPassword" id="destinationPassword" placeholder="@Messages("destination.label.password")" 
+      value="@destination.destinationPassword" required>
       <input type="submit" value="@Messages("destination.label.submit")">
     </form>
   </div>

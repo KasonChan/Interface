@@ -10,6 +10,7 @@ import play.mvc.Http.MultipartFormData
 import play.mvc.Http.MultipartFormData._
 
 import models.User
+import models.Destination
 
 object Users extends Controller {
   def create = Action { request =>
@@ -18,7 +19,8 @@ object Users extends Controller {
     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
     def username = request.body.asFormUrlEncoded.get("username")(0)
     def password = request.body.asFormUrlEncoded.get("password")(0)
-    def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
+    def passwordConfirmation =
+      request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
     val user = User.get(username)
     var errors = List("")
@@ -42,19 +44,21 @@ object Users extends Controller {
     // If there is no errors
     if (errors == List("")) {
       val newUser = User(firstname, lastname, username, password)
-      
+
       // Insert user into database
       User.insert(newUser)
-      
+
       // Display destination
-      // Store usename in session
-      Ok(views.html.destination()).withSession(
+      // Store username as connected session data
+      val emptyDestination = Destination("", "", "", "")
+      Ok(views.html.destination(List(""))(emptyDestination)).withSession(
         "connected" -> username)
     } else {
       val invalidUser = User(firstname, lastname, username, password)
 
       // Return to the form with error messages
-      Ok(views.html.signup(errors)(invalidUser))
+      // Discard whole session
+      Ok(views.html.signup(errors)(invalidUser)).withNewSession
     }
   }
 
@@ -73,11 +77,13 @@ object Users extends Controller {
 
       // Return to the form with error message
       // Discard the whole session
-      Ok(views.html.index(errors)(invalidUser))
+      Ok(views.html.index(errors)(invalidUser)).withNewSession
     } // Check if the username and password is matching with the database
     else if ((user(0).username == username) && (user(0).password == password)) {
       // Display destination
-      Ok(views.html.destination()).withSession(
+      // Store username as connected session data
+      val emptyDestination = Destination("", "", "", "")
+      Ok(views.html.destination(List(""))(emptyDestination)).withSession(
         "connected" -> username)
     } else {
       val errors = List(Messages("signin.error"))
@@ -85,7 +91,7 @@ object Users extends Controller {
 
       // Return to the form with error messages
       // Discard the whole session
-      Ok(views.html.index(errors)(invalidUser))
+      Ok(views.html.index(errors)(invalidUser)).withNewSession
     }
   }
 
@@ -101,8 +107,19 @@ object Users extends Controller {
     // Get user information from database
     val user = User.get(username)
 
-    // Show the user information
-    Ok(views.html.update(user))
+    // Check if the username not existed
+    if (user.isEmpty) {
+      val errors = List(Messages("update.error.not.existed"))
+
+      // Return to the form with error message
+      // Discard the whole session
+      Ok(views.html.update(errors)(user)).withNewSession
+    }
+    else {
+      // Show the user information
+      Ok(views.html.update(List(""))(user))      
+    }
+
   }
 
   def update(username: String) = Action { implicit request =>
@@ -111,7 +128,8 @@ object Users extends Controller {
     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
     def username = request.body.asFormUrlEncoded.get("username")(0)
     def password = request.body.asFormUrlEncoded.get("password")(0)
-    def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
+    def passwordConfirmation =
+      request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
     // Update user into the database
     val updateUser = User(firstname, lastname, username, password)
