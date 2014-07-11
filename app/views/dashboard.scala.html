@@ -1,12 +1,24 @@
 @(username: String)
 
+@if(username != "") {
 <!-- Dashboard -->
-<div id="dashboard">
-  <div class="container">
-    <strong>@username</strong>
-  </div>
-  <div id="logout"><img id="logout" src="@routes.Assets.at("images/logout.ico")" width="64">
-  </div>
-  <div id="settings"><img id="settings" src="@routes.Assets.at("images/settings.ico")" width="64">
+<div class="dashboard_wrapper">
+  <div id="dashboard">
+    <div class="container">
+      <strong>@username</strong>
+      <img id="settings" src="@routes.Assets.at("images/settings.ico")" width="32">
+    </div>
   </div>
 </div>
+}
+
+@if(username != "") {
+<!-- Setting -->
+<div id="setting_wrapper">
+  <div id="setting">
+    <div class="container">
+      Logout
+    </div>
+  </div>
+</div>
+}

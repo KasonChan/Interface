@@ -61,5 +61,12 @@ if (isNaN(majorVersion)) {
   majorVersion = parseInt(navigator.appVersion,10);
 }
 
-  document.getElementById("browserName").innerHTML = browserName;
+document.getElementById("browserName").innerHTML = browserName;
+});
+
+$(document).ready(function(){
+  $("#setting_wrapper").hide();
+  $("#settings").click(function(){
+    $("#setting_wrapper").toggle();
+  });
 });
