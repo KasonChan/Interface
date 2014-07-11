@@ -5,8 +5,7 @@
 <div class="dashboard_wrapper">
   <div id="dashboard">
     <div class="container">
-      <strong>@username</strong>
-      <img id="settings" src="@routes.Assets.at("images/settings.ico")" width="32">
+      @username
     </div>
   </div>
 </div>
@@ -17,7 +16,15 @@
 <div id="setting_wrapper">
   <div id="setting">
     <div class="container">
-      Logout
+      <!-- Edit -->
+      <form method="post" id="edit" action="#">
+        <input type="submit" value="@Messages("dashboard.label.edit")">
+      </form>
+      
+      <!-- Logout -->
+      <form method="post" id="logout" action="@routes.Users.logout">
+        <input type="submit" value="@Messages("dashboard.label.logout")">
+      </form>
     </div>
   </div>
 </div>

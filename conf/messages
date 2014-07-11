@@ -35,6 +35,7 @@ submission.label.sources = Source(s)
 submission.label.compositions = Compositions
 submission.label.executables = Executable
 submission.label.destination = Destination
+submission.label.submit = Submit
 
 destination.title.add = Add your destination
 destination.title.edit = Edit your destination
@@ -46,4 +47,7 @@ destination.label.submit = Add
 destination.label.skip = Skip
 destination.error.user.existed = Username is not existed.
 
-bad.request.not.connected = Oops, you are connected
+dashboard.label.edit = Edit your account information
+dashboard.label.logout = Logout
+
+bad.request.not.connected = Oops, you are not connected.

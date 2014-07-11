@@ -94,6 +94,16 @@ object Users extends Controller {
     }
   }
 
+  def logout = Action { request =>
+    request.session.get("connected").map { username =>
+      val emptyUser = User("", "", "", "")
+      Ok(views.html.index(List("You are logged out."))(emptyUser)).withNewSession
+    }.getOrElse {
+      val emptyUser = User("", "", "", "")
+      Ok(views.html.index(List(""))(emptyUser)).withNewSession
+    }
+  }
+
   def list = Action { implicit request =>
     // Get the list of users
     val users = User.getAll
@@ -113,10 +123,9 @@ object Users extends Controller {
       // Return to the form with error message
       // Discard the whole session
       Ok(views.html.update(errors)(user)).withNewSession
-    }
-    else {
+    } else {
       // Show the user information
-      Ok(views.html.update(List(""))(user))      
+      Ok(views.html.update(List(""))(user))
     }
 
   }

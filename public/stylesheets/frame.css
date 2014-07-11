@@ -39,7 +39,9 @@ p.invalid {
   line-height: inherit;
   text-align: center;
 }
-a:hover, a:focus {
+
+#header a:hover, 
+#header a:focus {
   color: white; 
 }
 
@@ -61,28 +63,27 @@ a:hover, a:focus {
   font-family: Nunito, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  text-align: right;
+  text-align: center;
   background-color: white;
-  color: #009668;
+  color: #424242;
   box-sizing: border-box;
-  margin: 20px;
+  padding: 20px;
 }
 
-img #settings {
-  height: 64px;
-  width: 64px
+#dashboard.down {
+  background-color: #424242;
+  color: white;
 }
 
-#dashboard #settings {
-  background-color: white;
-  padding: 5px;
-  box-shadow: 0px 5px 5px #757575;
-  border-radius: 500px
+#dashboard:hover,
+#dashboard:focus {
+  background-color: #757575;
+  color: white;
 }
 
 /**
- * Setting
- */
+* Setting
+*/
 
 #setting_wrapper {
   width: 100%;
@@ -102,7 +103,28 @@ img #settings {
   background-color: white;
   color: #009668;
   box-sizing: border-box;
-  margin: 20px;
+  margin: 10px;
+}
+
+#setting_wrapper #setting #edit,
+#setting_wrapper #setting #logout {
+  margin: 0 auto;
+  width: 50%;
+  background-color: white;
+  /*padding: 1em;*/
+}
+
+#setting_wrapper #setting #edit input[type=submit],
+#setting_wrapper #setting #logout input[type=submit] {
+  background-color: #29b6f6;
+  color: white;
+  padding: 10px;
+  border: none;
+  box-sizing: border-box;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 10px
 }
 
 /**
@@ -171,7 +193,7 @@ a:hover, a:focus {
   margin: 0 auto;
   width: 50%;
   background-color: white;
-  padding: 1em;
+  /*padding: 1em;*/
 }
 
 #section #destination label,
@@ -181,7 +203,7 @@ a:hover, a:focus {
 #section #submissionForm label {
   font-family: Nunito, sans-serif;
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 300;
   padding-top: 10px;
   display: block;
 }
@@ -194,29 +216,19 @@ a:hover, a:focus {
   width: 100%;
   font-family: Nunito, sans-serif;
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 300;
   padding: 10px;
   box-sizing: border-box;
 }
 
+#section #destination input[type=submit],
 #section #update input[type=submit],
 #section #signup input[type=submit],
 #section #signin input[type=submit], 
 #section #submissionForm input[type=submit] {
   background-color: #29b6f6;
   color: white;
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  box-sizing: border-box;
-  font-family: Nunito, sans-serif;
-  font-size: 18px;
-}
-
-#section #destination input[type=button] {
-  background-color: #29b6f6;
-  color: white;
-  margin-top: 5px;
+  margin-top: 10px;
   padding: 10px;
   border: none;
   box-sizing: border-box;
@@ -252,12 +264,6 @@ a:hover, a:focus {
     position: relative;
     box-shadow: 0px 5px 5px #757575
   }
-
-  #dashboard #settings {
-    position: fixed;
-    right: 20px;
-    bottom: 170px
-  }
 }
 
 @media screen and (min-width: 801px) {
@@ -268,11 +274,5 @@ a:hover, a:focus {
     overflow: hidden;
     position: relative;
     box-shadow: 0px 5px 5px #757575
-  }
-
-  #dashboard #settings {
-    position: fixed;
-    right: 21%;
-    top: 233px
   }
 }

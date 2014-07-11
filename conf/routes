@@ -7,6 +7,9 @@ GET     /                           controllers.Application.index
 
 POST    /                           controllers.Users.signin
 
+# Logout
+POST    /logout                     controllers.Users.logout
+
 # Guest page
 GET     /guest                      controllers.Application.guest
 
@@ -39,7 +42,7 @@ GET     /destinations               controllers.Destinations.list
 # Submission page
 GET     /submission                 controllers.Submissions.submit
 
-POST    /submission                 controllers.Files.upload 
+POST    /submission                 controllers.Files.upload  
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

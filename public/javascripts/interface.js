@@ -66,7 +66,8 @@ document.getElementById("browserName").innerHTML = browserName;
 
 $(document).ready(function(){
   $("#setting_wrapper").hide();
-  $("#settings").click(function(){
-    $("#setting_wrapper").toggle();
+  $("#dashboard").click(function(){
+    $("#dashboard").toggleClass("down");
+    $("#setting_wrapper").toggle("down");
   });
 });
