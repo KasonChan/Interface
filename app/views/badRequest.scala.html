@@ -1,10 +1,10 @@
-@(path: String)
+@(message: String)
 
 @frame(Messages("application.name")) {
 <div id="section">
   <div id="container">
     <div id="errors">
-      <strong>Bad request: @path</strong>
+      <strong>@message</strong>
     </div>
   </div>
 </div>

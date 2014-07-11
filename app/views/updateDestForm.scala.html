@@ -1,0 +1,57 @@
+@(errors: List[String])(destinations: List[Destination])
+
+<!-- Section title -->
+<div id="section">
+  <div id="container">
+    <div id="title">@Messages("update.title")</div>
+  </div>
+</div>
+
+<!-- Section errors -->
+@if(errors != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      @for(error <- errors) {
+      @error<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section content -->
+<div id="section">
+  <div id="container">
+    @for(destination <- destinations) {
+    <form method="post" id="update" 
+    action="@routes.Destinations.update("@destination.username")">
+    <!-- User -->
+    <!-- Username -->
+    <input type="text" name="username" id="username" 
+    placeholder="@Messages("destination.label.username")" 
+    value="@destination.username" required readonly>
+
+    <!-- Destination -->
+    <label for="destination">@Messages("submission.label.destination")</label>
+    <!-- Username -->
+    <input type="text" name="destinationUsername" id="destinationUsername" 
+    placeholder="@Messages("destination.label.username")" 
+    value="@destination.destinationUsername" required>
+
+    <!-- Hostname -->
+    <input type="text" name="destinationHostname" id="destinationHostname" 
+    placeholder="@Messages("destination.label.hostname")" 
+    value="@destination.destinationHostname" required>
+
+    <!-- Password -->
+    <input type="password" name="destinationPassword" id="destinationPassword" 
+    placeholder="@Messages("destination.label.password")" 
+    value="@destination.destinationPassword" required>
+
+    <!-- Submit -->
+    <input type="submit" value="@Messages("update.destination.label.submit")">
+  </form>
+}
+</div>
+</div>

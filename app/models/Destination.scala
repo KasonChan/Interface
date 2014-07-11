@@ -32,16 +32,16 @@ object Destination {
   //   getAll.filter((x: Destination) => x.username == un).toList
   // }
 
-  def get(un: String): List[User] = {
+  def get(un: String): List[Destination] = {
     val select = SQL("""select * from destinations d where d.username = {un} 
-      order by u.destinationUsername asc;""").on("un" -> un)
+      order by d.destinationUsername asc;""").on("un" -> un)
 
     // Create connection before running code, and close it afterward
     // Make connection implicitly available
     DB.withConnection { implicit connection =>
       select().map(row =>
         // Create destination from contents of each row
-        User(row[String]("username"), row[String]("destinationUsername"),
+        Destination(row[String]("username"), row[String]("destinationUsername"),
           row[String]("destinationHostname"),
           row[String]("destinationPassword"))).toList
     }
@@ -62,20 +62,23 @@ object Destination {
       addedRows == 1
   }
 
-  // def update(user: User): Boolean = DB.withConnection { implicit connection =>
-  //   val updatedRows = SQL("""update users set firstname = {firstname},
-  //     lastname = {lastname}, password = {password} 
-  //     where username = {username}""").on(
-  //     "firstname" -> user.firstname,
-  //     "lastname" -> user.lastname,
-  //     "username" -> user.username,
-  //     "password" -> user.password).executeUpdate()
-  //   updatedRows == 1
-  // }
+  //
+  // TODO: Add username as parameter
+  // 
+  def update(user: User): Boolean = DB.withConnection { implicit connection =>
+    val updatedRows = SQL("""update users set firstname = {firstname},
+      lastname = {lastname}, password = {password} 
+      where username = {username}""").on(
+      "firstname" -> user.firstname,
+      "lastname" -> user.lastname,
+      "username" -> user.username,
+      "password" -> user.password).executeUpdate()
+    updatedRows == 1
+  }
 
-  // def delete(user: User): Boolean = DB.withConnection { implicit connection =>
-  //   val updatedRows = SQL("delete from users where username = {username}").on(
-  //     "username" -> user.username).executeUpdate()
-  //   updatedRows == 0
-  // }
+  def delete(user: User): Boolean = DB.withConnection { implicit connection =>
+    val updatedRows = SQL("delete from users where username = {username}").on(
+      "username" -> user.username).executeUpdate()
+    updatedRows == 0
+  }
 }

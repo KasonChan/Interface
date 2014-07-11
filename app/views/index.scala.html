@@ -1,6 +1,8 @@
 @(errors: List[String])(user: User)
 
 @frame(Messages("application.name")) {
-  @dashboard(user.username)
+  @if(errors == List("")) {
+    @dashboard(user.username)
+  }
   @signinForm(errors)(user)
 }

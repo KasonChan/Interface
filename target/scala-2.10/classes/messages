@@ -23,13 +23,18 @@ signup.error.username.length = Please use between 6 and 30 characters.
 signup.error.password.length = Short passwords are easy to guess. Try one with at least 8 characters.
 signup.error.passwordConfirmation = These passwords don't match. Try again?
 
-update.title = Edit your Interface Account
+update.title = Edit your Interface account
 update.label.name = Name
 update.label.username = Username
 update.label.password = Password
 update.label.submit = Update
 update.new.success = Successfully update {0}
 update.error.not.existed = Username is not existed.
+
+update.destination.label.username = Username
+update.destination.label.hostname = Hostname
+update.destination.label.password = Password
+update.destination.label.submit = Update
 
 submission.label.sources = Source(s)
 submission.label.compositions = Compositions
@@ -50,4 +55,4 @@ destination.error.user.existed = Username is not existed.
 dashboard.label.edit = Edit your account information
 dashboard.label.logout = Logout
 
-bad.request.not.connected = Oops, you are not connected.
+bad.request.not.connected = Oops, you are not logged in.

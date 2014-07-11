@@ -22,5 +22,5 @@ CREATE TABLE destinations (
 
 # --- !Downs
 
--- DROP TABLE if exists users;
--- DROP TABLE if exists destinations;
+DROP TABLE if exists users;
+DROP TABLE if exists destinations;

@@ -22,8 +22,10 @@ object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 Seq[Any](format.raw/*1.36*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
-  """),_display_(Seq[Any](/*4.4*/dashboard(user.username))),format.raw/*4.28*/("""
-  """),_display_(Seq[Any](/*5.4*/signinForm(errors)/*5.22*/(user))),format.raw/*5.28*/("""
+  """),_display_(Seq[Any](/*4.4*/if(errors == List(""))/*4.26*/ {_display_(Seq[Any](format.raw/*4.28*/("""
+    """),_display_(Seq[Any](/*5.6*/dashboard(user.username))),format.raw/*5.30*/("""
+  """)))})),format.raw/*6.4*/("""
+  """),_display_(Seq[Any](/*7.4*/signinForm(errors)/*7.22*/(user))),format.raw/*7.28*/("""
 """)))})))}
     }
     
@@ -36,11 +38,11 @@ Seq[Any](format.raw/*1.36*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Jul 11 14:02:32 CDT 2014
+                    DATE: Fri Jul 11 16:12:37 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/index.scala.html
-                    HASH: f403cbeea3a785eb611031e8bed529062b0f1aee
-                    MATRIX: 567->1|695->35|732->38|775->73|814->75|852->79|897->103|935->107|961->125|988->131
-                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|26->5|26->5|26->5
+                    HASH: 2a2cbf0e114b34626388ec5021104375d2d0a9c6
+                    MATRIX: 567->1|695->35|732->38|775->73|814->75|852->79|882->101|921->103|961->109|1006->133|1040->137|1078->141|1104->159|1131->165
+                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|27->6|28->7|28->7|28->7
                     -- GENERATED --
                 */
             
