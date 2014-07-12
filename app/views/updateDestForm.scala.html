@@ -3,7 +3,7 @@
 <!-- Section title -->
 <div id="section">
   <div id="container">
-    <div id="title">@Messages("update.title")</div>
+    <div id="title">@Messages("update.destination.title")</div>
   </div>
 </div>
 
@@ -30,7 +30,7 @@
     <!-- Username -->
     <input type="text" name="username" id="username" 
     placeholder="@Messages("destination.label.username")" 
-    value="@destination.username" required readonly>
+    value="@destination.username" required readonly hidden>
 
     <!-- Destination -->
     <label for="destination">@Messages("submission.label.destination")</label>

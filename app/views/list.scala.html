@@ -3,6 +3,7 @@
 @frame(Messages("application.name")) {
 <div id="section">
   <div id="container">
+    @if(!users.isEmpty) {
     @for(user <- users) {
     <form method="post" id="signup" action="">
       <label for="username">@Messages("update.label.name")</label>
@@ -11,11 +12,17 @@
 
       <label for="username">@Messages("update.label.username")</label>
       <input type="text" name="username" id="username" value="@user.username" required readonly>
-      
+
       <label for="password">@Messages("update.label.password")</label>
       <input type="password" name="password" id="password" value="@user.password" required readonly>
     </form>
-    }
+  }
+}
+@if(users.isEmpty) {
+<div id="errors">
+  @Messages("update.empty")
+</div>
+}
 </div>
 </div>
 }

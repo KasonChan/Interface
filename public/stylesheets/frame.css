@@ -12,6 +12,10 @@ p.invalid {
   color: #e51c23;
 }
 
+hr {
+  width: 100%;
+}
+
 /**
 * Header
 */

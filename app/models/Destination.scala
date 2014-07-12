@@ -14,8 +14,12 @@ case class Destination(
   destinationPassword: String)
 
 object Destination {
-  val selectAll: SqlQuery = SQL("select * from destinations order by username asc;")
-
+  /**
+   * Get all the destinations and order by username
+   */
+  val selectAll: SqlQuery = SQL("""select * from destinations 
+    order by username asc;""")
+  
   // Create connection before running code, and close it afterward
   // Make connection implicitly available
   def getAll: List[Destination] = DB.withConnection { implicit connection =>
@@ -32,6 +36,9 @@ object Destination {
   //   getAll.filter((x: Destination) => x.username == un).toList
   // }
 
+  /**
+   * Get all the destinations by the username
+   */
   def get(un: String): List[Destination] = {
     val select = SQL("""select * from destinations d where d.username = {un} 
       order by d.destinationUsername asc;""").on("un" -> un)
@@ -47,10 +54,36 @@ object Destination {
     }
   }
 
+  /**
+   * Find the destination if existed in the database by the username,
+   * destinationUsername and destinationHostname
+   */
+  def find(un: String, dun: String, dhn: String): List[Destination] = {
+    val select = SQL("""select * from destinations d 
+      where d.username = {un} AND d.destinationUsername = {dun} AND 
+      d.destinationHostname = {dhn} 
+      order by d.destinationUsername asc;""").on(
+      "un" -> un, "dun" -> dun, "dhn" -> dhn)
+
+    // Create connection before running code, and close it afterward
+    // Make connection implicitly available
+    DB.withConnection { implicit connection =>
+      select().map(row =>
+        // Create destination from contents of each row
+        Destination(row[String]("username"), row[String]("destinationUsername"),
+          row[String]("destinationHostname"),
+          row[String]("destinationPassword"))).toList
+    }
+  }
+
+  /**
+   * Insert the new destination into the destinations database
+   */
   def insert(destination: Destination): Boolean = DB.withConnection {
     // Identifiers surrounded by curly braces denote named parameters to be 
     // mapped with the elements in on(...)
-    implicit connection => val addedRows = SQL("""insert into destinations 
+    implicit connection =>
+      val addedRows = SQL("""insert into destinations 
       values ({username}, {destinationUsername}, {destinationHostname}, 
         {destinationPassword})""").on(
         // Each named parameter is mapped to its value

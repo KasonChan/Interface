@@ -16,7 +16,6 @@ object Destinations extends Controller {
   def create = Action { request =>
     request.session.get("connected").map { username =>
       // Get destination information from the form
-      
       def destinationUsername =
         request.body.asFormUrlEncoded.get("destinationUsername")(0)
       def destinationHostname =
@@ -27,9 +26,18 @@ object Destinations extends Controller {
       val user = User.get(username)
       var errors = List("")
 
-      // Check if user existed in user table
+      // Check if user not existed in user table
       if (user.isEmpty) {
         errors = List(Messages("destination.error.user.existed"))
+      }
+
+      val destination = Destination.find(username, destinationUsername,
+        destinationHostname)
+
+      // Check if the destination is existed with the username
+      if (!destination.isEmpty) {
+        errors =
+          errors :+ Messages("destination.error.destination.user.existed")
       }
 
       // If there is no errors

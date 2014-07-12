@@ -3,14 +3,15 @@
 @frame(Messages("application.name")) {
 <div id="section">
   <div id="container">
+    @if(!destinations.isEmpty) {
     @for(destination <- destinations) {
     <form method="post" id="destination" action="#">
       <input type="text" name="username" id="username" 
       value="@destination.username" required readonly>
-      
-      <label for="username">@Messages("destination.label.destination")</label>
 
       <!-- Destination -->
+      <label for="username">@Messages("destination.label.destination")</label>
+
       <!-- Username -->
       <input type="text" name="destinationUsername" id="destinationUsername" 
       value="@destination.destinationUsername" required readonly>
@@ -18,12 +19,18 @@
       <!-- Hostname -->
       <input type="text" name="destinationHostname" id="destinationHostname" 
       value="@destination.destinationHostname" required readonly>
-      
+
       <!-- Password -->
       <input type="password" name="destinationPassword" id="destinationPassword"
       value="@destination.destinationPassword" required readonly>      
     </form>
-  }
+  } 
+}
+@if(destinations.isEmpty) {
+<div id="errors">
+  @Messages("destination.empty")
+</div>
+}
 </div>
 </div>
 }
