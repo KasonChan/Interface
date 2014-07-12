@@ -61,34 +61,106 @@ object Destinations extends Controller {
   }
 
   def list = Action { implicit request =>
-    // Get the list of destinations
-    val destinations = Destination.getAll
+    request.session.get("connected").map { username =>
+      // Get the list of destinations
+      val destinations = Destination.getAll
 
-    // Show the list of destinations information
-    Ok(views.html.listDest(destinations))
+      // Show the list of destinations information
+      Ok(views.html.listDest(destinations))
+    }.getOrElse {
+      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+    }
   }
 
   def listDest(username: String) = Action { implicit request =>
-    // Get destination information of the user from database
-    val destinations = Destination.get(username)
+    request.session.get("connected").map { username =>
+      // Get destination information of the user from database
+      val destinations = Destination.get(username)
 
-    // Show the destination information
-    Ok(views.html.updateDest(List(""))(destinations))
+      var errors = List("")
+
+      if (destinations.isEmpty) {
+        errors = List(Messages("destination.empty"))
+        // Show the destination information
+        Ok(views.html.updateDest(errors)(destinations))
+      }
+
+      Ok(views.html.updateDest(errors)(destinations))
+    }.getOrElse {
+      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+    }
   }
 
-  def update(username: String) = Action { implicit request =>
-    // Get destination of the user updated information from the form
-    def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
-    def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
-    def username = request.body.asFormUrlEncoded.get("username")(0)
-    def password = request.body.asFormUrlEncoded.get("password")(0)
-    def passwordConfirmation = request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
+  def edit(action: String) = Action { implicit request =>
+    request.session.get("connected").map { username =>
+      // Get destination information from the form
+      def destinationUsername =
+        request.body.asFormUrlEncoded.get("destinationUsername")(0)
+      def destinationHostname =
+        request.body.asFormUrlEncoded.get("destinationHostname")(0)
+      def destinationPassword =
+        request.body.asFormUrlEncoded.get("destinationPassword")(0)
 
-    // Update destination into the database
-    val updateUser = User(firstname, lastname, username, password)
-    User.update(updateUser)
+      if (action == "update") {
+        // Update destination into the database
+        val updateDestination = Destination(username, destinationUsername,
+          destinationHostname, destinationPassword)
+        Destination.update(updateDestination)
+      } else if (action == "delete") {
+        // Delete destination from the database
+        val deleteDestination = Destination(username, destinationUsername,
+          destinationHostname, destinationPassword)
+        Destination.delete(deleteDestination)
+      }
 
-    // Redirect the page to show updated destination information
-    Redirect(routes.Destinations.listDest(username))
+      // Redirect the page to show updated destination information
+      Redirect(routes.Destinations.listDest(username))
+    }.getOrElse {
+      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+    }
   }
+
+  // def update(username: String) = Action { implicit request =>
+  //   request.session.get("connected").map { username =>
+  //     // Get destination information from the form
+  //     def destinationUsername =
+  //       request.body.asFormUrlEncoded.get("destinationUsername")(0)
+  //     def destinationHostname =
+  //       request.body.asFormUrlEncoded.get("destinationHostname")(0)
+  //     def destinationPassword =
+  //       request.body.asFormUrlEncoded.get("destinationPassword")(0)
+
+  //     // Update destination into the database
+  //     val updateDestination = Destination(username, destinationUsername,
+  //       destinationHostname, destinationPassword)
+  //     Destination.update(updateDestination)
+
+  //     // Redirect the page to show updated destination information
+  //     Redirect(routes.Destinations.listDest(username))
+  //   }.getOrElse {
+  //     Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+  //   }
+  // }
+
+  // def delete(username: String) = Action { implicit request =>
+  //   request.session.get("connected").map { username =>
+  //     // Get destination information from the form
+  //     def destinationUsername =
+  //       request.body.asFormUrlEncoded.get("destinationUsername")(0)
+  //     def destinationHostname =
+  //       request.body.asFormUrlEncoded.get("destinationHostname")(0)
+  //     def destinationPassword =
+  //       request.body.asFormUrlEncoded.get("destinationPassword")(0)
+
+  //     // Delete destination from the database
+  //     val deleteDestination = Destination(username, destinationUsername,
+  //       destinationHostname, destinationPassword)
+  //     Destination.delete(deleteDestination)
+
+  //     // Redirect the page to show updated destination information
+  //     Redirect(routes.Destinations.listDest(username))
+  //   }.getOrElse {
+  //     Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+  //   }
+  // }
 }

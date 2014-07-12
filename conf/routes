@@ -23,31 +23,31 @@ GET     /signup                     controllers.Application.signup
 
 POST    /signup                     controllers.Users.create
 
-# Users page
-GET     /users                      controllers.Users.list
-
 # Update page
 GET     /update/:username           controllers.Users.listUser(username: String)
 
 POST    /update/:username           controllers.Users.update(username: String)
 
 # Update destination page
-GET     /updateDest/:username          controllers.Destinations.listDest(username: String)
+GET     /updateDest/:username       controllers.Destinations.listDest(username: String)
 
-POST    /updateDest/:username          controllers.Destinations.update(username: String)
+POST    /updateDest/:username       controllers.Destinations.edit(username: String)
 
 # Destination page
 GET     /destination                controllers.Application.destination
 
 POST    /destination                controllers.Destinations.create
 
-# Destinations page
-GET     /destinations               controllers.Destinations.list
-
 # Submission page
 GET     /submission                 controllers.Submissions.submit
 
-POST    /submission                 controllers.Files.upload  
+POST    /submission                 controllers.Submissions.submit  
+
+# Users page
+GET     /users                      controllers.Users.list
+
+# Destinations page
+GET     /destinations               controllers.Destinations.list
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

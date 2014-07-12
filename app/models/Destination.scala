@@ -19,7 +19,7 @@ object Destination {
    */
   val selectAll: SqlQuery = SQL("""select * from destinations 
     order by username asc;""")
-  
+
   // Create connection before running code, and close it afterward
   // Make connection implicitly available
   def getAll: List[Destination] = DB.withConnection { implicit connection =>
@@ -41,7 +41,8 @@ object Destination {
    */
   def get(un: String): List[Destination] = {
     val select = SQL("""select * from destinations d where d.username = {un} 
-      order by d.destinationUsername asc;""").on("un" -> un)
+      order by d.destinationUsername asc, d.destinationHostname asc;""").on(
+      "un" -> un)
 
     // Create connection before running code, and close it afterward
     // Make connection implicitly available
@@ -62,7 +63,7 @@ object Destination {
     val select = SQL("""select * from destinations d 
       where d.username = {un} AND d.destinationUsername = {dun} AND 
       d.destinationHostname = {dhn} 
-      order by d.destinationUsername asc;""").on(
+      order by d.destinationUsername asc, d.destinationHostname asc;""").on(
       "un" -> un, "dun" -> dun, "dhn" -> dhn)
 
     // Create connection before running code, and close it afterward
@@ -95,23 +96,29 @@ object Destination {
       addedRows == 1
   }
 
-  //
-  // TODO: Add username as parameter
-  // 
-  def update(user: User): Boolean = DB.withConnection { implicit connection =>
-    val updatedRows = SQL("""update users set firstname = {firstname},
-      lastname = {lastname}, password = {password} 
-      where username = {username}""").on(
-      "firstname" -> user.firstname,
-      "lastname" -> user.lastname,
-      "username" -> user.username,
-      "password" -> user.password).executeUpdate()
-    updatedRows == 1
+  def update(destination: Destination): Boolean = DB.withConnection {
+    implicit connection =>
+      val updatedRows = SQL("""update destinations 
+      set destinationPassword = {destinationPassword} 
+      where username = {username} AND 
+      destinationUsername = {destinationUsername} AND
+      destinationHostname = {destinationHostname};""").on(
+        "username" -> destination.username,
+        "destinationUsername" -> destination.destinationUsername,
+        "destinationHostname" -> destination.destinationHostname,
+        "destinationPassword" -> destination.destinationPassword).executeUpdate()
+      updatedRows == 1
   }
 
-  def delete(user: User): Boolean = DB.withConnection { implicit connection =>
-    val updatedRows = SQL("delete from users where username = {username}").on(
-      "username" -> user.username).executeUpdate()
-    updatedRows == 0
+  def delete(destination: Destination): Boolean = DB.withConnection {
+    implicit connection =>
+      val updatedRows = SQL("""delete from destinations 
+      where username = {username} AND 
+      destinationUsername = {destinationUsername} AND 
+      destinationHostname = {destinationHostname}""").on(
+        "username" -> destination.username,
+        "destinationUsername" -> destination.destinationUsername,
+        "destinationHostname" -> destination.destinationHostname).executeUpdate()
+      updatedRows == 0
   }
 }

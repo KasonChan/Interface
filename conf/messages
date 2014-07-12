@@ -32,11 +32,12 @@ update.new.success = Successfully update {0}
 update.error.not.existed = Username is not existed.
 update.empty = There is no record of user.
 
-update.destination.title = Edit your Interface destination accounts
+update.destination.title = Edit your destinations
 update.destination.label.username = Username
 update.destination.label.hostname = Hostname
 update.destination.label.password = Password
 update.destination.label.submit = Update
+update.destination.label.delete = Delete
 
 submission.label.sources = Source(s)
 submission.label.compositions = Compositions
@@ -53,10 +54,11 @@ destination.label.password = Password
 destination.label.submit = Add
 destination.label.skip = Skip
 destination.error.user.not.existed = Username is not existed.
-destination.error.destination.user.existed = Destination username is existed.
+destination.error.destination.user.existed = Destination is already existed.
 destination.empty = There is no record of destination.
 
-dashboard.label.edit = Edit your account information
+dashboard.label.edit = Edit your Interface account
+dashboard.label.edit.dest = Edit your destinations
 dashboard.label.logout = Logout
 
 bad.request.not.connected = Oops, you are not logged in.

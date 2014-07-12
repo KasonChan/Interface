@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:088777a058534adc68771de458480404170f33ec
-// @DATE:Sat Jul 12 01:25:38 CDT 2014
+// @HASH:4cd8b38987334be3a7cc983592edb6b1267c5f3d
+// @DATE:Sat Jul 12 16:25:39 CDT 2014
 
 
 import play.core._
@@ -61,49 +61,49 @@ private[this] lazy val controllers_Users_create7 = Route("POST", PathPattern(Lis
         
 
 // @LINE:27
-private[this] lazy val controllers_Users_list8 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("users"))))
+private[this] lazy val controllers_Users_listUser8 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("update/"),DynamicPart("username", """[^/]+""",true))))
         
 
-// @LINE:30
-private[this] lazy val controllers_Users_listUser9 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("update/"),DynamicPart("username", """[^/]+""",true))))
+// @LINE:29
+private[this] lazy val controllers_Users_update9 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("update/"),DynamicPart("username", """[^/]+""",true))))
         
 
 // @LINE:32
-private[this] lazy val controllers_Users_update10 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("update/"),DynamicPart("username", """[^/]+""",true))))
+private[this] lazy val controllers_Destinations_listDest10 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("updateDest/"),DynamicPart("username", """[^/]+""",true))))
         
 
-// @LINE:35
-private[this] lazy val controllers_Destinations_listDest11 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("updateDest/"),DynamicPart("username", """[^/]+""",true))))
+// @LINE:34
+private[this] lazy val controllers_Destinations_edit11 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("updateDest/"),DynamicPart("username", """[^/]+""",true))))
         
 
 // @LINE:37
-private[this] lazy val controllers_Destinations_update12 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("updateDest/"),DynamicPart("username", """[^/]+""",true))))
+private[this] lazy val controllers_Application_destination12 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("destination"))))
         
 
-// @LINE:40
-private[this] lazy val controllers_Application_destination13 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("destination"))))
+// @LINE:39
+private[this] lazy val controllers_Destinations_create13 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("destination"))))
         
 
 // @LINE:42
-private[this] lazy val controllers_Destinations_create14 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("destination"))))
+private[this] lazy val controllers_Submissions_submit14 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("submission"))))
         
 
-// @LINE:45
-private[this] lazy val controllers_Destinations_list15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("destinations"))))
+// @LINE:44
+private[this] lazy val controllers_Submissions_submit15 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("submission"))))
         
 
-// @LINE:48
-private[this] lazy val controllers_Submissions_submit16 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("submission"))))
+// @LINE:47
+private[this] lazy val controllers_Users_list16 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("users"))))
         
 
 // @LINE:50
-private[this] lazy val controllers_Files_upload17 = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("submission"))))
+private[this] lazy val controllers_Destinations_list17 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("destinations"))))
         
 
 // @LINE:53
 private[this] lazy val controllers_Assets_at18 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""POST""", prefix,"""controllers.Users.signin"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Users.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """guest""","""controllers.Application.guest"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """guest""","""controllers.Files.upload"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """test""","""controllers.Application.test"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Application.signup"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Users.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """users""","""controllers.Users.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>""","""controllers.Users.listUser(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>""","""controllers.Users.update(username:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>""","""controllers.Destinations.listDest(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>""","""controllers.Destinations.update(username:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Application.destination"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Destinations.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destinations""","""controllers.Destinations.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Submissions.submit"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Files.upload"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""POST""", prefix,"""controllers.Users.signin"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Users.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """guest""","""controllers.Application.guest"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """guest""","""controllers.Files.upload"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """test""","""controllers.Application.test"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Application.signup"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Users.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>""","""controllers.Users.listUser(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>""","""controllers.Users.update(username:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>""","""controllers.Destinations.listDest(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>""","""controllers.Destinations.edit(username:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Application.destination"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Destinations.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Submissions.submit"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Submissions.submit"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """users""","""controllers.Users.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destinations""","""controllers.Destinations.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -176,81 +176,81 @@ case controllers_Users_create7(params) => {
         
 
 // @LINE:27
-case controllers_Users_list8(params) => {
-   call { 
-        invokeHandler(controllers.Users.list, HandlerDef(this, "controllers.Users", "list", Nil,"GET", """ Users page""", Routes.prefix + """users"""))
-   }
-}
-        
-
-// @LINE:30
-case controllers_Users_listUser9(params) => {
+case controllers_Users_listUser8(params) => {
    call(params.fromPath[String]("username", None)) { (username) =>
         invokeHandler(controllers.Users.listUser(username), HandlerDef(this, "controllers.Users", "listUser", Seq(classOf[String]),"GET", """ Update page""", Routes.prefix + """update/$username<[^/]+>"""))
    }
 }
         
 
-// @LINE:32
-case controllers_Users_update10(params) => {
+// @LINE:29
+case controllers_Users_update9(params) => {
    call(params.fromPath[String]("username", None)) { (username) =>
         invokeHandler(controllers.Users.update(username), HandlerDef(this, "controllers.Users", "update", Seq(classOf[String]),"POST", """""", Routes.prefix + """update/$username<[^/]+>"""))
    }
 }
         
 
-// @LINE:35
-case controllers_Destinations_listDest11(params) => {
+// @LINE:32
+case controllers_Destinations_listDest10(params) => {
    call(params.fromPath[String]("username", None)) { (username) =>
         invokeHandler(controllers.Destinations.listDest(username), HandlerDef(this, "controllers.Destinations", "listDest", Seq(classOf[String]),"GET", """ Update destination page""", Routes.prefix + """updateDest/$username<[^/]+>"""))
    }
 }
         
 
-// @LINE:37
-case controllers_Destinations_update12(params) => {
+// @LINE:34
+case controllers_Destinations_edit11(params) => {
    call(params.fromPath[String]("username", None)) { (username) =>
-        invokeHandler(controllers.Destinations.update(username), HandlerDef(this, "controllers.Destinations", "update", Seq(classOf[String]),"POST", """""", Routes.prefix + """updateDest/$username<[^/]+>"""))
+        invokeHandler(controllers.Destinations.edit(username), HandlerDef(this, "controllers.Destinations", "edit", Seq(classOf[String]),"POST", """""", Routes.prefix + """updateDest/$username<[^/]+>"""))
    }
 }
         
 
-// @LINE:40
-case controllers_Application_destination13(params) => {
+// @LINE:37
+case controllers_Application_destination12(params) => {
    call { 
         invokeHandler(controllers.Application.destination, HandlerDef(this, "controllers.Application", "destination", Nil,"GET", """ Destination page""", Routes.prefix + """destination"""))
    }
 }
         
 
-// @LINE:42
-case controllers_Destinations_create14(params) => {
+// @LINE:39
+case controllers_Destinations_create13(params) => {
    call { 
         invokeHandler(controllers.Destinations.create, HandlerDef(this, "controllers.Destinations", "create", Nil,"POST", """""", Routes.prefix + """destination"""))
    }
 }
         
 
-// @LINE:45
-case controllers_Destinations_list15(params) => {
-   call { 
-        invokeHandler(controllers.Destinations.list, HandlerDef(this, "controllers.Destinations", "list", Nil,"GET", """ Destinations page""", Routes.prefix + """destinations"""))
-   }
-}
-        
-
-// @LINE:48
-case controllers_Submissions_submit16(params) => {
+// @LINE:42
+case controllers_Submissions_submit14(params) => {
    call { 
         invokeHandler(controllers.Submissions.submit, HandlerDef(this, "controllers.Submissions", "submit", Nil,"GET", """ Submission page""", Routes.prefix + """submission"""))
    }
 }
         
 
-// @LINE:50
-case controllers_Files_upload17(params) => {
+// @LINE:44
+case controllers_Submissions_submit15(params) => {
    call { 
-        invokeHandler(controllers.Files.upload, HandlerDef(this, "controllers.Files", "upload", Nil,"POST", """""", Routes.prefix + """submission"""))
+        invokeHandler(controllers.Submissions.submit, HandlerDef(this, "controllers.Submissions", "submit", Nil,"POST", """""", Routes.prefix + """submission"""))
+   }
+}
+        
+
+// @LINE:47
+case controllers_Users_list16(params) => {
+   call { 
+        invokeHandler(controllers.Users.list, HandlerDef(this, "controllers.Users", "list", Nil,"GET", """ Users page""", Routes.prefix + """users"""))
+   }
+}
+        
+
+// @LINE:50
+case controllers_Destinations_list17(params) => {
+   call { 
+        invokeHandler(controllers.Destinations.list, HandlerDef(this, "controllers.Destinations", "list", Nil,"GET", """ Destinations page""", Routes.prefix + """destinations"""))
    }
 }
         

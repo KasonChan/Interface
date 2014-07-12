@@ -53,7 +53,7 @@ object Users extends Controller {
       val emptyDestination = Destination(username, "", "", "")
       Ok(views.html.destination(List(""))(newUser)(emptyDestination)).withSession(
         "connected" -> username)
-      
+
     } else {
       val invalidUser = User(firstname, lastname, username, password)
 
@@ -114,21 +114,24 @@ object Users extends Controller {
   }
 
   def listUser(username: String) = Action { implicit request =>
-    // Get user information from database
-    val user = User.get(username)
+    request.session.get("connected").map { username =>
+      // Get user information from database
+      val user = User.get(username)
 
-    // Check if the username not existed
-    if (user.isEmpty) {
-      val errors = List(Messages("update.error.not.existed"))
+      // Check if the username not existed
+      if (user.isEmpty) {
+        val errors = List(Messages("update.error.not.existed"))
 
-      // Return to the form with error message
-      // Discard the whole session
-      Ok(views.html.update(errors)(user)).withNewSession
-    } else {
+        // Return to the form with error message
+        // Discard the whole session
+        Ok(views.html.update(errors)(user)).withNewSession
+      }
+
       // Show the user information
       Ok(views.html.update(List(""))(user))
+    }.getOrElse {
+      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
     }
-
   }
 
   def update(username: String) = Action { implicit request =>
@@ -137,8 +140,6 @@ object Users extends Controller {
     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
     def username = request.body.asFormUrlEncoded.get("username")(0)
     def password = request.body.asFormUrlEncoded.get("password")(0)
-    def passwordConfirmation =
-      request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
     // Update user into the database
     val updateUser = User(firstname, lastname, username, password)

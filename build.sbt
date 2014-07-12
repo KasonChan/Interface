@@ -1,4 +1,4 @@
-name := "Interface"
+name := """Interface"""
 
 version := "1.0"
 
