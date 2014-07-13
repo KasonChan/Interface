@@ -20,7 +20,7 @@
     <div class="container">
       <!-- Edit account information-->
       <!-- All fields of this form are hidden except the submit button -->
-      <form method="post" id="edit" action="@routes.Users.edit(user.username)">
+      <form method="post" id="editUser" action="@routes.Users.edit(user.username)">
         <!-- Hidden form fields -->
         <!-- Name -->
         <input type="text" name="firstname" id="firstname" placeholder="First" 
@@ -41,7 +41,7 @@
       </form>
 
       <!-- Edit your destination information -->
-      <form method="post" id="edit" 
+      <form method="post" id="editDest" 
       action="@routes.Destinations.listDest(user.username)">
       <input type="submit" value="@Messages("dashboard.label.edit.dest")">
     </form>

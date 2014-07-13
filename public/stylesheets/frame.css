@@ -110,7 +110,8 @@ hr {
   margin: 10px;
 }
 
-#setting_wrapper #setting #edit,
+#setting_wrapper #setting #editDest,
+#setting_wrapper #setting #editUser,
 #setting_wrapper #setting #logout {
   margin: 0 auto;
   width: 50%;
@@ -118,7 +119,8 @@ hr {
   /*padding: 1em;*/
 }
 
-#setting_wrapper #setting #edit input[type=submit],
+#setting_wrapper #setting #editDest input[type=submit],
+#setting_wrapper #setting #editUser input[type=submit],
 #setting_wrapper #setting #logout input[type=submit] {
   background-color: #29b6f6;
   color: white;
@@ -198,7 +200,6 @@ a:hover, a:focus {
   padding-top: 10px;
 }
 
-#setting_wrapper #setting #edit,
 #section #delete,
 #section #destination,
 #section #update,
@@ -211,7 +212,6 @@ a:hover, a:focus {
   /*padding: 1em;*/
 }
 
-#setting_wrapper #setting #edit label,
 #section #delete label,
 #section #destination label,
 #section #update label,
@@ -225,7 +225,6 @@ a:hover, a:focus {
   display: block;
 }
 
-#setting_wrapper #setting #edit input,
 #section #delete input,
 #section #destination input,
 #section #update input,
@@ -240,7 +239,6 @@ a:hover, a:focus {
   box-sizing: border-box;
 }
 
-#setting_wrapper #setting input[type=submit],
 #section #delete input[type=submit],
 #section #destination input[type=submit],
 #section #update input[type=submit],

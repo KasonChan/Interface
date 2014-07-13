@@ -65,7 +65,10 @@ document.getElementById("browserName").innerHTML = browserName;
 });
 
 $(document).ready(function(){
+  // Hide setting_wrapper
   $("#setting_wrapper").hide();
+
+  // Toggle dashboard
   $("#dashboard").click(function(){
     $("#dashboard").toggleClass("down");
     $("#setting_wrapper").toggle("down");

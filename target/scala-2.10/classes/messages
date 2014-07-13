@@ -58,6 +58,7 @@ destination.error.destination.user.existed = Destination is already existed.
 destination.empty = There is no record of destination.
 
 dashboard.label.edit = Edit your Interface account
+dashboard.label.add.dest = Add your destination
 dashboard.label.edit.dest = Edit your destinations
 dashboard.label.logout = Logout
 
