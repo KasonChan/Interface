@@ -26,7 +26,7 @@ POST    /signup                     controllers.Users.create
 # Update account page
 GET     /update/:username           controllers.Users.listUser(username: String)
 
-POST    /update/:username           controllers.Users.edit(username: String)
+POST    /update/:username/:action   controllers.Users.edit(username: String, action: String)
 
 # Update destination page
 GET     /updateDest/:username       controllers.Destinations.listDest(username: String)
@@ -39,7 +39,7 @@ GET     /destination                controllers.Application.destination
 POST    /destination                controllers.Destinations.create
 
 # Submission page
-GET     /submission                 controllers.Submissions.submit
+GET     /submission                 controllers.Application.submission
 
 POST    /submission                 controllers.Files.upload  
 

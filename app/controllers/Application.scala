@@ -22,7 +22,10 @@ object Application extends Controller {
   // Otherwise display empty sign in page
   def index = Action { request =>
     request.session.get("connected").map { username =>
-      Redirect(routes.Submissions.submit)
+      // Get the user information
+      val user = User.get(username)
+
+      Ok(views.html.submission(emptyMessages)(emptyErrors)(user))
     }.getOrElse {
       Ok(views.html.index(emptyMessages)(emptyErrors)(emptyUser))
     }

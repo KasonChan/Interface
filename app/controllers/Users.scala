@@ -92,7 +92,8 @@ object Users extends Controller {
     else if ((user.username == username) && (user.password == password)) {
       // Display destination
       // Store username as connected session data
-      Redirect(routes.Submissions.submit).withSession(
+
+      Ok(views.html.submission(List(Messages("signin.success")))(emptyErrors)(user)).withSession(
         "connected" -> username)
     } else {
       val errors = List(Messages("signin.error"))
@@ -146,7 +147,7 @@ object Users extends Controller {
     }
   }
 
-  def edit(username: String) = Action { implicit request =>
+  def edit(username: String, action: String) = Action { implicit request =>
     request.session.get("connected").map { username =>
       // Get user updated information from the form
       def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
@@ -154,34 +155,30 @@ object Users extends Controller {
       def password = request.body.asFormUrlEncoded.get("password")(0)
 
       var errors = List("")
-
-      // Check if the password length is between 8 and 35 characters
-      if (lastname.length > 35)
-        errors = errors :+ Messages("signup.error.password.length")
+      var messages = List("")
 
       // Check if the password length is between 8 and 35 characters
       if ((password.length < 8) || (password.length > 35))
         errors = errors :+ Messages("signup.error.password.length")
 
-      // If there is no errors in the list, redirect to submission
-      if (errors == emptyErrors) {
-        // Update user into the database
-        val updateUser = User(firstname, lastname, username, password)
-        User.update(updateUser)
+      // Update user
+      val updateUser = User(firstname, lastname, username, password)
 
-        // Redirect the page to show submission information
-        // Ok(views.html.submission(List(Messages("update.success")))(emptyErrors)(updateUser))
-        // Redirect(routes.Users.listUser(username))
-        Ok(views.html.updateUser(List(Messages("update.success")))(errors)(updateUser))
-      } else {
-        // InvalidUser
-        val invalidUser = User(firstname, lastname, username, password)
+      // Invalid user
+      val invalidUser = User(firstname, lastname, username, password)
 
-        // Redirect the page to show updated user information
-        Ok(views.html.updateUser(emptyMessages)(errors)(invalidUser))
-        // Redirect(routes.Users.listUser(username))
-      }
+      // If the action is update
+      if (action == "updated")
+        // If there is no errors in the list, redirect to submission
+        if (errors == emptyErrors) {
+          // Update user into the database
+          User.update(updateUser)
+          
+          // Display updated message
+          messages = List(Messages("update.success"))
+        }
 
+      Ok(views.html.updateUser(messages)(errors)(invalidUser))
     }.getOrElse {
       Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }

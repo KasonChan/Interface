@@ -19,10 +19,10 @@ object Submissions extends Controller {
   // Empty list of errors
   val emptyErrors = List("")
 
-  def submit = Action { request =>
+  def submit(messages: List[String]) = Action { request =>
     request.session.get("connected").map { username =>
       val user = User.get(username)
-      Ok(views.html.submission(emptyMessages)(emptyErrors)(user))
+      Ok(views.html.submission(messages)(emptyErrors)(user))
     }.getOrElse {
       Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }

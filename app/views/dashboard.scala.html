@@ -20,7 +20,7 @@
     <div class="container">
       <!-- Edit account information-->
       <!-- All fields of this form are hidden except the submit button -->
-      <form method="post" id="editUser" action="@routes.Users.edit(user.username)">
+      <form method="post" id="editUser" action="@routes.Users.edit(user.username, "update")">
         <!-- Hidden form fields -->
         <!-- Name -->
         <input type="text" name="firstname" id="firstname" placeholder="First" 
