@@ -1,4 +1,4 @@
-@(errors: List[String])(destinations: List[Destination])
+@(messages: List[String])(errors: List[String])(destinations: List[Destination])
 
 <!-- Section title -->
 <div id="section">
@@ -7,7 +7,22 @@
   </div>
 </div>
 
+<!-- Section messages -->
+<!-- Hide section messages if the list is empty -->
+@if(messages != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="messages">
+      @for(message <- messages) {
+      @message<br>
+    }
+  </div>
+</div>
+</div>
+}
+
 <!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
 @if(errors != List("")) { 
 <div id="section">
   <div id="container">
@@ -55,6 +70,7 @@
   </form>
 
   <!-- Delete form -->
+  <!-- All fields of this form is hidden except the submit button -->
   <form method="post" id="delete" 
     action="@routes.Destinations.edit("delete")">
     <!-- User -->
@@ -64,7 +80,6 @@
     value="@destination.username" required readonly hidden>
 
     <!-- Destination -->
-    <!-- <label for="destination">@Messages("submission.label.destination")</label> -->
     <!-- Username -->
     <input type="text" name="destinationUsername" id="destinationUsername" 
     placeholder="@Messages("destination.label.username")" 

@@ -1,9 +1,9 @@
-@(errors: List[String])(user: User)
+@(messages: List[String])(errors: List[String])(user: User)
 
 @frame(Messages("application.name")) {
 <!-- Hide dashboard if there is no error -->
 @if(errors == List("")) {
 @dashboard(user)
 }
-@signinForm(errors)(user)
+@signinForm(messages)(errors)(user)
 }

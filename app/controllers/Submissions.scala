@@ -13,12 +13,18 @@ import models.User
 import models.Destination
 
 object Submissions extends Controller {
+  // Empty list of messages
+  val emptyMessages = List("")
+
+  // Empty list of errors
+  val emptyErrors = List("")
+
   def submit = Action { request =>
     request.session.get("connected").map { username =>
       val user = User.get(username)
-      Ok(views.html.submission(user))
+      Ok(views.html.submission(emptyMessages)(emptyErrors)(user))
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 }

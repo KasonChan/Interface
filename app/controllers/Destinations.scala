@@ -13,6 +13,9 @@ import models.User
 import models.Destination
 
 object Destinations extends Controller {
+  // Empty list of messages
+  val emptyMessages = List("")
+
   def create = Action { request =>
     request.session.get("connected").map { username =>
       // Get destination information from the form
@@ -27,7 +30,7 @@ object Destinations extends Controller {
       var errors = List("")
 
       // Check if user not existed in user table
-      if(user == User("", "", "", "")) {
+      if (user == User("", "", "", "")) {
         errors = List(Messages("destination.error.user.existed"))
       }
 
@@ -53,10 +56,10 @@ object Destinations extends Controller {
           destinationHostname, destinationPassword)
 
         // Return to the form with error messages
-        Ok(views.html.destination(errors)(user)(invalidDestination))
+        Ok(views.html.destination(emptyMessages)(errors)(user)(invalidDestination))
       }
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 
@@ -68,7 +71,7 @@ object Destinations extends Controller {
       // Show the list of destinations information
       Ok(views.html.listDest(destinations))
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 
@@ -83,13 +86,13 @@ object Destinations extends Controller {
       // Check if the destinations not existed
       if (destinations.isEmpty) {
         errors = List(Messages("destination.empty"))
-        Ok(views.html.updateDest(errors)(user)(destinations))
+        Ok(views.html.updateDest(emptyMessages)(errors)(user)(destinations))
       }
 
       // Show the destination information
-      Ok(views.html.updateDest(errors)(user)(destinations))
+      Ok(views.html.updateDest(emptyMessages)(errors)(user)(destinations))
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 
@@ -118,7 +121,7 @@ object Destinations extends Controller {
       // Redirect the page to show updated destination information
       Redirect(routes.Destinations.listDest(username))
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 
@@ -140,7 +143,7 @@ object Destinations extends Controller {
   //     // Redirect the page to show updated destination information
   //     Redirect(routes.Destinations.listDest(username))
   //   }.getOrElse {
-  //     Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+  //     Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
   //   }
   // }
 
@@ -162,7 +165,7 @@ object Destinations extends Controller {
   //     // Redirect the page to show updated destination information
   //     Redirect(routes.Destinations.listDest(username))
   //   }.getOrElse {
-  //     Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+  //     Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
   //   }
   // }
 }

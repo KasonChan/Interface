@@ -167,7 +167,16 @@ a:hover, a:focus {
 }
 
 /**
-* Section error
+* Section messages
+*/
+
+#section #messages {
+  text-align: center;
+  color: #03a9f4;
+}
+
+/**
+* Section errors
 */
 
 #section #errors {

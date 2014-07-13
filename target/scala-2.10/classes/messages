@@ -21,14 +21,14 @@ signup.validation.errors = Please correct the errors in the form.
 signup.error.username.existed = Someone already has that username. Try another?
 signup.error.username.length = Please use between 7 and 35 characters for your username.
 signup.error.password.length = Short passwords are easy to guess. Try one with between 8 and 35 characters.
-signup.error.passwordConfirmation = These passwords don't match. Try again?
+signup.error.passwordConfirmation = These passwords don''t match. Try again?
 
 update.title = Edit your Interface account
 update.label.name = Name
 update.label.username = Username
 update.label.password = Password
 update.label.submit = Update
-update.new.success = Successfully update {0}
+update.success = Your account is updated.
 update.error.not.existed = Username is not existed.
 update.empty = There is no record of user.
 
@@ -62,3 +62,5 @@ dashboard.label.edit.dest = Edit your destinations
 dashboard.label.logout = Logout
 
 not.authorized.not.connected = Oops, you are not logged in.
+
+logout = You are logged out.

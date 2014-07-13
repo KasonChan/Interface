@@ -19,13 +19,14 @@
   <div id="setting">
     <div class="container">
       <!-- Edit account information-->
+      <!-- All fields of this form are hidden except the submit button -->
       <form method="post" id="edit" action="@routes.Users.edit(user.username)">
         <!-- Hidden form fields -->
         <!-- Name -->
         <input type="text" name="firstname" id="firstname" placeholder="First" 
         value="@user.firstname" required hidden>
         <input type="text" name="lastname" id="lastname" placeholder="Last" 
-        value="@user.lastname" required  hidden>
+        value="@user.lastname" required hidden>
 
         <!-- Username -->
         <input type="text" name="username" id="username" value="@user.username" 

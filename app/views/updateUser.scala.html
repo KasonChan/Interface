@@ -1,6 +1,6 @@
-@(errors: List[String])(user: User)
+@(messages: List[String])(errors: List[String])(user: User)
 
 @frame(Messages("application.name")) {
 @dashboard(user)
-@updateUserForm(errors)(user)
+@updateUserForm(messages)(errors)(user)
 }

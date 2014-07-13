@@ -8,6 +8,9 @@ import models.User
 import models.Destination
 
 object Application extends Controller {
+  // Empty list of messages
+  val emptyMessages = List("")
+
   // Empty list of errors
   val emptyErrors = List("")
 
@@ -21,19 +24,19 @@ object Application extends Controller {
     request.session.get("connected").map { username =>
       Redirect(routes.Submissions.submit)
     }.getOrElse {
-      Ok(views.html.index(emptyErrors)(emptyUser))
+      Ok(views.html.index(emptyMessages)(emptyErrors)(emptyUser))
     }
   }
 
   // Signup page
   // Display empty sign up page
   def signup = Action {
-    Ok(views.html.signup(emptyErrors)(emptyUser))
+    Ok(views.html.signup(emptyMessages)(emptyErrors)(emptyUser))
   }
 
   // Guest page
   def guest = Action {
-    Ok(views.html.guest())
+    Ok(views.html.guest(emptyMessages)(emptyErrors))
   }
 
   // Test page
@@ -51,10 +54,9 @@ object Application extends Controller {
 
       // Create empty destination of the username
       val emptyDestination = Destination(username, "", "", "")
-      Ok(views.html.destination(emptyErrors)(user)
-        (emptyDestination))
+      Ok(views.html.destination(emptyMessages)(emptyErrors)(user)(emptyDestination))
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 
@@ -66,9 +68,9 @@ object Application extends Controller {
       // Get the user information
       val user = User.get(username)
 
-      Ok(views.html.submission(user))
+      Ok(views.html.submission(emptyMessages)(emptyErrors)(user))
     }.getOrElse {
-      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
   }
 }
