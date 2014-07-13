@@ -15,9 +15,10 @@ import models.Destination
 object Submissions extends Controller {
   def submit = Action { request =>
     request.session.get("connected").map { username =>
-      Ok(views.html.submission(username))
+      val user = User.get(username)
+      Ok(views.html.submission(user))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 }

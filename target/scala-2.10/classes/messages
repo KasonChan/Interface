@@ -19,8 +19,8 @@ signup.label.submit = Sign up
 signup.new.success = Successfully signup {0}
 signup.validation.errors = Please correct the errors in the form.
 signup.error.username.existed = Someone already has that username. Try another?
-signup.error.username.length = Please use between 6 and 30 characters.
-signup.error.password.length = Short passwords are easy to guess. Try one with at least 8 characters.
+signup.error.username.length = Please use between 7 and 35 characters for your username.
+signup.error.password.length = Short passwords are easy to guess. Try one with between 8 and 35 characters.
 signup.error.passwordConfirmation = These passwords don't match. Try again?
 
 update.title = Edit your Interface account
@@ -61,4 +61,4 @@ dashboard.label.edit = Edit your Interface account
 dashboard.label.edit.dest = Edit your destinations
 dashboard.label.logout = Logout
 
-bad.request.not.connected = Oops, you are not logged in.
+not.authorized.not.connected = Oops, you are not logged in.

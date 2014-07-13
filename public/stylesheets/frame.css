@@ -189,6 +189,7 @@ a:hover, a:focus {
   padding-top: 10px;
 }
 
+#setting_wrapper #setting #edit,
 #section #delete,
 #section #destination,
 #section #update,
@@ -201,6 +202,7 @@ a:hover, a:focus {
   /*padding: 1em;*/
 }
 
+#setting_wrapper #setting #edit label,
 #section #delete label,
 #section #destination label,
 #section #update label,
@@ -214,6 +216,7 @@ a:hover, a:focus {
   display: block;
 }
 
+#setting_wrapper #setting #edit input,
 #section #delete input,
 #section #destination input,
 #section #update input,
@@ -228,6 +231,7 @@ a:hover, a:focus {
   box-sizing: border-box;
 }
 
+#setting_wrapper #setting input[type=submit],
 #section #delete input[type=submit],
 #section #destination input[type=submit],
 #section #update input[type=submit],

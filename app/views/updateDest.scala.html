@@ -1,8 +1,6 @@
-@(errors: List[String])(destinations: List[Destination])
+@(errors: List[String])(user: User)(destinations: List[Destination])
 
 @frame(Messages("application.name")) {
-@if(errors == List("")) {
-  @dashboard(destinations(0).username)
-}
+@dashboard(user)
 @updateDestForm(errors)(destinations)
 }

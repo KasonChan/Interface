@@ -1,4 +1,4 @@
-@(errors: List[String])(users: List[User])
+@(errors: List[String])(user: User)
 
 <!-- Section title -->
 <div id="section">
@@ -8,6 +8,7 @@
 </div>
 
 <!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
 @if(errors != List("")) { 
 <div id="section">
   <div id="container">
@@ -19,19 +20,17 @@
 </div>
 </div>
 }
+
 <!-- Section content -->
 <div id="section">
   <div id="container">
-    @for(user <- users) {
-    <!-- 
-      TODO: Fix reverse routing
-    -->
-    <form method="post" id="update" 
-    action="@routes.Users.update(user.username)">
+    <form method="post" id="update" action="@routes.Users.edit(user.username)">
+
     <!-- Name -->
     <label for="name">@Messages("update.label.name")</label>
-    <input type="text" name="firstname" id="firstname" value="@user.firstname" required>
-    <input type="text" name="lastname" id="lastname" value="@user.lastname" required>
+    <input type="text" name="firstname" id="firstname" value="@user.firstname" 
+    maxlength="35" required>
+    <input type="text" name="lastname" id="lastname" value="@user.lastname" maxlength="35" required>
 
     <!-- Username -->
     <label for="username">@Messages("update.label.username")</label>
@@ -39,10 +38,9 @@
     
     <!-- Password -->
     <label for="password">@Messages("update.label.password")</label>
-    <input type="password" name="password" id="password" value="@user.password" required>
+    <input type="password" name="password" id="password" value="@user.password" maxlength="35" required>
     
     <input type="submit" value="@Messages("update.label.submit")">
   </form>
-}
 </div>
 </div>

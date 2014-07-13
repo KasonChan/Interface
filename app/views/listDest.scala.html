@@ -3,6 +3,7 @@
 @frame(Messages("application.name")) {
 <div id="section">
   <div id="container">
+    <!-- Check if the list of destinations is not empty -->
     @if(!destinations.isEmpty) {
     @for(destination <- destinations) {
     <form method="post" id="destination" action="#">
@@ -26,6 +27,7 @@
     </form>
   } 
 }
+<!-- Check if the list of destinations is not empty-->
 @if(destinations.isEmpty) {
 <div id="errors">
   @Messages("destination.empty")

@@ -28,24 +28,24 @@
       <!-- Username -->
       <input type="text" name="username" id="username" 
       placeholder="@Messages("destination.label.username")" 
-      value="@destination.username" required readonly hidden>
+      value="@destination.username" maxlength="35" required readonly hidden>
 
       <!-- Destination -->
       <label for="destination">@Messages("submission.label.destination")</label>
       <!-- Username -->
       <input type="text" name="destinationUsername" id="destinationUsername" 
       placeholder="@Messages("destination.label.username")" 
-      value="@destination.destinationUsername" required>
+      value="@destination.destinationUsername" maxlength="35" required>
       
       <!-- Hostname -->
       <input type="text" name="destinationHostname" id="destinationHostname" 
       placeholder="@Messages("destination.label.hostname")" 
-      value="@destination.destinationHostname" required>
+      value="@destination.destinationHostname" maxlength="50" required>
       
       <!-- Password -->
       <input type="password" name="destinationPassword" id="destinationPassword" 
       placeholder="@Messages("destination.label.password")" 
-      value="@destination.destinationPassword" required>
+      value="@destination.destinationPassword" maxlength="35" required>
       
       <!-- Submit -->
       <input type="submit" value="@Messages("destination.label.submit")">

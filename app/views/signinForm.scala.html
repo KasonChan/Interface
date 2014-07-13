@@ -25,10 +25,10 @@
   <div id="container">
     <form method="post" id="signin" action="@routes.Users.signin">
       <!-- Username -->
-      <input type="text" name="username" id="username" placeholder="@Messages("signin.label.username")" value="@user.username" required>
+      <input type="text" name="username" id="username" placeholder="@Messages("signin.label.username")" value="@user.username" maxlength="35" required>
       
       <!-- Password -->
-      <input type="password" name="password" id="password" placeholder="@Messages("signin.label.password")" required>
+      <input type="password" name="password" id="password" placeholder="@Messages("signin.label.password")" maxlength="35" required>
       <input type="submit" value="@Messages("signin.label.submit")">
     </form>
   </div>
@@ -38,10 +38,6 @@
     <div id="link">
       <!-- Create an account -->
       <a href="@routes.Users.create">@Messages("signin.link.signup")</a>
-      <br>
-
-      <!-- Guest session -->
-      <!-- <a href="@routes.Application.guest">@Messages("signin.link.guest")</a> -->
     </div>
   </div>
 </div>

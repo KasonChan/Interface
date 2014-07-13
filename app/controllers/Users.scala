@@ -13,6 +13,12 @@ import models.User
 import models.Destination
 
 object Users extends Controller {
+  // Empty list of errors
+  val emptyErrors = List("")
+
+  // Empty user
+  val emptyUser = User("", "", "", "")
+
   def create = Action { request =>
     // Get user information from the form
     def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
@@ -22,27 +28,28 @@ object Users extends Controller {
     def passwordConfirmation =
       request.body.asFormUrlEncoded.get("passwordConfirmation")(0)
 
+    // Get the user information
     val user = User.get(username)
     var errors = List("")
 
-    // Check if the username is between 6 and 30 characters
-    if ((username.length < 6) || (username.length > 30))
+    // Check if the username is between 7 and 35 characters
+    if ((username.length < 7) || (username.length > 35))
       errors = List(Messages("signup.error.username.length"))
 
     // Check if the username is existed in the database
-    if (!user.isEmpty)
+    if(user != User("", "", "", ""))
       errors = errors :+ Messages("signup.error.username.existed")
 
-    // Check if the password length >= 8
-    if ((password.length < 8))
+    // Check if the password length is between 8 and 35 characters
+    if ((password.length < 8) || (password.length > 35))
       errors = errors :+ Messages("signup.error.password.length")
 
     // Check if the password confirmation is equaled to password
     if (passwordConfirmation != password)
       errors = errors :+ Messages("signup.error.passwordConfirmation")
 
-    // If there is no errors
-    if (errors == List("")) {
+    // If there is no errors in the list
+    if (errors == emptyErrors) {
       val newUser = User(firstname, lastname, username, password)
 
       // Insert user into database
@@ -51,7 +58,7 @@ object Users extends Controller {
       // Display destination
       // Store username as connected session data
       val emptyDestination = Destination(username, "", "", "")
-      Ok(views.html.destination(List(""))(newUser)(emptyDestination)).withSession(
+      Ok(views.html.destination(emptyErrors)(newUser)(emptyDestination)).withSession(
         "connected" -> username)
 
     } else {
@@ -72,7 +79,7 @@ object Users extends Controller {
     val user = User.get(username)
 
     // Check if the username not existed
-    if (user.isEmpty) {
+    if(user == User("", "", "", "")) {
       val errors = List(Messages("signin.error"))
       val invalidUser = User("", "", username, password)
 
@@ -80,7 +87,7 @@ object Users extends Controller {
       // Discard the whole session
       Ok(views.html.index(errors)(invalidUser)).withNewSession
     } // Check if the username and password is matching with the database
-    else if ((user(0).username == username) && (user(0).password == password)) {
+    else if ((user.username == username) && (user.password == password)) {
       // Display destination
       // Store username as connected session data
       Redirect(routes.Submissions.submit).withSession(
@@ -101,7 +108,7 @@ object Users extends Controller {
       Ok(views.html.index(List("You are logged out."))(emptyUser)).withNewSession
     }.getOrElse {
       val emptyUser = User("", "", "", "")
-      Ok(views.html.index(List(""))(emptyUser)).withNewSession
+      Ok(views.html.index(emptyErrors)(emptyUser)).withNewSession
     }
   }
 
@@ -113,46 +120,45 @@ object Users extends Controller {
       // Show the list of users information
       Ok(views.html.list(users))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
-  def listUser(usern: String) = Action { implicit request =>
+  def listUser(username: String) = Action { implicit request =>
     request.session.get("connected").map { username =>
       // Get user information from database
-      val users = User.get(username)
+      val user = User.get(username)
 
       var errors = List("")
 
       // Check if the username not existed
-      if (users.isEmpty) {
+      if(user == User("", "", "", "")) {
         errors = List(Messages("update.error.not.existed"))
-        Ok(views.html.updateUser(errors)(users))
+        Ok(views.html.updateUser(errors)(user))
       }
 
       // Show the user information
-      Ok(views.html.updateUser(errors)(users))
+      Ok(views.html.updateUser(errors)(user))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
-  def update(usern: String) = Action { implicit request =>
-    Ok(usern)
-  //   request.session.get("connected").map { username =>
-  //     // Get user updated information from the form
-  //     def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
-  //     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
-  //     def password = request.body.asFormUrlEncoded.get("password")(0)
+  def edit(username: String) = Action { implicit request =>
+    request.session.get("connected").map { username =>
+      // Get user updated information from the form
+      def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
+      def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
+      def password = request.body.asFormUrlEncoded.get("password")(0)
 
-  //     // Update user into the database
-  //     val updateUser = User(firstname, lastname, username, password)
-  //     User.update(updateUser)
+      // Update user into the database
+      val updateUser = User(firstname, lastname, username, password)
+      User.update(updateUser)
 
-  //     // Redirect the page to show updated user information
-  //     Redirect(routes.Users.listUser(username))
-  //   }.getOrElse {
-  //     Ok(views.html.badRequest(Messages("bad.request.not.connected")))
-  //   }
+      // Redirect the page to show updated user information
+      Redirect(routes.Users.listUser(username))
+    }.getOrElse {
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
+    }
   }
 }

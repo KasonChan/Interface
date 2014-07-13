@@ -27,7 +27,7 @@ object Destinations extends Controller {
       var errors = List("")
 
       // Check if user not existed in user table
-      if (user.isEmpty) {
+      if(user == User("", "", "", "")) {
         errors = List(Messages("destination.error.user.existed"))
       }
 
@@ -53,10 +53,10 @@ object Destinations extends Controller {
           destinationHostname, destinationPassword)
 
         // Return to the form with error messages
-        Ok(views.html.destination(errors)(user(0))(invalidDestination))
+        Ok(views.html.destination(errors)(user)(invalidDestination))
       }
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
@@ -68,7 +68,7 @@ object Destinations extends Controller {
       // Show the list of destinations information
       Ok(views.html.listDest(destinations))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
@@ -78,16 +78,18 @@ object Destinations extends Controller {
       val destinations = Destination.get(username)
 
       var errors = List("")
+      val user = User.get(username)
 
+      // Check if the destinations not existed
       if (destinations.isEmpty) {
         errors = List(Messages("destination.empty"))
-        // Show the destination information
-        Ok(views.html.updateDest(errors)(destinations))
+        Ok(views.html.updateDest(errors)(user)(destinations))
       }
 
-      Ok(views.html.updateDest(errors)(destinations))
+      // Show the destination information
+      Ok(views.html.updateDest(errors)(user)(destinations))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
@@ -116,7 +118,7 @@ object Destinations extends Controller {
       // Redirect the page to show updated destination information
       Redirect(routes.Destinations.listDest(username))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
@@ -138,7 +140,7 @@ object Destinations extends Controller {
   //     // Redirect the page to show updated destination information
   //     Redirect(routes.Destinations.listDest(username))
   //   }.getOrElse {
-  //     Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+  //     Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
   //   }
   // }
 
@@ -160,7 +162,7 @@ object Destinations extends Controller {
   //     // Redirect the page to show updated destination information
   //     Redirect(routes.Destinations.listDest(username))
   //   }.getOrElse {
-  //     Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+  //     Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
   //   }
   // }
 }

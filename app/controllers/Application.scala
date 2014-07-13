@@ -8,20 +8,27 @@ import models.User
 import models.Destination
 
 object Application extends Controller {
+  // Empty list of errors
+  val emptyErrors = List("")
+
+  // Empty user
+  val emptyUser = User("", "", "", "")
+
   // Homepage
+  // Redirect to submission if connected
+  // Otherwise display empty sign in page
   def index = Action { request =>
     request.session.get("connected").map { username =>
       Redirect(routes.Submissions.submit)
     }.getOrElse {
-      val emptyUser = User("", "", "", "")
-      Ok(views.html.index(List(""))(emptyUser))
+      Ok(views.html.index(emptyErrors)(emptyUser))
     }
   }
 
   // Signup page
+  // Display empty sign up page
   def signup = Action {
-    val emptyUser = User("", "", "", "")
-    Ok(views.html.signup(List(""))(emptyUser))
+    Ok(views.html.signup(emptyErrors)(emptyUser))
   }
 
   // Guest page
@@ -35,22 +42,33 @@ object Application extends Controller {
   }
 
   // Destination page
+  // Display empty destination if connected
+  // Otherwise, display not authorized error message
   def destination = Action { request =>
     request.session.get("connected").map { username =>
+      // Get the user information
+      val user = User.get(username)
+
+      // Create empty destination of the username
       val emptyDestination = Destination(username, "", "", "")
-      Ok(views.html.destination(List(""))(User.get(username)(0))
+      Ok(views.html.destination(emptyErrors)(user)
         (emptyDestination))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 
   // Submission page
+  // Display submission page if connected
+  // Otherwise, display not authorized error message
   def submission = Action { request =>
     request.session.get("connected").map { username =>
-      Ok(views.html.submission(username))
+      // Get the user information
+      val user = User.get(username)
+
+      Ok(views.html.submission(user))
     }.getOrElse {
-      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+      Ok(views.html.notAuthorized(Messages("not.authorized.not.connected")))
     }
   }
 }

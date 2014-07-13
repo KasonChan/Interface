@@ -31,19 +31,24 @@ object User {
   //   getAll.filter((x: User) => x.username == un).toList
   // }
 
-  def get(username: String): List[User] = {
-    val select1 = SQL("""select * from users u 
+  def get(username: String): User = {
+    val select = SQL("""select * from users u 
       where u.username = {username} order by u.firstname asc;""").on(
       "username" -> username)
 
     // Create connection before running code, and close it afterward
     // Make connection implicitly available
-    DB.withConnection { implicit connection =>
-      select1().map(row =>
+    val user = DB.withConnection { implicit connection =>
+      select().map(row =>
         // Create user from contents of each row
         User(row[String]("firstname"), row[String]("lastname"),
           row[String]("username"), row[String]("password"))).toList
     }
+
+    if (user.isEmpty)
+      User("", "", "", "")
+    else
+      user.head
   }
 
   def insert(user: User): Boolean = DB.withConnection { implicit connection =>

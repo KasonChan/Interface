@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:12b4719cee6e552ec5d6e2c1c38aee6a53aa846d
-// @DATE:Sat Jul 12 19:03:59 CDT 2014
+// @HASH:7007d5cd508d61c2b875122a862b20cf05261e8b
+// @DATE:Sun Jul 13 01:15:09 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -56,6 +56,12 @@ def at(file:String): Call = {
 class ReverseUsers {
     
 
+// @LINE:29
+def edit(username:String): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "update/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
+}
+                                                
+
 // @LINE:24
 def create(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "signup")
@@ -83,12 +89,6 @@ def listUser(username:String): Call = {
 // @LINE:47
 def list(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "users")
-}
-                                                
-
-// @LINE:29
-def update(username:String): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "update/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
 }
                                                 
     
@@ -256,6 +256,17 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseUsers {
     
 
+// @LINE:29
+def edit : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Users.edit",
+   """
+      function(username) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "update/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username))})
+      }
+   """
+)
+                        
+
 // @LINE:24
 def create : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Users.create",
@@ -306,17 +317,6 @@ def list : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users"})
-      }
-   """
-)
-                        
-
-// @LINE:29
-def update : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Users.update",
-   """
-      function(username) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "update/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username))})
       }
    """
 )
@@ -535,6 +535,12 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 class ReverseUsers {
     
 
+// @LINE:29
+def edit(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Users.edit(username), HandlerDef(this, "controllers.Users", "edit", Seq(classOf[String]), "POST", """""", _prefix + """update/$username<[^/]+>""")
+)
+                      
+
 // @LINE:24
 def create(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Users.create(), HandlerDef(this, "controllers.Users", "create", Seq(), "POST", """""", _prefix + """signup""")
@@ -555,19 +561,13 @@ def signin(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:27
 def listUser(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Users.listUser(username), HandlerDef(this, "controllers.Users", "listUser", Seq(classOf[String]), "GET", """ Update page""", _prefix + """update/$username<[^/]+>""")
+   controllers.Users.listUser(username), HandlerDef(this, "controllers.Users", "listUser", Seq(classOf[String]), "GET", """ Update account page""", _prefix + """update/$username<[^/]+>""")
 )
                       
 
 // @LINE:47
 def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Users.list(), HandlerDef(this, "controllers.Users", "list", Seq(), "GET", """ Users page""", _prefix + """users""")
-)
-                      
-
-// @LINE:29
-def update(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Users.update(username), HandlerDef(this, "controllers.Users", "update", Seq(classOf[String]), "POST", """""", _prefix + """update/$username<[^/]+>""")
 )
                       
     

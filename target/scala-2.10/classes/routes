@@ -23,10 +23,10 @@ GET     /signup                     controllers.Application.signup
 
 POST    /signup                     controllers.Users.create
 
-# Update page
+# Update account page
 GET     /update/:username           controllers.Users.listUser(username: String)
 
-POST    /update/:username           controllers.Users.update(username: String)
+POST    /update/:username           controllers.Users.edit(username: String)
 
 # Update destination page
 GET     /updateDest/:username       controllers.Destinations.listDest(username: String)

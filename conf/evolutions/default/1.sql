@@ -2,19 +2,19 @@
 
 -- Table users for storing users' firstname, lastname, username and password
 CREATE TABLE users (
-  firstname varchar,
-  lastname varchar,
-  username varchar(30),
-  password varchar,
+  firstname varchar(35),
+  lastname varchar(35),
+  username varchar(35),
+  password varchar(35),
   PRIMARY KEY (username)
 );
 
 -- Table destinations for storing users' destination username, host and password
 CREATE TABLE destinations (
-  username varchar(30),
-  destinationUsername varchar,
-  destinationHostname varchar,
-  destinationPassword varchar,
+  username varchar(35),
+  destinationUsername varchar(35),
+  destinationHostname varchar(50),
+  destinationPassword varchar(35),
   PRIMARY KEY (destinationUsername, destinationHostname),
   CONSTRAINT fk_username FOREIGN KEY (username)
   REFERENCES users(username)

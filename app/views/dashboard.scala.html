@@ -1,38 +1,55 @@
-@(username: String)
+@(user: User)
 
-@if(username != "") {
 <!-- Dashboard -->
+<!-- Hide dashboard if the user is empty -->
+@if(user != User("", "", "", "")) {
 <div class="dashboard_wrapper">
   <div id="dashboard">
     <div class="container">
-      @username
+      @user.username
     </div>
   </div>
 </div>
 }
 
-@if(username != "") {
 <!-- Setting -->
+<!-- Hide setting if the user is empty -->
+@if(user != User("", "", "", "")) {
 <div id="setting_wrapper">
   <div id="setting">
     <div class="container">
       <!-- Edit account information-->
+      <form method="post" id="edit" action="@routes.Users.edit(user.username)">
+        <!-- Hidden form fields -->
+        <!-- Name -->
+        <input type="text" name="firstname" id="firstname" placeholder="First" 
+        value="@user.firstname" required hidden>
+        <input type="text" name="lastname" id="lastname" placeholder="Last" 
+        value="@user.lastname" required  hidden>
+
+        <!-- Username -->
+        <input type="text" name="username" id="username" value="@user.username" 
+        required  hidden>
+
+        <!-- Password -->
+        <input type="password" name="password" id="password" 
+        value="@user.password" required hidden>
+
+        <!-- Submit -->
+        <input type="submit" value="@Messages("dashboard.label.edit")">
+      </form>
+
+      <!-- Edit your destination information -->
       <form method="post" id="edit" 
-      action="@routes.Users.listUser(username)">
-      <input type="submit" value="@Messages("dashboard.label.edit")">
+      action="@routes.Destinations.listDest(user.username)">
+      <input type="submit" value="@Messages("dashboard.label.edit.dest")">
     </form>
 
-    <!-- Edit your destination information -->
-    <form method="post" id="edit" 
-    action="@routes.Destinations.listDest(username)">
-    <input type="submit" value="@Messages("dashboard.label.edit.dest")">
-  </form>
-
-  <!-- Logout -->
-  <form method="post" id="logout" action="@routes.Users.logout">
-    <input type="submit" value="@Messages("dashboard.label.logout")">
-  </form>
-</div>
+    <!-- Logout -->
+    <form method="post" id="logout" action="@routes.Users.logout">
+      <input type="submit" value="@Messages("dashboard.label.logout")">
+    </form>
+  </div>
 </div>
 </div>
 }

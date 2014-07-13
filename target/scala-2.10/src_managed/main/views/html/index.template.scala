@@ -22,10 +22,11 @@ object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 Seq[Any](format.raw/*1.36*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
-  """),_display_(Seq[Any](/*4.4*/if(errors == List(""))/*4.26*/ {_display_(Seq[Any](format.raw/*4.28*/("""
-    """),_display_(Seq[Any](/*5.6*/dashboard(user.username))),format.raw/*5.30*/("""
-  """)))})),format.raw/*6.4*/("""
-  """),_display_(Seq[Any](/*7.4*/signinForm(errors)/*7.22*/(user))),format.raw/*7.28*/("""
+<!-- Hide dashboard if there is no error -->
+"""),_display_(Seq[Any](/*5.2*/if(errors == List(""))/*5.24*/ {_display_(Seq[Any](format.raw/*5.26*/("""
+"""),_display_(Seq[Any](/*6.2*/dashboard(user))),format.raw/*6.17*/("""
+""")))})),format.raw/*7.2*/("""
+"""),_display_(Seq[Any](/*8.2*/signinForm(errors)/*8.20*/(user))),format.raw/*8.26*/("""
 """)))})))}
     }
     
@@ -38,11 +39,11 @@ Seq[Any](format.raw/*1.36*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jul 12 19:04:06 CDT 2014
+                    DATE: Sun Jul 13 01:34:41 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/index.scala.html
-                    HASH: 2a2cbf0e114b34626388ec5021104375d2d0a9c6
-                    MATRIX: 567->1|695->35|732->38|775->73|814->75|852->79|882->101|921->103|961->109|1006->133|1040->137|1078->141|1104->159|1131->165
-                    LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|25->4|26->5|26->5|27->6|28->7|28->7|28->7
+                    HASH: 1b3065f6398906d699a69512f804ee89707df7e0
+                    MATRIX: 567->1|695->35|732->38|775->73|814->75|895->122|925->144|964->146|1000->148|1036->163|1068->165|1104->167|1130->185|1157->191
+                    LINES: 19->1|22->1|24->3|24->3|24->3|26->5|26->5|26->5|27->6|27->6|28->7|29->8|29->8|29->8
                     -- GENERATED --
                 */
             
