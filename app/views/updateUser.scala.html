@@ -1,5 +1,8 @@
 @(errors: List[String])(users: List[User])
 
 @frame(Messages("application.name")) {
+@if(errors == List("")) {
+  @dashboard(users(0).username)
+}
 @updateUserForm(errors)(users)
 }

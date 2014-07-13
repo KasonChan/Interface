@@ -1,5 +1,8 @@
 @(errors: List[String])(destinations: List[Destination])
 
 @frame(Messages("application.name")) {
+@if(errors == List("")) {
+  @dashboard(destinations(0).username)
+}
 @updateDestForm(errors)(destinations)
 }

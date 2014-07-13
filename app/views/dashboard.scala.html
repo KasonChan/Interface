@@ -16,22 +16,23 @@
 <div id="setting_wrapper">
   <div id="setting">
     <div class="container">
-      <!-- Edit -->
-      <form method="post" id="edit" action="@routes.Users.listUser("username")">
-        <input type="submit" value="@Messages("dashboard.label.edit")">
-      </form>
-      
-      <!-- Edit your destination information -->
+      <!-- Edit account information-->
       <form method="post" id="edit" 
-      action="@routes.Destinations.listDest("username")">
-        <input type="submit" value="@Messages("dashboard.label.edit.dest")">
-      </form>
+      action="@routes.Users.listUser(username)">
+      <input type="submit" value="@Messages("dashboard.label.edit")">
+    </form>
 
-      <!-- Logout -->
-      <form method="post" id="logout" action="@routes.Users.logout">
-        <input type="submit" value="@Messages("dashboard.label.logout")">
-      </form>
-    </div>
-  </div>
+    <!-- Edit your destination information -->
+    <form method="post" id="edit" 
+    action="@routes.Destinations.listDest(username)">
+    <input type="submit" value="@Messages("dashboard.label.edit.dest")">
+  </form>
+
+  <!-- Logout -->
+  <form method="post" id="logout" action="@routes.Users.logout">
+    <input type="submit" value="@Messages("dashboard.label.logout")">
+  </form>
+</div>
+</div>
 </div>
 }

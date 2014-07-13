@@ -31,9 +31,10 @@ object User {
   //   getAll.filter((x: User) => x.username == un).toList
   // }
 
-  def get(un: String): List[User] = {
+  def get(username: String): List[User] = {
     val select1 = SQL("""select * from users u 
-      where u.username = {un} order by u.firstname asc;""").on("un" -> un)
+      where u.username = {username} order by u.firstname asc;""").on(
+      "username" -> username)
 
     // Create connection before running code, and close it afterward
     // Make connection implicitly available

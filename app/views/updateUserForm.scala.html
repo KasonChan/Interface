@@ -19,13 +19,15 @@
 </div>
 </div>
 }
-
 <!-- Section content -->
 <div id="section">
   <div id="container">
     @for(user <- users) {
+    <!-- 
+      TODO: Fix reverse routing
+    -->
     <form method="post" id="update" 
-    action="@routes.Users.update("@user.username")">
+    action="@routes.Users.update(user.username)">
     <!-- Name -->
     <label for="name">@Messages("update.label.name")</label>
     <input type="text" name="firstname" id="firstname" value="@user.firstname" required>

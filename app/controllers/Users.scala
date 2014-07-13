@@ -106,46 +106,53 @@ object Users extends Controller {
   }
 
   def list = Action { implicit request =>
-    // Get the list of users
-    val users = User.getAll
-
-    // Show the list of users information
-    Ok(views.html.list(users))
-  }
-
-  def listUser(username: String) = Action { implicit request =>
     request.session.get("connected").map { username =>
-      // Get user information from database
-      val user = User.get(username)
+      // Get the list of users
+      val users = User.getAll
 
-      // Check if the username not existed
-      if (user.isEmpty) {
-        val errors = List(Messages("update.error.not.existed"))
-
-        // Return to the form with error message
-        // Discard the whole session
-        Ok(views.html.update(errors)(user)).withNewSession
-      }
-
-      // Show the user information
-      Ok(views.html.update(List(""))(user))
+      // Show the list of users information
+      Ok(views.html.list(users))
     }.getOrElse {
       Ok(views.html.badRequest(Messages("bad.request.not.connected")))
     }
   }
 
-  def update(username: String) = Action { implicit request =>
-    // Get user updated information from the form
-    def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
-    def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
-    def username = request.body.asFormUrlEncoded.get("username")(0)
-    def password = request.body.asFormUrlEncoded.get("password")(0)
+  def listUser(usern: String) = Action { implicit request =>
+    request.session.get("connected").map { username =>
+      // Get user information from database
+      val users = User.get(username)
 
-    // Update user into the database
-    val updateUser = User(firstname, lastname, username, password)
-    User.update(updateUser)
+      var errors = List("")
 
-    // Redirect the page to show updated user information
-    Redirect(routes.Users.listUser(username))
+      // Check if the username not existed
+      if (users.isEmpty) {
+        errors = List(Messages("update.error.not.existed"))
+        Ok(views.html.updateUser(errors)(users))
+      }
+
+      // Show the user information
+      Ok(views.html.updateUser(errors)(users))
+    }.getOrElse {
+      Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+    }
+  }
+
+  def update(usern: String) = Action { implicit request =>
+    Ok(usern)
+  //   request.session.get("connected").map { username =>
+  //     // Get user updated information from the form
+  //     def firstname = request.body.asFormUrlEncoded.get("firstname")(0)
+  //     def lastname = request.body.asFormUrlEncoded.get("lastname")(0)
+  //     def password = request.body.asFormUrlEncoded.get("password")(0)
+
+  //     // Update user into the database
+  //     val updateUser = User(firstname, lastname, username, password)
+  //     User.update(updateUser)
+
+  //     // Redirect the page to show updated user information
+  //     Redirect(routes.Users.listUser(username))
+  //   }.getOrElse {
+  //     Ok(views.html.badRequest(Messages("bad.request.not.connected")))
+  //   }
   }
 }

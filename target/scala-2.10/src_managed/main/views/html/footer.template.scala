@@ -50,7 +50,7 @@ Seq[Any](format.raw/*2.1*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jul 12 16:01:03 CDT 2014
+                    DATE: Sat Jul 12 19:04:05 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/footer.scala.html
                     HASH: 02df67657585f9dce49ce19d78e6d2f0a803ea94
                     MATRIX: 655->18|779->108|861->169|958->232|991->244|1032->250|1069->265|1110->271|1144->283|1316->419|1366->447

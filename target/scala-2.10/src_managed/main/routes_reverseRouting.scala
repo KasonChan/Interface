@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:4cd8b38987334be3a7cc983592edb6b1267c5f3d
-// @DATE:Sat Jul 12 16:25:39 CDT 2014
+// @HASH:12b4719cee6e552ec5d6e2c1c38aee6a53aa846d
+// @DATE:Sat Jul 12 19:03:59 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -95,22 +95,13 @@ def update(username:String): Call = {
 }
                           
 
-// @LINE:44
 // @LINE:42
 class ReverseSubmissions {
     
 
-// @LINE:44
 // @LINE:42
 def submit(): Call = {
-   () match {
-// @LINE:42
-case () if true => Call("GET", _prefix + { _defaultPrefix } + "submission")
-                                                        
-// @LINE:44
-case () if true => Call("POST", _prefix + { _defaultPrefix } + "submission")
-                                                        
-   }
+   Call("GET", _prefix + { _defaultPrefix } + "submission")
 }
                                                 
     
@@ -151,13 +142,22 @@ def listDest(username:String): Call = {
 }
                           
 
+// @LINE:44
 // @LINE:16
 class ReverseFiles {
     
 
+// @LINE:44
 // @LINE:16
 def upload(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "guest")
+   () match {
+// @LINE:16
+case () if true => Call("POST", _prefix + { _defaultPrefix } + "guest")
+                                                        
+// @LINE:44
+case () if true => Call("POST", _prefix + { _defaultPrefix } + "submission")
+                                                        
+   }
 }
                                                 
     
@@ -325,23 +325,16 @@ def update : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:44
 // @LINE:42
 class ReverseSubmissions {
     
 
-// @LINE:44
 // @LINE:42
 def submit : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Submissions.submit",
    """
       function() {
-      if (true) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
-      }
-      if (true) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
-      }
       }
    """
 )
@@ -404,16 +397,23 @@ def listDest : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:44
 // @LINE:16
 class ReverseFiles {
     
 
+// @LINE:44
 // @LINE:16
 def upload : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Files.upload",
    """
       function() {
+      if (true) {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "guest"})
+      }
+      if (true) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
+      }
       }
    """
 )
@@ -574,7 +574,6 @@ def update(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.Handl
 }
                           
 
-// @LINE:44
 // @LINE:42
 class ReverseSubmissions {
     
@@ -622,6 +621,7 @@ def listDest(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.Han
 }
                           
 
+// @LINE:44
 // @LINE:16
 class ReverseFiles {
     
