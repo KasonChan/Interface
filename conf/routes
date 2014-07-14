@@ -41,7 +41,7 @@ POST    /destination                controllers.Destinations.create
 # Submission page
 GET     /submission                 controllers.Application.submission
 
-POST    /submission                 controllers.Files.upload  
+#POST    /submission                 controllers.Files.upload  
 
 # Users page
 GET     /users                      controllers.Users.list

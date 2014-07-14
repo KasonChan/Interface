@@ -82,10 +82,9 @@ object Destinations extends Controller {
       var errors = List("")
       val user = User.get(username)
 
-      // Check if the destinations not existed
+      // Attach error message if the list of destination is empty
       if (destinations.isEmpty) {
         errors = List(Messages("destination.empty"))
-        Ok(views.html.updateDest(emptyMessages)(errors)(user)(destinations))
       }
 
       // Show the destination information
@@ -110,25 +109,29 @@ object Destinations extends Controller {
         var messages = List("")
 
         val user = User.get(username)
-        val destinations = Destination.get(username)
 
-        if (action == "update") {
+        var editDestination = Destination(username, destinationUsername,
+          destinationHostname, destinationPassword)
+
+        if (action == "updated") {
           // Update destination into the database
-          val updateDestination = Destination(username, destinationUsername,
-            destinationHostname, destinationPassword)
-          Destination.update(updateDestination)
-        } else if (action == "delete") {
+          Destination.update(editDestination)
+
+          messages = List(Messages("update.destination.success"))
+        } else if (action == "deleted") {
           // Delete destination from the database
-          val deleteDestination = Destination(username, destinationUsername,
-            destinationHostname, destinationPassword)
-          Destination.delete(deleteDestination)
+          Destination.delete(editDestination)
+
+          messages = List(Messages("update.destination.success.deleted"))
         }
 
-        // if ((actionTaken == "updated")) {
-        //   messages = List(Messages("update.destination.success"))
-        // } else if ((actionTaken == "deleted")) {
-        //   messages = List(Messages("update.destination.success.deleted"))
-        // }
+        // Get the list of destinations of the user from database
+        val destinations = Destination.get(username)
+
+        // Attach error message if the list of destination is empty
+        if (destinations.isEmpty) {
+          errors = List(Messages("destination.empty"))
+        }
 
         // Redirect the page to show updated destination information
         Ok(views.html.updateDest(messages)(errors)(user)(destinations))

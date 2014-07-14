@@ -61,9 +61,11 @@ if (isNaN(majorVersion)) {
   majorVersion = parseInt(navigator.appVersion,10);
 }
 
+// Add the browser name to the element id browserName
 document.getElementById("browserName").innerHTML = browserName;
 });
 
+// Dashboard toggle
 $(document).ready(function(){
   // Hide setting_wrapper
   $("#setting_wrapper").hide();
@@ -94,29 +96,29 @@ $(document).ready(function(){
   }
 });
 
-// Redirect url to submission
+// Redirect account update back to submission
 $(document).ready(function(){
   if(location.pathname.match(/\/update\/(.*)\/updated/)) {
     window.setTimeout(function() {
       window.location.href = "http://" + location.host + "/submission"
-    }, 5000);
+    }, 7000);
   }  
 });
 
-// // Redirect url to submission
-// $(document).ready(function(){
-//   if(location.pathname.match(/\/updateDest\/(.*)\/updated/)) {
-//     window.setTimeout(function() {
-//       window.location.href = "http://" + location.host + "/submission"
-//     }, 10000);
-//   }  
-// });
+// Redirect updated destination back to submission
+$(document).ready(function(){
+  if(location.pathname.match(/\/updateDest\/(.*)\/updated/)) {
+    window.setTimeout(function() {
+      window.location.href = "http://" + location.host + "/submission"
+    }, 7000);
+  }  
+});
 
-// // Redirect url to submission
-// $(document).ready(function(){
-//   if(location.pathname.match(/\/updateDest\/(.*)\/deleted/)) {
-//     window.setTimeout(function() {
-//       window.location.href = "http://" + location.host + "/submission"
-//     }, 10000);
-//   }  
-// });
+// Redirect deleted destination to submission
+$(document).ready(function(){
+  if(location.pathname.match(/\/updateDest\/(.*)\/deleted/)) {
+    window.setTimeout(function() {
+      window.location.href = "http://" + location.host + "/submission"
+    }, 7000);
+  }  
+});

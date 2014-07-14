@@ -1,7 +1,5 @@
 [0m[[0mdebug[0m] [0mCopy play resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/images/settings.ico,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/images/settings.ico)[0m
-[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/images/logout.ico,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/images/logout.ico)[0m
-[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/images/favicon.png,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/images/favicon.png)[0m
+[0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/images/favicon.ico,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/images/favicon.ico)[0m
 [0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/javascripts/jquery-1.9.0.min.js,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/javascripts/jquery-1.9.0.min.js)[0m
 [0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/javascripts/interface.js,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/javascripts/interface.js)[0m
 [0m[[0mdebug[0m] [0m	(/home/ka-son/Documents/Interface/public/stylesheets/frame.css,/home/ka-son/Documents/Interface/target/scala-2.10/classes/public/stylesheets/frame.css)[0m

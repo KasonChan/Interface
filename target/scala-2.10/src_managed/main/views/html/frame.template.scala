@@ -35,7 +35,7 @@ Seq[Any](format.raw/*1.32*/("""
   <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*14.48*/routes/*14.54*/.Assets.at("stylesheets/frame.css"))),format.raw/*14.89*/("""">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*17.53*/routes/*17.59*/.Assets.at("images/favicon.png"))),format.raw/*17.91*/("""">
+  <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*17.53*/routes/*17.59*/.Assets.at("images/favicon.ico"))),format.raw/*17.91*/("""">
 
   <!-- Script -->
   <script src=""""),_display_(Seq[Any](/*20.17*/routes/*20.23*/.Assets.at("javascripts/jquery-1.9.0.min.js"))),format.raw/*20.68*/("""" type="text/javascript"></script>
@@ -78,9 +78,9 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 14 02:11:15 CDT 2014
+                    DATE: Mon Jul 14 13:47:06 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/frame.scala.html
-                    HASH: ef66192bb5b8dbe8ccd5c69c3c30ede8f42e6e0d
+                    HASH: 84d01aaceead48ae60e133df64359d4235c607b0
                     MATRIX: 561->1|685->31|763->74|789->79|1090->344|1105->350|1162->385|1273->460|1288->466|1342->498|1416->536|1431->542|1498->587|1585->638|1600->644|1660->682|2207->1193|2222->1199|2262->1217|2301->1220|2328->1225|2439->1301|2468->1308|2530->1335|2560->1343
                     LINES: 19->1|22->1|28->7|28->7|35->14|35->14|35->14|38->17|38->17|38->17|41->20|41->20|41->20|42->21|42->21|42->21|56->35|56->35|56->35|56->35|56->35|62->41|62->41|65->44|65->44
                     -- GENERATED --
