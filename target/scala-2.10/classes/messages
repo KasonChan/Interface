@@ -39,7 +39,10 @@ update.destination.label.hostname = Hostname
 update.destination.label.password = Password
 update.destination.label.submit = Update
 update.destination.label.delete = Delete
+update.destination.success = Your destination is updated.
+update.destination.success.deleted = Your destination is deleted.
 
+submission.title = Upload and submit your code
 submission.label.sources = Source(s)
 submission.label.compositions = Compositions
 submission.label.executables = Executable

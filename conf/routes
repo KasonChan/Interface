@@ -29,9 +29,9 @@ GET     /update/:username           controllers.Users.listUser(username: String)
 POST    /update/:username/:action   controllers.Users.edit(username: String, action: String)
 
 # Update destination page
-GET     /updateDest/:username       controllers.Destinations.listDest(username: String)
+POST     /updateDest/:username       controllers.Destinations.listDest(username: String)
 
-POST    /updateDest/:username       controllers.Destinations.edit(username: String)
+POST    /updateDest/:username/:actionTaken       controllers.Destinations.edit(username: String, actionTaken: String)
 
 # Destination page
 GET     /destination                controllers.Application.destination

@@ -1,6 +1,14 @@
 @(messages: List[String])(errors: List[String])
 
+<!-- Section title -->
+<div id="section">
+  <div id="container">
+    <div id="title">@Messages("submission.title")</div>
+  </div>
+</div>
+
 <!-- Section messages -->
+<!-- Hide section messages if the list is empty -->
 @if(messages != List("")) { 
 <div id="section">
   <div id="container">
@@ -14,6 +22,7 @@
 }
 
 <!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
 @if(errors != List("")) { 
 <div id="section">
   <div id="container">
@@ -26,7 +35,6 @@
 </div>
 }
 
-
 <!-- Section content -->
 <div id="section">
   <div id="container">
@@ -37,7 +45,7 @@
  -->      
       <!-- Compositions -->
       <label for="compositions">@Messages("submission.label.compositions")</label>
-      <input type="file" name="files[]" id="compositions" multiple directory webkitdirectory required>
+      <input type="file" name="files[]" id="compositions" multiple directory required>
 
       <!-- Executables -->
 <!--       <label for="executables">@Messages("submission.label.executables")</label>

@@ -68,9 +68,8 @@
     </form>
     
     <!-- Skip -->
-    <form method="post" id="destination" action="@routes.Application.submission)">
-      <input type="submit" value="@Messages("destination.label.skip")">
-    </form>
+    <input type="button" id="skip" 
+    value="@Messages("destination.label.skip")" onclick="submission()">
   </div>
 </div>
 

@@ -29,18 +29,17 @@ object Destinations extends Controller {
       val user = User.get(username)
       var errors = List("")
 
-      // Check if user not existed in user table
-      if (user == User("", "", "", "")) {
-        errors = List(Messages("destination.error.user.existed"))
-      }
+      // // Check if user not existed in user table
+      // if (user == User("", "", "", "")) {
+      //   errors = List(Messages("destination.error.user.existed"))
+      // }
 
       val destination = Destination.find(username, destinationUsername,
         destinationHostname)
 
       // Check if the destination is existed with the username
       if (!destination.isEmpty) {
-        errors =
-          errors :+ Messages("destination.error.destination.user.existed")
+        errors = List(Messages("destination.error.destination.user.existed"))
       }
 
       // If there is no errors
@@ -50,7 +49,7 @@ object Destinations extends Controller {
 
         Destination.insert(newDestination)
         // Display destinations
-        Redirect(routes.Destinations.list)
+        Redirect(routes.Application.submission)
       } else {
         val invalidDestination = Destination(username, destinationUsername,
           destinationHostname, destinationPassword)
@@ -96,33 +95,46 @@ object Destinations extends Controller {
     }
   }
 
-  def edit(action: String) = Action { implicit request =>
-    request.session.get("connected").map { username =>
-      // Get destination information from the form
-      def destinationUsername =
-        request.body.asFormUrlEncoded.get("destinationUsername")(0)
-      def destinationHostname =
-        request.body.asFormUrlEncoded.get("destinationHostname")(0)
-      def destinationPassword =
-        request.body.asFormUrlEncoded.get("destinationPassword")(0)
+  def edit(username: String, action: String) = Action {
+    implicit request =>
+      request.session.get("connected").map { username =>
+        // Get destination information from the form
+        def destinationUsername =
+          request.body.asFormUrlEncoded.get("destinationUsername")(0)
+        def destinationHostname =
+          request.body.asFormUrlEncoded.get("destinationHostname")(0)
+        def destinationPassword =
+          request.body.asFormUrlEncoded.get("destinationPassword")(0)
 
-      if (action == "update") {
-        // Update destination into the database
-        val updateDestination = Destination(username, destinationUsername,
-          destinationHostname, destinationPassword)
-        Destination.update(updateDestination)
-      } else if (action == "delete") {
-        // Delete destination from the database
-        val deleteDestination = Destination(username, destinationUsername,
-          destinationHostname, destinationPassword)
-        Destination.delete(deleteDestination)
+        var errors = List("")
+        var messages = List("")
+
+        val user = User.get(username)
+        val destinations = Destination.get(username)
+
+        if (action == "update") {
+          // Update destination into the database
+          val updateDestination = Destination(username, destinationUsername,
+            destinationHostname, destinationPassword)
+          Destination.update(updateDestination)
+        } else if (action == "delete") {
+          // Delete destination from the database
+          val deleteDestination = Destination(username, destinationUsername,
+            destinationHostname, destinationPassword)
+          Destination.delete(deleteDestination)
+        }
+
+        // if ((actionTaken == "updated")) {
+        //   messages = List(Messages("update.destination.success"))
+        // } else if ((actionTaken == "deleted")) {
+        //   messages = List(Messages("update.destination.success.deleted"))
+        // }
+
+        // Redirect the page to show updated destination information
+        Ok(views.html.updateDest(messages)(errors)(user)(destinations))
+      }.getOrElse {
+        Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
       }
-
-      // Redirect the page to show updated destination information
-      Redirect(routes.Destinations.listDest(username))
-    }.getOrElse {
-      Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
-    }
   }
 
   // def update(username: String) = Action { implicit request =>

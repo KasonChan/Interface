@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:fd9551948bc5d802b03c02500e5f2bbcee0042ad
-// @DATE:Sun Jul 13 18:10:34 CDT 2014
+// @HASH:af833adee751f83fd4fa1a902f260c22dcd6d0c0
+// @DATE:Mon Jul 14 04:39:39 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -103,8 +103,8 @@ class ReverseDestinations {
     
 
 // @LINE:34
-def edit(username:String): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "updateDest/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
+def edit(username:String, actionTaken:String): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "updateDest/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)) + "/" + implicitly[PathBindable[String]].unbind("actionTaken", dynamicString(actionTaken)))
 }
                                                 
 
@@ -122,7 +122,7 @@ def create(): Call = {
 
 // @LINE:32
 def listDest(username:String): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "updateDest/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
+   Call("POST", _prefix + { _defaultPrefix } + "updateDest/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
 }
                                                 
     
@@ -330,8 +330,8 @@ class ReverseDestinations {
 def edit : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Destinations.edit",
    """
-      function(username) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "updateDest/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username))})
+      function(username,actionTaken) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "updateDest/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("actionTaken", encodeURIComponent(actionTaken))})
       }
    """
 )
@@ -364,7 +364,7 @@ def listDest : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Destinations.listDest",
    """
       function(username) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateDest/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username))})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "updateDest/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username))})
       }
    """
 )
@@ -570,8 +570,8 @@ class ReverseDestinations {
     
 
 // @LINE:34
-def edit(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Destinations.edit(username), HandlerDef(this, "controllers.Destinations", "edit", Seq(classOf[String]), "POST", """""", _prefix + """updateDest/$username<[^/]+>""")
+def edit(username:String, actionTaken:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Destinations.edit(username, actionTaken), HandlerDef(this, "controllers.Destinations", "edit", Seq(classOf[String], classOf[String]), "POST", """""", _prefix + """updateDest/$username<[^/]+>/$actionTaken<[^/]+>""")
 )
                       
 
@@ -589,7 +589,7 @@ def create(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:32
 def listDest(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Destinations.listDest(username), HandlerDef(this, "controllers.Destinations", "listDest", Seq(classOf[String]), "GET", """ Update destination page""", _prefix + """updateDest/$username<[^/]+>""")
+   controllers.Destinations.listDest(username), HandlerDef(this, "controllers.Destinations", "listDest", Seq(classOf[String]), "POST", """ Update destination page""", _prefix + """updateDest/$username<[^/]+>""")
 )
                       
     

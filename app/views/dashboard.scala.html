@@ -40,6 +40,13 @@
         <input type="submit" value="@Messages("dashboard.label.edit")">
       </form>
 
+      <!-- Add destination -->
+      <form method="post" id="addDest" 
+      action="@routes.Destinations.listDest(user.username)">
+      <input type="button" value="@Messages("dashboard.label.add.dest")"
+      onclick="addDest()">
+      </form>
+
       <!-- Edit your destination information -->
       <form method="post" id="editDest" 
       action="@routes.Destinations.listDest(user.username)">

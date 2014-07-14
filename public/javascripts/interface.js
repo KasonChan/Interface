@@ -74,3 +74,49 @@ $(document).ready(function(){
     $("#setting_wrapper").toggle("down");
   });
 });
+
+// Redirect url to add destination
+function addDest() {
+  window.location.assign("http://" + location.host + "/destination")
+};
+
+// Redirect url to submission
+function submission() {
+  window.location.assign("http://" + location.host + "/submission")
+};
+
+// Redirect back to home screen after logout
+$(document).ready(function(){
+  if(location.href == ("http://" + location.host + "/logout")) {
+    window.setTimeout(function() {
+      window.location.href = "http://" + location.host
+    }, 5000);
+  }
+});
+
+// Redirect url to submission
+$(document).ready(function(){
+  if(location.pathname.match(/\/update\/(.*)\/updated/)) {
+    window.setTimeout(function() {
+      window.location.href = "http://" + location.host + "/submission"
+    }, 5000);
+  }  
+});
+
+// // Redirect url to submission
+// $(document).ready(function(){
+//   if(location.pathname.match(/\/updateDest\/(.*)\/updated/)) {
+//     window.setTimeout(function() {
+//       window.location.href = "http://" + location.host + "/submission"
+//     }, 10000);
+//   }  
+// });
+
+// // Redirect url to submission
+// $(document).ready(function(){
+//   if(location.pathname.match(/\/updateDest\/(.*)\/deleted/)) {
+//     window.setTimeout(function() {
+//       window.location.href = "http://" + location.host + "/submission"
+//     }, 10000);
+//   }  
+// });

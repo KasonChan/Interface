@@ -8,6 +8,7 @@
 </div>
 
 <!-- Section messages -->
+<!-- Hide section messages if the list is empty -->
 @if(messages != List("")) { 
 <div id="section">
   <div id="container">
@@ -21,6 +22,7 @@
 }
 
 <!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
 @if(errors != List("")) { 
 <div id="section">
   <div id="container">
