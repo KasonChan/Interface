@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:813137debd7fe8b93cec36922ec2d56b9958163e
-// @DATE:Mon Jul 14 13:49:25 CDT 2014
+// @HASH:85320d847da585f1574d862445eeed276aaba3af
+// @DATE:Tue Jul 15 16:27:57 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,12 +13,12 @@ import play.api.mvc._
 import Router.queryString
 
 
-// @LINE:55
-// @LINE:52
-// @LINE:49
-// @LINE:44
-// @LINE:41
+// @LINE:53
+// @LINE:50
+// @LINE:47
+// @LINE:42
 // @LINE:39
+// @LINE:37
 // @LINE:34
 // @LINE:32
 // @LINE:29
@@ -33,11 +33,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:55
+// @LINE:53
 class ReverseAssets {
     
 
-// @LINE:55
+// @LINE:53
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -46,7 +46,7 @@ def at(file:String): Call = {
 }
                           
 
-// @LINE:49
+// @LINE:47
 // @LINE:29
 // @LINE:27
 // @LINE:24
@@ -85,7 +85,7 @@ def edit(username:String, action:String): Call = {
 }
                                                 
 
-// @LINE:49
+// @LINE:47
 def list(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "users")
 }
@@ -94,8 +94,8 @@ def list(): Call = {
 }
                           
 
-// @LINE:52
-// @LINE:41
+// @LINE:50
+// @LINE:39
 // @LINE:34
 // @LINE:32
 class ReverseDestinations {
@@ -107,13 +107,13 @@ def edit(username:String, actionTaken:String): Call = {
 }
                                                 
 
-// @LINE:52
+// @LINE:50
 def list(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "destinations")
 }
                                                 
 
-// @LINE:41
+// @LINE:39
 def create(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "destination")
 }
@@ -141,8 +141,8 @@ def upload(): Call = {
 }
                           
 
-// @LINE:44
-// @LINE:39
+// @LINE:42
+// @LINE:37
 // @LINE:22
 // @LINE:19
 // @LINE:14
@@ -150,7 +150,7 @@ def upload(): Call = {
 class ReverseApplication {
     
 
-// @LINE:39
+// @LINE:37
 def destination(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "destination")
 }
@@ -180,7 +180,7 @@ def index(): Call = {
 }
                                                 
 
-// @LINE:44
+// @LINE:42
 def submission(): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "submission")
 }
@@ -192,12 +192,12 @@ def submission(): Call = {
                   
 
 
-// @LINE:55
-// @LINE:52
-// @LINE:49
-// @LINE:44
-// @LINE:41
+// @LINE:53
+// @LINE:50
+// @LINE:47
+// @LINE:42
 // @LINE:39
+// @LINE:37
 // @LINE:34
 // @LINE:32
 // @LINE:29
@@ -212,11 +212,11 @@ def submission(): Call = {
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:55
+// @LINE:53
 class ReverseAssets {
     
 
-// @LINE:55
+// @LINE:53
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -230,7 +230,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:49
+// @LINE:47
 // @LINE:29
 // @LINE:27
 // @LINE:24
@@ -294,7 +294,7 @@ def edit : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:49
+// @LINE:47
 def list : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Users.list",
    """
@@ -308,8 +308,8 @@ def list : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:52
-// @LINE:41
+// @LINE:50
+// @LINE:39
 // @LINE:34
 // @LINE:32
 class ReverseDestinations {
@@ -326,7 +326,7 @@ def edit : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:52
+// @LINE:50
 def list : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Destinations.list",
    """
@@ -337,7 +337,7 @@ def list : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:41
+// @LINE:39
 def create : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Destinations.create",
    """
@@ -380,8 +380,8 @@ def upload : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:44
-// @LINE:39
+// @LINE:42
+// @LINE:37
 // @LINE:22
 // @LINE:19
 // @LINE:14
@@ -389,7 +389,7 @@ def upload : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseApplication {
     
 
-// @LINE:39
+// @LINE:37
 def destination : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.destination",
    """
@@ -444,7 +444,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:44
+// @LINE:42
 def submission : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.submission",
    """
@@ -461,12 +461,12 @@ def submission : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:55
-// @LINE:52
-// @LINE:49
-// @LINE:44
-// @LINE:41
+// @LINE:53
+// @LINE:50
+// @LINE:47
+// @LINE:42
 // @LINE:39
+// @LINE:37
 // @LINE:34
 // @LINE:32
 // @LINE:29
@@ -482,11 +482,11 @@ def submission : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:55
+// @LINE:53
 class ReverseAssets {
     
 
-// @LINE:55
+// @LINE:53
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -495,7 +495,7 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
-// @LINE:49
+// @LINE:47
 // @LINE:29
 // @LINE:27
 // @LINE:24
@@ -534,7 +534,7 @@ def edit(username:String, action:String): play.api.mvc.HandlerRef[_] = new play.
 )
                       
 
-// @LINE:49
+// @LINE:47
 def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Users.list(), HandlerDef(this, "controllers.Users", "list", Seq(), "GET", """ Users page""", _prefix + """users""")
 )
@@ -543,8 +543,8 @@ def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:52
-// @LINE:41
+// @LINE:50
+// @LINE:39
 // @LINE:34
 // @LINE:32
 class ReverseDestinations {
@@ -556,13 +556,13 @@ def edit(username:String, actionTaken:String): play.api.mvc.HandlerRef[_] = new 
 )
                       
 
-// @LINE:52
+// @LINE:50
 def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Destinations.list(), HandlerDef(this, "controllers.Destinations", "list", Seq(), "GET", """ Destinations page""", _prefix + """destinations""")
 )
                       
 
-// @LINE:41
+// @LINE:39
 def create(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Destinations.create(), HandlerDef(this, "controllers.Destinations", "create", Seq(), "POST", """""", _prefix + """destination""")
 )
@@ -590,8 +590,8 @@ def upload(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:44
-// @LINE:39
+// @LINE:42
+// @LINE:37
 // @LINE:22
 // @LINE:19
 // @LINE:14
@@ -599,7 +599,7 @@ def upload(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 class ReverseApplication {
     
 
-// @LINE:39
+// @LINE:37
 def destination(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.destination(), HandlerDef(this, "controllers.Application", "destination", Seq(), "GET", """ Destination page""", _prefix + """destination""")
 )
@@ -629,7 +629,7 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:44
+// @LINE:42
 def submission(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.submission(), HandlerDef(this, "controllers.Application", "submission", Seq(), "GET", """ Submission page""", _prefix + """submission""")
 )

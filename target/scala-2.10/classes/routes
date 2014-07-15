@@ -33,8 +33,6 @@ POST     /updateDest/:username       controllers.Destinations.listDest(username:
 
 POST    /updateDest/:username/:actionTaken       controllers.Destinations.edit(username: String, actionTaken: String)
 
-#GET    /updateDest/:username/:actionTaken       controllers.Destinations.edit(username: String, actionTaken: String)
-
 # Destination page
 GET     /destination                controllers.Application.destination
 
