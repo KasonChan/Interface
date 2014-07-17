@@ -37,16 +37,6 @@ object Application extends Controller {
     Ok(views.html.signup(emptyMessages)(emptyErrors)(emptyUser))
   }
 
-  // Guest page
-  def guest = Action {
-    Ok(views.html.guest(emptyMessages)(emptyErrors))
-  }
-
-  // Test page
-  def test = Action {
-    Ok(views.html.test())
-  }
-
   // Destination page
   // Display empty destination if connected
   // Otherwise, display not authorized error message

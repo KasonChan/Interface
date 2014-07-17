@@ -10,14 +10,6 @@ POST    /                           controllers.Users.signin
 # Logout
 POST    /logout                     controllers.Users.logout
 
-# Guest page
-GET     /guest                      controllers.Application.guest
-
-POST    /guest                      controllers.Files.upload
-
-# Test page
-GET     /test                       controllers.Application.test
-
 # Signup page
 GET     /signup                     controllers.Application.signup
 
@@ -29,7 +21,7 @@ GET     /update/:username           controllers.Users.listUser(username: String)
 POST    /update/:username/:action   controllers.Users.edit(username: String, action: String)
 
 # Update destination page
-POST     /updateDest/:username       controllers.Destinations.listDest(username: String)
+POST    /updateDest/:username       controllers.Destinations.listDest(username: String)
 
 POST    /updateDest/:username/:actionTaken       controllers.Destinations.edit(username: String, actionTaken: String)
 
@@ -41,7 +33,7 @@ POST    /destination                controllers.Destinations.create
 # Submission page
 GET     /submission                 controllers.Application.submission
 
-#POST    /submission                 controllers.Files.upload  
+POST   /submission                  controllers.Files.uploadCompositions  
 
 # Users page
 GET     /users                      controllers.Users.list

@@ -14,6 +14,15 @@ case class User(
   password: String)
 
 object User {
+  // Empty list of messages
+  val emptyMessages = List("")
+
+  // Empty list of errors
+  val emptyErrors = List("")
+
+  // Empty user
+  val emptyUser = User("", "", "", "")
+
   val selectAll: SqlQuery = SQL("select * from users order by firstname asc;")
 
   // Create connection before running code, and close it afterward

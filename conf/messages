@@ -1,5 +1,7 @@
 application.name = Interface
 
+emptyMessages = ""
+
 signin.title = Signin to continue to Interface
 signin.label.username = Username
 signin.label.password = Password

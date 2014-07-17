@@ -9,8 +9,8 @@ import play.api.i18n.Messages
 import play.mvc.Http.MultipartFormData
 import play.mvc.Http.MultipartFormData._
 
-import models.User
 import models.Destination
+import models.User
 
 object Users extends Controller {
   // Empty list of messages
