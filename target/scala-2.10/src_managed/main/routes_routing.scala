@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:484fd0535cc23dccd529ede27240e60750bd9427
-// @DATE:Thu Jul 17 12:19:29 CDT 2014
+// @HASH:34e36c8f6339b5c831fb132c9b0bab930d2d55c7
+// @DATE:Thu Jul 17 15:13:34 CDT 2014
 
 
 import play.core._
@@ -29,7 +29,7 @@ lazy val defaultPrefix = { if(Routes.prefix.endsWith("/")) "" else "/" }
 
 
 // @LINE:6
-private[this] lazy val controllers_Application_index0 = Route("GET", PathPattern(List(StaticPart(Routes.prefix))))
+private[this] lazy val controllers_Application_signin0 = Route("GET", PathPattern(List(StaticPart(Routes.prefix))))
         
 
 // @LINE:8
@@ -91,7 +91,7 @@ private[this] lazy val controllers_Destinations_list14 = Route("GET", PathPatter
 // @LINE:45
 private[this] lazy val controllers_Assets_at15 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index"""),("""POST""", prefix,"""controllers.Users.signin"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Users.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Application.signup"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Users.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>""","""controllers.Users.listUser(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>/$action<[^/]+>""","""controllers.Users.edit(username:String, action:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>""","""controllers.Destinations.listDest(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>/$actionTaken<[^/]+>""","""controllers.Destinations.edit(username:String, actionTaken:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Application.destination"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Destinations.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Application.submission"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Files.uploadCompositions"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """users""","""controllers.Users.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destinations""","""controllers.Destinations.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.signin"""),("""POST""", prefix,"""controllers.Users.signin"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """logout""","""controllers.Users.logout"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Application.signup"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """signup""","""controllers.Users.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>""","""controllers.Users.listUser(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """update/$username<[^/]+>/$action<[^/]+>""","""controllers.Users.edit(username:String, action:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>""","""controllers.Destinations.listDest(username:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """updateDest/$username<[^/]+>/$actionTaken<[^/]+>""","""controllers.Destinations.edit(username:String, actionTaken:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Application.destination"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destination""","""controllers.Destinations.create"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Application.submission"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """submission""","""controllers.Files.uploadCompositions"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """users""","""controllers.Users.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """destinations""","""controllers.Destinations.list"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -100,9 +100,9 @@ def documentation = List(("""GET""", prefix,"""controllers.Application.index""")
 def routes:PartialFunction[RequestHeader,Handler] = {
 
 // @LINE:6
-case controllers_Application_index0(params) => {
+case controllers_Application_signin0(params) => {
    call { 
-        invokeHandler(controllers.Application.index, HandlerDef(this, "controllers.Application", "index", Nil,"GET", """ Home page""", Routes.prefix + """"""))
+        invokeHandler(controllers.Application.signin, HandlerDef(this, "controllers.Application", "signin", Nil,"GET", """ Home page""", Routes.prefix + """"""))
    }
 }
         

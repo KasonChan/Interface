@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:484fd0535cc23dccd529ede27240e60750bd9427
-// @DATE:Thu Jul 17 12:19:29 CDT 2014
+// @HASH:34e36c8f6339b5c831fb132c9b0bab930d2d55c7
+// @DATE:Thu Jul 17 15:13:34 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -146,15 +146,15 @@ def uploadCompositions(): Call = {
 class ReverseApplication {
     
 
-// @LINE:14
-def signup(): Call = {
-   Call("GET", _prefix + { _defaultPrefix } + "signup")
+// @LINE:6
+def signin(): Call = {
+   Call("GET", _prefix)
 }
                                                 
 
-// @LINE:6
-def index(): Call = {
-   Call("GET", _prefix)
+// @LINE:14
+def signup(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "signup")
 }
                                                 
 
@@ -369,23 +369,23 @@ def uploadCompositions : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseApplication {
     
 
+// @LINE:6
+def signin : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.signin",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + """"})
+      }
+   """
+)
+                        
+
 // @LINE:14
 def signup : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.signup",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signup"})
-      }
-   """
-)
-                        
-
-// @LINE:6
-def index : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.index",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + """"})
       }
    """
 )
@@ -553,15 +553,15 @@ def uploadCompositions(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerR
 class ReverseApplication {
     
 
-// @LINE:14
-def signup(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.signup(), HandlerDef(this, "controllers.Application", "signup", Seq(), "GET", """ Signup page""", _prefix + """signup""")
+// @LINE:6
+def signin(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.signin(), HandlerDef(this, "controllers.Application", "signin", Seq(), "GET", """ Home page""", _prefix + """""")
 )
                       
 
-// @LINE:6
-def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
+// @LINE:14
+def signup(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.signup(), HandlerDef(this, "controllers.Application", "signup", Seq(), "GET", """ Signup page""", _prefix + """signup""")
 )
                       
 

@@ -1,6 +1,0 @@
-JOB A A.submit
-JOB B B.submit
-JOB C C.submit
-JOB D D.submit
-PARENT A CHILD B C
-PARENT B C CHILD D

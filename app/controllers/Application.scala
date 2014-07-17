@@ -22,12 +22,21 @@ object Application extends Controller {
   // Otherwise display empty sign in page
   def index = Action { request =>
     request.session.get("connected").map { username =>
-      // Get the user information
-      val user = User.get(username)
+    // Get the user information
+    val user = User.get(username)
 
-      Ok(views.html.submission(emptyMessages)(emptyErrors)(user))
+    Ok(views.html.submission(emptyMessages)(emptyErrors)(user))
+        
     }.getOrElse {
-      Ok(views.html.index(emptyMessages)(emptyErrors)(emptyUser))
+      Ok(views.html.signin(emptyMessages)(emptyErrors)(emptyUser)).withNewSession
+    }
+  }
+
+  def signin = Action { request =>
+    request.session.get("connected").map { username =>
+      Ok(views.html.signin(emptyMessages)(emptyErrors)(emptyUser)).withNewSession  
+    }.getOrElse {
+      Ok(views.html.signin(emptyMessages)(emptyErrors)(emptyUser)).withNewSession
     }
   }
 

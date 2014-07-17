@@ -92,7 +92,7 @@ $(document).ready(function(){
   if(location.href == ("http://" + location.host + "/logout")) {
     window.setTimeout(function() {
       window.location.href = "http://" + location.host
-    }, 5000);
+    }, 4000);
   }
 });
 
@@ -101,7 +101,7 @@ $(document).ready(function(){
   if(location.pathname.match(/\/update\/(.*)\/updated/)) {
     window.setTimeout(function() {
       window.location.href = "http://" + location.host + "/submission"
-    }, 7000);
+    }, 5000);
   }  
 });
 
@@ -110,7 +110,7 @@ $(document).ready(function(){
   if(location.pathname.match(/\/updateDest\/(.*)\/updated/)) {
     window.setTimeout(function() {
       window.location.href = "http://" + location.host + "/submission"
-    }, 7000);
+    }, 5000);
   }  
 });
 
@@ -119,6 +119,6 @@ $(document).ready(function(){
   if(location.pathname.match(/\/updateDest\/(.*)\/deleted/)) {
     window.setTimeout(function() {
       window.location.href = "http://" + location.host + "/submission"
-    }, 7000);
+    }, 5000);
   }  
 });

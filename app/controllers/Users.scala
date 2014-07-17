@@ -87,7 +87,7 @@ object Users extends Controller {
 
       // Return to the form with error message
       // Discard the whole session
-      Ok(views.html.index(emptyMessages)(errors)(invalidUser)).withNewSession
+      Ok(views.html.signin(emptyMessages)(errors)(invalidUser)).withNewSession
     } // Check if the username and password is matching with the database
     else if ((user.username == username) && (user.password == password)) {
       // Display destination
@@ -101,7 +101,7 @@ object Users extends Controller {
 
       // Return to the form with error messages
       // Discard the whole session
-      Ok(views.html.index(emptyMessages)(errors)(invalidUser)).withNewSession
+      Ok(views.html.signin(emptyMessages)(errors)(invalidUser)).withNewSession
     }
   }
 
