@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
 // @HASH:34e36c8f6339b5c831fb132c9b0bab930d2d55c7
-// @DATE:Thu Jul 17 15:13:34 CDT 2014
+// @DATE:Sat Jul 19 11:38:56 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

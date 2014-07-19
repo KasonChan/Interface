@@ -1,12 +1,12 @@
 package controllers
 
+import java.io._
+
 import play.api._
 import play.api.mvc._
 import play.api.i18n.Messages
 import play.mvc.Http.MultipartFormData
 import play.mvc.Http.MultipartFormData._
-
-import java.io._
 
 import models.File
 import models.OS
@@ -23,8 +23,8 @@ object Files extends Controller {
 
   def uploadCompositions = Action(parse.multipartFormData) { request =>
     request.session.get("connected").map { username =>
-      
-      val userDirectory = "./submissions/" + username
+
+      val userDirectory = "submissions/" + username
       val userDirectoryNewNumber = File.getSubmissionCount(userDirectory) + 1
 
       var fn: String = ""
@@ -32,9 +32,10 @@ object Files extends Controller {
         val filename = f.filename
         fn = fn + "\n" + filename.toString
         val contentType = f.contentType.get
-        f.ref.moveTo(new File(userDirectory + "/submission" + 
+        f.ref.moveTo(new File(userDirectory + "/submission" +
           userDirectoryNewNumber + "/compositions/" + f.filename), true)
       })
+
       Ok("File(s) is/are uploaded: " + "\n" + fn)
     }.getOrElse {
       Ok(views.html.notAuthorized(User.emptyMessages)(List(Messages("not.authorized.not.connected"))))

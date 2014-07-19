@@ -16,4 +16,9 @@ object Global extends GlobalSettings {
   override def onHandlerNotFound(request: RequestHeader) = {
     Future.successful(NotFound(views.html.notFound(request.path)))
   }
+
+  // 500 - internal server error
+  override def onError(request: RequestHeader, throwable: Throwable) = {
+    Future.successful(InternalServerError(views.html.errors(throwable)))
+  }
 }
