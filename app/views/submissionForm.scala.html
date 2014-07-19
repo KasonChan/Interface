@@ -38,7 +38,8 @@
 <!-- Section content -->
 <div id="section">
   <div id="container">
-    <form action="@routes.Files.uploadCompositions" method="post" id="submissionForm" enctype="multipart/form-data">
+    <form action="@routes.Submissions.submission" 
+    method="post" id="submissionForm" enctype="multipart/form-data">
       <!-- Sources -->
 <!--       <label for="sources">@Messages("submission.label.sources")</label>
       <input type="file" name="files[]" id="sources" multiple directory webkitdirectory disabled>
@@ -46,16 +47,6 @@
       <!-- Compositions -->
       <label for="compositions">@Messages("submission.label.compositions")</label>
       <input type="file" name="files[]" id="compositions" multiple directory required>
-
-      <!-- Executables -->
-<!--       <label for="executables">@Messages("submission.label.executables")</label>
-      <input type="file" name="files[]" id="executables">
- -->
-      <!-- Destination information -->
-      <!-- <label for="destination">@Messages("submission.label.destination")</label>
-      <input type="text" name="destinationUsername" id="destinationUsername" placeholder="@Messages("destination.label.username")" required>
-      <input type="text" name="destinationHostname" id="destinationHostname" placeholder="@Messages("destination.label.hostname")" required>
-      <input type="password" name="destinationPassword" id="destinationPassword" placeholder="@Messages("destination.label.password")" required> -->
 
       <!-- Submit -->
       <input type="submit" value="@Messages("submission.label.submit")">

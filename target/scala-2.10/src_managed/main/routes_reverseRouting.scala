@@ -1,6 +1,6 @@
 // @SOURCE:/home/ka-son/Documents/Interface/conf/routes
-// @HASH:34e36c8f6339b5c831fb132c9b0bab930d2d55c7
-// @DATE:Sat Jul 19 11:38:56 CDT 2014
+// @HASH:963b453b3941ad35a2b6b570403c107991ff20fd
+// @DATE:Sat Jul 19 15:56:38 CDT 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -92,6 +92,19 @@ def list(): Call = {
 }
                           
 
+// @LINE:36
+class ReverseSubmissions {
+    
+
+// @LINE:36
+def submission(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "submission")
+}
+                                                
+    
+}
+                          
+
 // @LINE:42
 // @LINE:31
 // @LINE:26
@@ -120,19 +133,6 @@ def create(): Call = {
 // @LINE:24
 def listDest(username:String): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "updateDest/" + implicitly[PathBindable[String]].unbind("username", dynamicString(username)))
-}
-                                                
-    
-}
-                          
-
-// @LINE:36
-class ReverseFiles {
-    
-
-// @LINE:36
-def uploadCompositions(): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "submission")
 }
                                                 
     
@@ -290,6 +290,24 @@ def list : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:36
+class ReverseSubmissions {
+    
+
+// @LINE:36
+def submission : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Submissions.submission",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
+      }
+   """
+)
+                        
+    
+}
+              
+
 // @LINE:42
 // @LINE:31
 // @LINE:26
@@ -336,24 +354,6 @@ def listDest : JavascriptReverseRoute = JavascriptReverseRoute(
    """
       function(username) {
       return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "updateDest/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("username", encodeURIComponent(username))})
-      }
-   """
-)
-                        
-    
-}
-              
-
-// @LINE:36
-class ReverseFiles {
-    
-
-// @LINE:36
-def uploadCompositions : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Files.uploadCompositions",
-   """
-      function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "submission"})
       }
    """
 )
@@ -499,6 +499,19 @@ def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
+// @LINE:36
+class ReverseSubmissions {
+    
+
+// @LINE:36
+def submission(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Submissions.submission(), HandlerDef(this, "controllers.Submissions", "submission", Seq(), "POST", """""", _prefix + """submission""")
+)
+                      
+    
+}
+                          
+
 // @LINE:42
 // @LINE:31
 // @LINE:26
@@ -527,19 +540,6 @@ def create(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:24
 def listDest(username:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Destinations.listDest(username), HandlerDef(this, "controllers.Destinations", "listDest", Seq(classOf[String]), "POST", """ Update destination page""", _prefix + """updateDest/$username<[^/]+>""")
-)
-                      
-    
-}
-                          
-
-// @LINE:36
-class ReverseFiles {
-    
-
-// @LINE:36
-def uploadCompositions(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Files.uploadCompositions(), HandlerDef(this, "controllers.Files", "uploadCompositions", Seq(), "POST", """""", _prefix + """submission""")
 )
                       
     

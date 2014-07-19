@@ -33,7 +33,7 @@ POST    /destination                controllers.Destinations.create
 # Submission page
 GET     /submission                 controllers.Application.submission
 
-POST   /submission                  controllers.Files.uploadCompositions  
+POST    /submission                 controllers.Submissions.submission  
 
 # Users page
 GET     /users                      controllers.Users.list
