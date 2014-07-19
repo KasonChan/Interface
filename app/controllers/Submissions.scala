@@ -46,7 +46,7 @@ object Submissions extends Controller {
       // Destination directory
       val destinationDirectory = "home" + "/" + username
       // Composition directory
-      val compositionsDirectory = "compositions/"
+      val compositionsDirectory = "compositions"
 
       // Local submission directory
       val localSubmissionDirectory = localUserDirectory + "/" + "submission" +
@@ -63,16 +63,25 @@ object Submissions extends Controller {
           val filename = f.filename
           fn = fn + "\n" + filename.toString
           val contentType = f.contentType.get
-          f.ref.moveTo(new File(localSubmissionComposition + f.filename), true)
+          f.ref.moveTo(new File(localSubmissionComposition + "/" + f.filename), 
+            true)
         })
 
         val filesUploadMsg = "File(s) is/are uploaded: " + "\n" + fn
 
         // Submission script name
-        val submissionScriptName = localSubmissionDirectory + "submission.sh"
+        val submissionScriptName = localSubmissionDirectory + "submissionExecution.sh"
 
-        // Generate submission script
+        // Generate submission execution script
         Submission.generateSubmissionScript(submissionScriptName)
+
+        // Execution script name
+        // Interface
+        val executionScriptName = localSubmissionDirectory + "interface.sh"
+
+        // Generate execution script 
+        Submission.generateDestinationExecutionScript(compositionsDirectory,
+          executionScriptName)
 
         val list = ("ls -als" !!)
 
