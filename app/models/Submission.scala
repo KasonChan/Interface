@@ -11,6 +11,9 @@ import play.api.i18n.Messages
 import play.mvc.Http.MultipartFormData
 import play.mvc.Http.MultipartFormData._
 
+import sys.process._
+import language.postfixOps
+
 object Submission {
   def generateSubmissionScript(outputFile: String) = {
     // New print writer
@@ -20,10 +23,17 @@ object Submission {
     fw.write("echo \"*****START ./interface.sh\"")
     fw.write("\n")
 
+    // Go to local submission directory
     fw.write("cd $1")
     fw.write("\n")
 
-    fw.write("./interface.sh $2 $3 $4 $5")
+    // Execute interface
+    // $2 destinationUsername
+    // $3 destinationHostname
+    // $4 destinationPassword
+    // $5 destinationDirectoryFiles
+    // $6 resultDirectoryFiles
+    fw.write("./interface.sh $2 $3 $4 $5 $6")
     fw.write("\n")
 
     fw.write("echo \"*****END ./interface.sh")
@@ -33,8 +43,8 @@ object Submission {
     fw.close()
   }
 
-  def generateDestinationExecutionScript(sourceDirectoryFiles: String,
-    outputFile: String  ) = {
+  def generateInterfaceScript(sourceDirectoryFiles: String,
+    outputFile: String) = {
     // New print writer
     val fw = new PrintWriter(outputFile)
 

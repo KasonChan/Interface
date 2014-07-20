@@ -10,6 +10,7 @@ import play.api.i18n.Messages
 import play.mvc.Http.MultipartFormData
 import play.mvc.Http.MultipartFormData._
 
+import models.Command
 import models.Destination
 import models.File
 import models.OS
@@ -38,59 +39,79 @@ object Submissions extends Controller {
   def submission = Action(parse.multipartFormData) { request =>
     request.session.get("connected").map { username =>
 
+      /**
+       * Destination variables declarations
+       */
+      // Destination directory
+      // TODO:
+      // Get from the database
+      val destinationDirectory = "home" + "/" + username
+
+      /**
+       * Local variables declarations
+       */
+      // Get current user information
       val user = User.get(username)
 
-      val localUserDirectory = "submissions" + "/" + username
-      val localSubmissionNewNumber = File.getSubmissionCount(localUserDirectory) + 1
-
-      // Destination directory
-      val destinationDirectory = "home" + "/" + username
       // Composition directory
       val compositionsDirectory = "compositions"
 
+      // Local user directory
+      val localUserDirectory = "submissions" + "/" + username
+      // Local submission number
+      val localSubmissionNum = File.getSubmissionCount(localUserDirectory) + 1
       // Local submission directory
+      // This is the directory to upload and execute codes for this session
       val localSubmissionDirectory = localUserDirectory + "/" + "submission" +
-        localSubmissionNewNumber + "/"
-      // Local submission compositions directory
+        localSubmissionNum + "/"
+
+      // Local submission compositions
       val localSubmissionComposition = localSubmissionDirectory +
         compositionsDirectory
 
+      /**
+       * Upload files to the interface
+       */
       try {
-        // Print list
-        // Upload and move the files to corresponding directory
+        // Upload and move the files to local user submission directory
         var fn: String = ""
         request.body.files.foreach(f => {
           val filename = f.filename
           fn = fn + "\n" + filename.toString
           val contentType = f.contentType.get
-          f.ref.moveTo(new File(localSubmissionComposition + "/" + f.filename), 
+          f.ref.moveTo(new File(localSubmissionComposition + "/" + f.filename),
             true)
         })
 
         val filesUploadMsg = "File(s) is/are uploaded: " + "\n" + fn
 
+        /**
+         * Generate script files to execute the the submission
+         */
         // Submission script name
         val submissionScriptName = localSubmissionDirectory + "submissionExecution.sh"
 
         // Generate submission execution script
         Submission.generateSubmissionScript(submissionScriptName)
 
-        // Execution script name
-        // Interface
+        // Interface execution script name
         val executionScriptName = localSubmissionDirectory + "interface.sh"
 
         // Generate execution script 
-        Submission.generateDestinationExecutionScript(compositionsDirectory,
+        Submission.generateInterfaceScript(compositionsDirectory,
           executionScriptName)
 
-        val list = ("ls -als" !!)
+        // Chmod scripts
+        val chmodOption = "u+x"
+        val chmodFiles = submissionScriptName + " " + executionScriptName
+        // Command chmod
+        val chmodResult = Command.chmod(chmodOption)(chmodFiles)
 
         // Display after submission and execution
-        Ok(views.html.execution(List(filesUploadMsg, list))(emptyErrors)(user))
+        Ok(views.html.execution(List(filesUploadMsg, chmodResult))(emptyErrors)(user))
       } catch {
         case e: Throwable => Ok(views.html.errors(e))
       }
-
     }.getOrElse {
       Ok(views.html.notAuthorized(User.emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }
