@@ -53,6 +53,9 @@ object Submissions extends Controller {
       // Get current user information
       val user = User.get(username)
 
+      // Get user destination information
+      val destination = Destination.get(username)
+
       // Composition directory
       val compositionsDirectory = "compositions"
 
@@ -86,7 +89,7 @@ object Submissions extends Controller {
         val filesUploadMsg = "File(s) is/are uploaded: " + "\n" + fn
 
         /**
-         * Generate script files to execute the the submission
+         * Generate script files for executing the the submission
          */
         // Submission script name
         val submissionScriptName = localSubmissionDirectory + "submissionExecution.sh"
@@ -101,17 +104,52 @@ object Submissions extends Controller {
         Submission.generateInterfaceScript(compositionsDirectory,
           executionScriptName)
 
-        // Chmod scripts
+        // sshaskpass script name
+        val sshaskpassScriptName = localSubmissionDirectory + "sshaskpass.sh"
+
+        // Generate sshaskpass script
+        Submission.generateSshaskpassScript(sshaskpassScriptName)
+        
+        /**
+         * Chmod the script files
+         */
         val chmodOption = "u+x"
-        val chmodFiles = submissionScriptName + " " + executionScriptName
-        // Command chmod
-        val chmodResult = Command.chmod(chmodOption)(chmodFiles)
+        val fileOption = ".sh"
+        
+        // Chmod the scripts in the composition directory
+        val compositionScripts = Command.ls(localSubmissionComposition)
+        Command.chmod(chmodOption)(compositionScripts)(fileOption)(localSubmissionComposition)
+
+        // Chmod the scripts in the submission directory
+        val submissionScripts = Command.ls(localSubmissionDirectory)
+        Command.chmod(chmodOption)(submissionScripts)(fileOption)(localSubmissionDirectory)
+
+        /**
+         * Execute the submission scripts
+         */
+        // Execute interface
+        // $2 destinationUsername
+        // $3 destinationHostname
+        // $4 destinationPassword
+        // $5 destinationDirectoryFiles
+        // $6 resultDirectoryFiles
+        // Command sh
+        Command.sh(submissionScriptName)(localSubmissionDirectory + " " + 
+          destination(0).destinationUsername + " " +
+          destination(0).destinationHostname + " " +
+          destination(0).destinationPassword + " " +
+          "home/" + destination(0).destinationUsername + " " +
+          "outputD")(localSubmissionDirectory)
+
+        val outputs = Command.lsWithOpts("output")(localSubmissionDirectory)
 
         // Display after submission and execution
-        Ok(views.html.execution(List(filesUploadMsg, chmodResult))(emptyErrors)(user))
+        Ok(views.html.execution(List(filesUploadMsg, compositionScripts, 
+          submissionScripts, outputs))(emptyErrors)(user))
       } catch {
         case e: Throwable => Ok(views.html.errors(e))
       }
+
     }.getOrElse {
       Ok(views.html.notAuthorized(User.emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }

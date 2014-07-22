@@ -19,25 +19,21 @@ object Submission {
     // New print writer
     val fw = new PrintWriter(outputFile)
 
-    // Write content to output file
-    fw.write("echo \"*****START ./interface.sh\"")
-    fw.write("\n")
-
-    // Go to local submission directory
-    fw.write("cd $1")
-    fw.write("\n")
-
     // Execute interface
     // $2 destinationUsername
     // $3 destinationHostname
     // $4 destinationPassword
     // $5 destinationDirectoryFiles
     // $6 resultDirectoryFiles
-    fw.write("./interface.sh $2 $3 $4 $5 $6")
-    fw.write("\n")
 
-    fw.write("echo \"*****END ./interface.sh")
-    fw.write("\n")
+    // Write content to output file
+    fw.write("""echo *****START ./interface.sh
+
+cd $1
+./interface.sh $2 $3 $4 $5 $6
+
+echo *****END ./interface.sh
+""")
 
     // Close file
     fw.close()
@@ -48,115 +44,118 @@ object Submission {
     // New print writer
     val fw = new PrintWriter(outputFile)
 
-    fw.write("# Print user name, hostname and date")
-    fw.write("\n")
-    fw.write("echo \"$USER@`hostname` interface.sh `date`\"")
-    fw.write("\n")
-    fw.write("\n")
+    fw.write("""# Print user name, hostname and date
+echo "$USER@`hostname` interface.sh `date`"
 
-    fw.write("# Get source directory/files")
-    fw.write("\n")
-    fw.write("sourceDirectoryFiles=\"" + sourceDirectoryFiles + "\"")
-    fw.write("\n")
-    fw.write("\n")
+# Get source directory/files
+sourceDirectoryFiles="compositions"
 
-    fw.write("# Get destination username and host")
-    fw.write("\n")
-    fw.write("destinationUsername=$1")
-    fw.write("\n")
-    fw.write("destinationHost=$2")
-    fw.write("\n")
-    fw.write("destinationUsernameAndHost=\"$destinationUsername@$destinationHost\"")
-    fw.write("\n")
-    fw.write("\n")
+# Get destination username and host
+destinationUsername=$1
+destinationHost=$2
+destinationUsernameAndHost="$destinationUsername@$destinationHost"
 
-    fw.write("# Get destination password")
-    fw.write("\n")
-    fw.write("destinationPassword=$3")
-    fw.write("\n")
-    fw.write("\n")
+# Get destination password
+destinationPassword=$3
 
-    fw.write("# Get destination directory/files")
-    fw.write("\n")
-    fw.write("destinationDirectoryFiles=$4")
-    fw.write("\n")
-    fw.write("\n")
+# Get destination directory/files
+destinationDirectoryFiles=$4
 
-    fw.write("# Get result files")
-    fw.write("\n")
-    fw.write("resultDirectoryFiles=$5")
-    fw.write("\n")
-    fw.write("\n")
+# Get result files
+resultDirectoryFiles=$5
 
-    fw.write("# Start time in second")
-    fw.write("\n")
-    fw.write("START=$(date +%s.%N)")
-    fw.write("\n")
-    fw.write("\n")
+# Start time in second
+START=$(date +%s.%N)
 
-    fw.write("# Send source directory/files to destination directory/files using scp")
-    fw.write("\n")
-    fw.write("echo \"$destinationPassword\" | ./sshaskpass.sh scp -r \"$sourceDirectoryFiles\" \"$destinationUsername@$destinationHost:/$destinationDirectoryFiles\"")
-    fw.write("\n")
-    fw.write("\n")
+# Send source directory/files to destination directory/files using scp
+echo "$destinationPassword" | ./sshaskpass.sh scp -r "$sourceDirectoryFiles" "$destinationUsername@$destinationHost:/$destinationDirectoryFiles"
 
-    fw.write("# Go to the source directory/files")
-    fw.write("\n")
-    fw.write("goToSourceDirectory=\"$sourceDirectoryFiles\"")
-    fw.write("\n")
-    fw.write("\n")
+# Go to the source directory/files
+goToSourceDirectory="$sourceDirectoryFiles"
 
-    fw.write("# Login destination go to the source directory and execute execution script")
-    fw.write("\n")
-    fw.write("echo \"$destinationPassword\" | ./sshaskpass.sh ssh $destinationUsernameAndHost \"cd $sourceDirectoryFiles; ./execution.sh;\"")
-    fw.write("\n")
-    fw.write("\n")
+# Login destination go to the source directory and execute execution script
+echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "cd $sourceDirectoryFiles; ./execution.sh;"
 
-    fw.write("# If the execution is successful")
-    fw.write("\n")
-    fw.write("if [ $? -eq 0 ]; then")
-    fw.write("\n")
-    fw.write("\t# Send resultDirectoryFiles from destination back to source directory/files using scp")
-    fw.write("\n")
-    fw.write("\techo \"$destinationPassword\" | ./sshaskpass.sh scp -r \"$destinationUsername@$destinationHost:/$destinationDirectoryFiles/$sourceDirectoryFiles/$resultDirectoryFiles\" \"$PWD\"")
-    fw.write("\n")
-    fw.write("\n")
+# If the execution is successful
+if [ $? -eq 0 ]; then
+  # Send resultDirectoryFiles from destination back to source directory/files using scp
+  echo "$destinationPassword" | ./sshaskpass.sh scp -r "$destinationUsername@$destinationHost:/$destinationDirectoryFiles/$sourceDirectoryFiles/$resultDirectoryFiles" "$PWD"
 
-    fw.write("\t# End time in second")
-    fw.write("\n")
-    fw.write("\tEND=$(date +%s.%N)")
-    fw.write("\n")
-    fw.write("\n")
+  # End time in second
+  END=$(date +%s.%N)
 
-    fw.write("\t# Print execution time")
-    fw.write("\n")
-    fw.write("\tDIFF=$(echo \"$END - $START\" | bc)")
-    fw.write("\n")
-    fw.write("\techo \"$DIFF seconds\"")
-    fw.write("\n")
-    fw.write("else")
-    fw.write("\n")
-    fw.write("\t# End time in second")
-    fw.write("\n")
-    fw.write("\tEND=$(date +%s.%N)")
-    fw.write("\n")
-    fw.write("\n")
+  # Print execution time
+  DIFF=$(echo "$END - $START" | bc)
+  echo "$DIFF seconds"
+else
+  # End time in second
+  END=$(date +%s.%N)
 
-    fw.write("\t# Print execution time")
-    fw.write("\n")
-    fw.write("\tDIFF=$(echo \"$END - $START\" | bc)")
-    fw.write("\n")
-    fw.write("\techo \"$DIFF seconds\"")
-    fw.write("\n")
-    fw.write("fi")
-    fw.write("\n")
-    fw.write("\n")
+  # Print execution time
+  DIFF=$(echo "$END - $START" | bc)
+  echo "$DIFF seconds"
+fi
 
-    fw.write("# Login destination and remove the directory")
-    fw.write("\n")
-    fw.write("echo \"$destinationPassword\" | ./sshaskpass.sh ssh $destinationUsernameAndHost \"rm -r $sourceDirectoryFiles\"")
-    fw.write("\n")
-    fw.write("\n")
+# Login destination and remove the directory
+echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "rm -r $sourceDirectoryFiles"
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  def generateSshaskpassScript(outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    fw.write("""#!/bin/bash
+# 
+# script that passes password from stdin to ssh. 
+# 
+# Copyright (C) 2010 André Frimberger <andre OBVIOUS_SIGN frimberger.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or 
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+ 
+if [ -n "$SSH_ASKPASS_TMPFILE" ]; then
+  cat "$SSH_ASKPASS_TMPFILE"
+  exit 0
+elif [ $# -lt 1 ]; then
+  echo "Usage: echo password | $0 <ssh command line options>" >&2
+  exit 1
+fi
+ 
+sighandler() {
+  rm "$TMP_PWD"
+}
+ 
+TMP_PWD=$(mktemp)
+chmod 600 "$TMP_PWD"
+trap 'sighandler' SIGHUP SIGINT SIGQUIT SIGABRT SIGKILL SIGALRM SIGTERM
+ 
+export SSH_ASKPASS=$0
+export SSH_ASKPASS_TMPFILE=$TMP_PWD
+ 
+[ "$DISPLAY" ] || export DISPLAY=dummydisplay:0
+read password
+echo $password >> "$TMP_PWD"
+ 
+# use setsid to detach from tty
+exec setsid "$@"
+ 
+rm "$TMP_PWD"
+""")
 
     // Close file
     fw.close()
