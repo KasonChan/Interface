@@ -1,6 +1,6 @@
-@(messages: List[String])(errors: List[String])(user: User)
+@(messages: List[String])(errors: List[String])(user: User)(outputs: String)
 
 @frame(Messages("application.name")) {
 @dashboard(user)
-@executionForm(messages)(errors)
+@executionForm(messages)(errors)(outputs)
 }

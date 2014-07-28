@@ -32,6 +32,12 @@ object Submission {
 cd $1
 ./interface.sh $2 $3 $4 $5 $6
 
+if [ $? -eq 0 ]; then
+  echo "Execution was successful"
+else
+  echo "Execution was not successful"
+fi
+
 echo *****END ./interface.sh
 """)
 
@@ -86,6 +92,7 @@ if [ $? -eq 0 ]; then
 
   # Print execution time
   DIFF=$(echo "$END - $START" | bc)
+  echo "Execution was successful"
   echo "$DIFF seconds"
 else
   # End time in second
@@ -93,6 +100,7 @@ else
 
   # Print execution time
   DIFF=$(echo "$END - $START" | bc)
+  echo "Execution was not successful"
   echo "$DIFF seconds"
 fi
 

@@ -1,4 +1,4 @@
-@(messages: List[String])(errors: List[String])
+@(messages: List[String])(errors: List[String])(outputs: String)
 
 <!-- Section title -->
 <div id="section">
@@ -36,4 +36,15 @@
 }
 
 <!-- Section content -->
-
+<div id="section">
+  <div id="container">
+    <!-- Output -->
+    @if(outputs == "") {
+    Internal server error
+  }
+  @if(outputs != "") {
+  @outputs
+  
+}
+</div>
+</div>

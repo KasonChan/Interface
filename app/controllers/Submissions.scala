@@ -93,8 +93,6 @@ object Submissions extends Controller {
          */
         OS.getName match {
           case "Linux" => {
-            
-            println("Linux")
 
             /**
              * Generate script files for executing the the submission
@@ -142,21 +140,27 @@ object Submissions extends Controller {
             // $5 destinationDirectoryFiles
             // $6 resultDirectoryFiles
             // Command sh
-            Linux.sh(submissionScriptName)(localSubmissionDirectory + " " +
-              destination(0).destinationUsername + " " +
-              destination(0).destinationHostname + " " +
-              destination(0).destinationPassword + " " +
-              "home/" + destination(0).destinationUsername + " " +
-              "outputD")(localSubmissionDirectory)
+            val sh =
+              Linux.sh(submissionScriptName)(localSubmissionDirectory + " " +
+                destination(0).destinationUsername + " " +
+                destination(0).destinationHostname + " " +
+                destination(0).destinationPassword + " " +
+                "home/" + destination(0).destinationUsername + " " +
+                "")(localSubmissionDirectory)
 
-            val outputs = Linux.lsWithOpts("output")(localSubmissionDirectory)
+            val outputs = Linux.lsWithOpts("output")(localSubmissionComposition)
 
-            // Display after submission and execution
-            Ok(views.html.execution(List(filesUploadMsg, compositionScripts,
-              submissionScripts, outputs))(emptyErrors)(user))
+            var errors = List("")
+            
+            if (outputs == "") {
+              errors = List("Internal server error")
+            }
+
+            // Display result after submission and execution
+            Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(outputs))
           }
           case "Win" => {
-            Ok(views.html.execution(List(""))(emptyErrors)(user))
+            Ok(views.html.execution(List("Sorry! Windows is not supported yet."))(emptyErrors)(user)(""))
           }
         }
       } catch {

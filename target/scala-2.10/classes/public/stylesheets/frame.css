@@ -148,6 +148,8 @@ hr {
   font-weight: 300;
   font-size: 18px;
   color: #616161;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /**
@@ -281,7 +283,7 @@ a:hover, a:focus {
   font-weight: 300;
   font-size: 16px;
   text-align: center;
-  background-color: #bdbdbd;
+  background-color: #e0e0e0;
   color: #616161;
   padding: 20px;
   box-sizing: border-box;

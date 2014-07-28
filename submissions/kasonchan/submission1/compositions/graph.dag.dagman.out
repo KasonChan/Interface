@@ -1,0 +1,193 @@
+07/28/14 16:47:14 ******************************************************
+07/28/14 16:47:14 ** condor_scheduniv_exec.896553.0 (CONDOR_DAGMAN) STARTING UP
+07/28/14 16:47:14 ** /usr/bin/condor_dagman
+07/28/14 16:47:14 ** SubsystemInfo: name=DAGMAN type=DAGMAN(10) class=DAEMON(1)
+07/28/14 16:47:14 ** Configuration: subsystem:DAGMAN local:<NONE> class:DAEMON
+07/28/14 16:47:14 ** $CondorVersion: 8.0.2 Aug 26 2013 $
+07/28/14 16:47:14 ** $CondorPlatform: X86_64-CentOS_6.4 $
+07/28/14 16:47:14 ** PID = 31813
+07/28/14 16:47:14 ** Log last touched time unavailable (No such file or directory)
+07/28/14 16:47:14 ******************************************************
+07/28/14 16:47:14 Using config source: /etc/condor/condor_config
+07/28/14 16:47:14 Using local config sources: 
+07/28/14 16:47:14    /etc/condor/config.d/10-base.conf
+07/28/14 16:47:14    /etc/condor/config.d/20-daemon.conf
+07/28/14 16:47:14    /etc/condor/config.d/30-flocking.conf
+07/28/14 16:47:14    /etc/condor/config.d/99-gratia.conf
+07/28/14 16:47:14    /etc/condor/config.d/9z_bosco.conf
+07/28/14 16:47:14 DaemonCore: command socket at <192.170.227.195:54361>
+07/28/14 16:47:14 DaemonCore: private command socket at <192.170.227.195:54361>
+07/28/14 16:47:14 DAGMAN_USE_STRICT setting: 1
+07/28/14 16:47:14 DAGMAN_VERBOSITY setting: 3
+07/28/14 16:47:14 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/28/14 16:47:14 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/28/14 16:47:14 DAGMAN_SUBMIT_DELAY setting: 0
+07/28/14 16:47:14 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/28/14 16:47:14 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/28/14 16:47:14 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 5
+07/28/14 16:47:14 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/28/14 16:47:14 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/28/14 16:47:14 DAGMAN_ALWAYS_USE_NODE_LOG setting: True
+07/28/14 16:47:14 DAGMAN_SUPPRESS_NOTIFICATION setting: True
+07/28/14 16:47:14 allow_events (DAGMAN_IGNORE_DUPLICATE_JOB_EXECUTION, DAGMAN_ALLOW_EVENTS) setting: 114
+07/28/14 16:47:14 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/28/14 16:47:14 DAGMAN_RETRY_NODE_FIRST setting: False
+07/28/14 16:47:14 DAGMAN_MAX_JOBS_IDLE setting: 0
+07/28/14 16:47:14 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/28/14 16:47:14 DAGMAN_MAX_PRE_SCRIPTS setting: 0
+07/28/14 16:47:14 DAGMAN_MAX_POST_SCRIPTS setting: 0
+07/28/14 16:47:14 DAGMAN_ALLOW_LOG_ERROR setting: False
+07/28/14 16:47:14 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/28/14 16:47:14 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/28/14 16:47:14 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/28/14 16:47:14 DAGMAN_ALWAYS_RUN_POST setting: True
+07/28/14 16:47:14 DAGMAN_ABORT_DUPLICATES setting: True
+07/28/14 16:47:14 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/28/14 16:47:14 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/28/14 16:47:14 DAGMAN_AUTO_RESCUE setting: True
+07/28/14 16:47:14 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/28/14 16:47:14 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/28/14 16:47:14 DAGMAN_DEFAULT_NODE_LOG setting: null
+07/28/14 16:47:14 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/28/14 16:47:14 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/28/14 16:47:14 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/28/14 16:47:14 ALL_DEBUG setting: 
+07/28/14 16:47:14 DAGMAN_DEBUG setting: 
+07/28/14 16:47:14 argv[0] == "condor_scheduniv_exec.896553.0"
+07/28/14 16:47:14 argv[1] == "-Lockfile"
+07/28/14 16:47:14 argv[2] == "graph.dag.lock"
+07/28/14 16:47:14 argv[3] == "-AutoRescue"
+07/28/14 16:47:14 argv[4] == "1"
+07/28/14 16:47:14 argv[5] == "-DoRescueFrom"
+07/28/14 16:47:14 argv[6] == "0"
+07/28/14 16:47:14 argv[7] == "-Dag"
+07/28/14 16:47:14 argv[8] == "graph.dag"
+07/28/14 16:47:14 argv[9] == "-Suppress_notification"
+07/28/14 16:47:14 argv[10] == "-CsdVersion"
+07/28/14 16:47:14 argv[11] == "$CondorVersion: 8.0.2 Aug 26 2013 $"
+07/28/14 16:47:14 argv[12] == "-Dagman"
+07/28/14 16:47:14 argv[13] == "/usr/bin/condor_dagman"
+07/28/14 16:47:14 Default node log file is: </home/kaschan/compositions/graph.dag.nodes.log>
+07/28/14 16:47:14 DAG Lockfile will be written to graph.dag.lock
+07/28/14 16:47:14 DAG Input file is graph.dag
+07/28/14 16:47:14 Ignoring value of DAGMAN_LOG_ON_NFS_IS_ERROR.
+07/28/14 16:47:14 Parsing 1 dagfiles
+07/28/14 16:47:14 Parsing graph.dag ...
+07/28/14 16:47:14 Dag contains 4 total jobs
+07/28/14 16:47:14 Sleeping for 12 seconds to ensure ProcessId uniqueness
+07/28/14 16:47:26 Bootstrapping...
+07/28/14 16:47:26 Number of pre-completed nodes: 0
+07/28/14 16:47:26 Of 4 nodes total:
+07/28/14 16:47:26  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:47:26   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:47:26     0       0        0       0       1          3        0
+07/28/14 16:47:26 0 job proc(s) currently held
+07/28/14 16:47:26 Registering condor_event_timer...
+07/28/14 16:47:27 MultiLogFiles: truncating log file /home/kaschan/compositions/graph.dag.nodes.log
+07/28/14 16:47:27 Submitting Condor Node A job(s)...
+07/28/14 16:47:27 Adding a DAGMan auxiliary log /home/kaschan/compositions/graph.dag.nodes.log
+07/28/14 16:47:27 Masking the events recorded in the DAGMAN auxiliary log
+07/28/14 16:47:27 Mask for auxiliary log is 0,1,2,4,5,7,9,10,11,12,13,16,17,24,27
+07/28/14 16:47:27 submitting: condor_submit -a dag_node_name' '=' 'A -a +DAGManJobId' '=' '896553 -a DAGManJobId' '=' '896553 -a submit_event_notes' '=' 'DAG' 'Node:' 'A -a dagman_log' '=' '/home/kaschan/compositions/graph.dag.nodes.log -a +DAGManNodesMask' '=' '"0,1,2,4,5,7,9,10,11,12,13,16,17,24,27" -a DAG_STATUS' '=' '0 -a FAILED_COUNT' '=' '0 -a +DAGParentNodeNames' '=' '"" -a +KeepClaimIdle' '=' '20 -a notification' '=' 'never A.submit
+07/28/14 16:47:27 From submit: Submitting job(s).
+07/28/14 16:47:27 From submit: 1 job(s) submitted to cluster 896554.
+07/28/14 16:47:27 	assigned Condor ID (896554.0.0)
+07/28/14 16:47:27 Just submitted 1 job this cycle...
+07/28/14 16:47:27 Currently monitoring 1 Condor log file(s)
+07/28/14 16:47:27 Reassigning the id of job A from (896554.0.0) to (896554.0.0)
+07/28/14 16:47:27 Event: ULOG_SUBMIT for Condor Node A (896554.0.0)
+07/28/14 16:47:27 Number of idle job procs: 1
+07/28/14 16:47:27 Of 4 nodes total:
+07/28/14 16:47:27  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:47:27   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:47:27     0       0        1       0       0          3        0
+07/28/14 16:47:27 0 job proc(s) currently held
+07/28/14 16:48:42 Currently monitoring 1 Condor log file(s)
+07/28/14 16:48:42 Event: ULOG_EXECUTE for Condor Node A (896554.0.0)
+07/28/14 16:48:42 Number of idle job procs: 0
+07/28/14 16:48:47 Currently monitoring 1 Condor log file(s)
+07/28/14 16:48:47 Event: ULOG_JOB_TERMINATED for Condor Node A (896554.0.0)
+07/28/14 16:48:47 Number of idle job procs: 0
+07/28/14 16:48:47 Node A job proc (896554.0.0) completed successfully.
+07/28/14 16:48:47 Node A job completed
+07/28/14 16:48:47 Of 4 nodes total:
+07/28/14 16:48:47  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:48:47   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:48:47     1       0        0       0       2          1        0
+07/28/14 16:48:47 0 job proc(s) currently held
+07/28/14 16:48:52 Submitting Condor Node B job(s)...
+07/28/14 16:48:52 Adding a DAGMan auxiliary log /home/kaschan/compositions/graph.dag.nodes.log
+07/28/14 16:48:52 Masking the events recorded in the DAGMAN auxiliary log
+07/28/14 16:48:52 Mask for auxiliary log is 0,1,2,4,5,7,9,10,11,12,13,16,17,24,27
+07/28/14 16:48:52 submitting: condor_submit -a dag_node_name' '=' 'B -a +DAGManJobId' '=' '896553 -a DAGManJobId' '=' '896553 -a submit_event_notes' '=' 'DAG' 'Node:' 'B -a dagman_log' '=' '/home/kaschan/compositions/graph.dag.nodes.log -a +DAGManNodesMask' '=' '"0,1,2,4,5,7,9,10,11,12,13,16,17,24,27" -a DAG_STATUS' '=' '0 -a FAILED_COUNT' '=' '0 -a +DAGParentNodeNames' '=' '"A" -a +KeepClaimIdle' '=' '20 -a notification' '=' 'never B.submit
+07/28/14 16:48:52 From submit: Submitting job(s).
+07/28/14 16:48:52 From submit: 1 job(s) submitted to cluster 896555.
+07/28/14 16:48:52 	assigned Condor ID (896555.0.0)
+07/28/14 16:48:52 Submitting Condor Node C job(s)...
+07/28/14 16:48:52 Adding a DAGMan auxiliary log /home/kaschan/compositions/graph.dag.nodes.log
+07/28/14 16:48:52 Masking the events recorded in the DAGMAN auxiliary log
+07/28/14 16:48:52 Mask for auxiliary log is 0,1,2,4,5,7,9,10,11,12,13,16,17,24,27
+07/28/14 16:48:52 submitting: condor_submit -a dag_node_name' '=' 'C -a +DAGManJobId' '=' '896553 -a DAGManJobId' '=' '896553 -a submit_event_notes' '=' 'DAG' 'Node:' 'C -a dagman_log' '=' '/home/kaschan/compositions/graph.dag.nodes.log -a +DAGManNodesMask' '=' '"0,1,2,4,5,7,9,10,11,12,13,16,17,24,27" -a DAG_STATUS' '=' '0 -a FAILED_COUNT' '=' '0 -a +DAGParentNodeNames' '=' '"A" -a +KeepClaimIdle' '=' '20 -a notification' '=' 'never C.submit
+07/28/14 16:48:53 From submit: Submitting job(s).
+07/28/14 16:48:53 From submit: 1 job(s) submitted to cluster 896556.
+07/28/14 16:48:53 	assigned Condor ID (896556.0.0)
+07/28/14 16:48:53 Just submitted 2 jobs this cycle...
+07/28/14 16:48:53 Currently monitoring 1 Condor log file(s)
+07/28/14 16:48:53 Reassigning the id of job B from (896555.0.0) to (896555.0.0)
+07/28/14 16:48:53 Event: ULOG_SUBMIT for Condor Node B (896555.0.0)
+07/28/14 16:48:53 Number of idle job procs: 1
+07/28/14 16:48:53 Reassigning the id of job C from (896556.0.0) to (896556.0.0)
+07/28/14 16:48:53 Event: ULOG_SUBMIT for Condor Node C (896556.0.0)
+07/28/14 16:48:53 Number of idle job procs: 2
+07/28/14 16:48:53 Of 4 nodes total:
+07/28/14 16:48:53  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:48:53   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:48:53     1       0        2       0       0          1        0
+07/28/14 16:48:53 0 job proc(s) currently held
+07/28/14 16:48:58 Currently monitoring 1 Condor log file(s)
+07/28/14 16:48:58 Event: ULOG_EXECUTE for Condor Node B (896555.0.0)
+07/28/14 16:48:58 Number of idle job procs: 1
+07/28/14 16:49:08 Currently monitoring 1 Condor log file(s)
+07/28/14 16:49:08 Event: ULOG_JOB_TERMINATED for Condor Node B (896555.0.0)
+07/28/14 16:49:08 Number of idle job procs: 1
+07/28/14 16:49:08 Node B job proc (896555.0.0) completed successfully.
+07/28/14 16:49:08 Node B job completed
+07/28/14 16:49:08 Of 4 nodes total:
+07/28/14 16:49:08  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:49:08   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:49:08     2       0        1       0       0          1        0
+07/28/14 16:49:08 0 job proc(s) currently held
+07/28/14 16:49:13 Currently monitoring 1 Condor log file(s)
+07/28/14 16:49:13 Event: ULOG_EXECUTE for Condor Node C (896556.0.0)
+07/28/14 16:49:13 Number of idle job procs: 0
+07/28/14 16:49:18 Currently monitoring 1 Condor log file(s)
+07/28/14 16:49:18 Event: ULOG_JOB_TERMINATED for Condor Node C (896556.0.0)
+07/28/14 16:49:18 Number of idle job procs: 0
+07/28/14 16:49:18 Node C job proc (896556.0.0) completed successfully.
+07/28/14 16:49:18 Node C job completed
+07/28/14 16:49:18 Of 4 nodes total:
+07/28/14 16:49:18  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:49:18   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:49:18     3       0        0       0       1          0        0
+07/28/14 16:49:18 0 job proc(s) currently held
+07/28/14 16:49:23 Submitting Condor Node D job(s)...
+07/28/14 16:49:23 Adding a DAGMan auxiliary log /home/kaschan/compositions/graph.dag.nodes.log
+07/28/14 16:49:23 Masking the events recorded in the DAGMAN auxiliary log
+07/28/14 16:49:23 Mask for auxiliary log is 0,1,2,4,5,7,9,10,11,12,13,16,17,24,27
+07/28/14 16:49:23 submitting: condor_submit -a dag_node_name' '=' 'D -a +DAGManJobId' '=' '896553 -a DAGManJobId' '=' '896553 -a submit_event_notes' '=' 'DAG' 'Node:' 'D -a dagman_log' '=' '/home/kaschan/compositions/graph.dag.nodes.log -a +DAGManNodesMask' '=' '"0,1,2,4,5,7,9,10,11,12,13,16,17,24,27" -a DAG_STATUS' '=' '0 -a FAILED_COUNT' '=' '0 -a +DAGParentNodeNames' '=' '"B,C" -a notification' '=' 'never D.submit
+07/28/14 16:49:23 From submit: Submitting job(s).
+07/28/14 16:49:23 From submit: 1 job(s) submitted to cluster 896557.
+07/28/14 16:49:23 	assigned Condor ID (896557.0.0)
+07/28/14 16:49:23 Just submitted 1 job this cycle...
+07/28/14 16:49:23 Currently monitoring 1 Condor log file(s)
+07/28/14 16:49:23 Reassigning the id of job D from (896557.0.0) to (896557.0.0)
+07/28/14 16:49:23 Event: ULOG_SUBMIT for Condor Node D (896557.0.0)
+07/28/14 16:49:23 Number of idle job procs: 1
+07/28/14 16:49:23 Of 4 nodes total:
+07/28/14 16:49:23  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/28/14 16:49:23   ===     ===      ===     ===     ===        ===      ===
+07/28/14 16:49:23     3       0        1       0       0          0        0
+07/28/14 16:49:23 0 job proc(s) currently held
+07/28/14 16:49:28 Currently monitoring 1 Condor log file(s)
+07/28/14 16:49:28 Event: ULOG_EXECUTE for Condor Node D (896557.0.0)
+07/28/14 16:49:28 Number of idle job procs: 0
