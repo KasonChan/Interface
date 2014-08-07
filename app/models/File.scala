@@ -2,7 +2,9 @@ package models
 
 import java.io._
 
-object File {
+case class File(filename: String, content: String)
+
+object File {  
   // Get the total number of submissions
   def getSubmissionCount(directory: String) = {
     var count = 0
@@ -14,11 +16,12 @@ object File {
       }
 
       // Check if file exists
-      val newFileDirectory = new File("submission" + count)
-      if(newFileDirectory.exists()) {
+      val newFileDirectory = new java.io.File("submission" + count)
+      if (newFileDirectory.exists()) {
         count = count + 1
-      }      
+      }
     }
     count
   }
+
 }

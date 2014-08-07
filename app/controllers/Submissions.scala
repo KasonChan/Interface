@@ -82,7 +82,7 @@ object Submissions extends Controller {
           val filename = f.filename
           fn = fn + "\n" + filename.toString
           val contentType = f.contentType.get
-          f.ref.moveTo(new File(localSubmissionComposition + "/" + f.filename),
+          f.ref.moveTo(new java.io.File(localSubmissionComposition + "/" + f.filename),
             true)
         })
 
@@ -92,8 +92,10 @@ object Submissions extends Controller {
          * Check OS
          */
         OS.getName match {
+          /**
+           * Linux
+           */
           case "Linux" => {
-
             /**
              * Generate script files for executing the the submission
              */
@@ -148,19 +150,41 @@ object Submissions extends Controller {
                 "home/" + destination(0).destinationUsername + " " +
                 "")(localSubmissionDirectory)
 
+            // Get the list of the outputs as string
             val outputs = Linux.lsWithOpts("output")(localSubmissionComposition)
 
             var errors = List("")
-            
+
             if (outputs == "") {
               errors = List("Internal server error")
             }
 
+            var results = List(File("", ""))
+
+            if (outputs != "") {
+              // Get the list of outputs as array of string
+              val filesArray = outputs.split("\n")
+
+              if (filesArray != "") {
+                for (file <- filesArray) {
+                  val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                  results = results :+ result
+                }
+              }
+
+              results = results.tail
+            }
+
             // Display result after submission and execution
-            Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(outputs))
+            Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
           }
+          /**
+           * Windows
+           */
           case "Win" => {
-            Ok(views.html.execution(List("Sorry! Windows is not supported yet."))(emptyErrors)(user)(""))
+            var results = List(File("", ""))
+
+            Ok(views.html.execution(List("Sorry! Windows is not supported yet."))(emptyErrors)(user)(results))
           }
         }
       } catch {

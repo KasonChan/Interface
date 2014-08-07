@@ -139,7 +139,7 @@ hr {
 
 #section {
   box-sizing: border-box;
-  padding: 10px;
+  padding: 20px;
 }
 
 #section {
@@ -148,8 +148,6 @@ hr {
   font-weight: 300;
   font-size: 18px;
   color: #616161;
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 /**
@@ -219,6 +217,7 @@ a:hover, a:focus {
   padding-top: 10px;
 }
 
+#section #output,
 #section #delete,
 #section #destination,
 #section #update,
@@ -231,6 +230,7 @@ a:hover, a:focus {
   /*padding: 1em;*/
 }
 
+#section #output label,
 #section #delete label,
 #section #destination label,
 #section #update label,
@@ -244,6 +244,7 @@ a:hover, a:focus {
   display: block;
 }
 
+#section #output input,
 #section #delete input,
 #section #destination input,
 #section #update input,
@@ -258,6 +259,7 @@ a:hover, a:focus {
   box-sizing: border-box;
 }
 
+#section #output input[type=submit],
 #section #delete input[type=submit],
 #section #destination input[type=submit],
 #section #update input[type=submit],

@@ -13,13 +13,13 @@ import play.api.mvc._
 import play.api.data._
 import views.html._
 /**/
-object executionForm extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[String],List[String],String,play.api.templates.HtmlFormat.Appendable] {
+object executionForm extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template3[List[String],List[String],List[File],play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(messages: List[String])(errors: List[String])(outputs: String):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(messages: List[String])(errors: List[String])(outputs: List[File]):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*1.65*/("""
+Seq[Any](format.raw/*1.69*/("""
 
 <!-- Section title -->
 <div id="section">
@@ -60,31 +60,32 @@ Seq[Any](format.raw/*1.65*/("""
 <div id="section">
   <div id="container">
     <!-- Output -->
-    """),_display_(Seq[Any](/*42.6*/if(outputs == "")/*42.23*/ {_display_(Seq[Any](format.raw/*42.25*/("""
-    Internal server error
-  """)))})),format.raw/*44.4*/("""
-  """),_display_(Seq[Any](/*45.4*/if(outputs != "")/*45.21*/ {_display_(Seq[Any](format.raw/*45.23*/("""
-  """),_display_(Seq[Any](/*46.4*/outputs)),format.raw/*46.11*/("""
-  
-""")))})),format.raw/*48.2*/("""
+  """),_display_(Seq[Any](/*42.4*/if(outputs != List(File("", "")))/*42.37*/ {_display_(Seq[Any](format.raw/*42.39*/("""
+  <form method="post" id="output">
+    """),_display_(Seq[Any](/*44.6*/for(output <- outputs) yield /*44.28*/ {_display_(Seq[Any](format.raw/*44.30*/("""
+    <label for="outputFilename">"""),_display_(Seq[Any](/*45.34*/output/*45.40*/.filename)),format.raw/*45.49*/("""</label>
+    <input type="text" name="outputContent" id="outputContent" value=""""),_display_(Seq[Any](/*46.72*/output/*46.78*/.content)),format.raw/*46.86*/("""" required readonly>
+  """)))})),format.raw/*47.4*/("""
+</form>
+""")))})),format.raw/*49.2*/("""
 </div>
 </div>"""))}
     }
     
-    def render(messages:List[String],errors:List[String],outputs:String): play.api.templates.HtmlFormat.Appendable = apply(messages)(errors)(outputs)
+    def render(messages:List[String],errors:List[String],outputs:List[File]): play.api.templates.HtmlFormat.Appendable = apply(messages)(errors)(outputs)
     
-    def f:((List[String]) => (List[String]) => (String) => play.api.templates.HtmlFormat.Appendable) = (messages) => (errors) => (outputs) => apply(messages)(errors)(outputs)
+    def f:((List[String]) => (List[String]) => (List[File]) => play.api.templates.HtmlFormat.Appendable) = (messages) => (errors) => (outputs) => apply(messages)(errors)(outputs)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 28 16:39:33 CDT 2014
+                    DATE: Thu Aug 07 16:59:54 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/executionForm.scala.html
-                    HASH: c56e3fb6b4dfc693d32c4d72469ab3da18da02d2
-                    MATRIX: 590->1|747->64|870->152|919->180|1057->283|1090->307|1130->309|1240->384|1280->408|1320->410|1363->418|1392->425|1433->435|1489->460|1601->537|1632->559|1672->561|1780->634|1816->654|1856->656|1899->664|1926->669|1967->679|2023->704|2152->798|2178->815|2218->817|2279->847|2318->851|2344->868|2384->870|2423->874|2452->881|2488->886
-                    LINES: 19->1|22->1|27->6|27->6|33->12|33->12|33->12|37->16|37->16|37->16|38->17|38->17|39->18|43->22|47->26|47->26|47->26|51->30|51->30|51->30|52->31|52->31|53->32|57->36|63->42|63->42|63->42|65->44|66->45|66->45|66->45|67->46|67->46|69->48
+                    HASH: e7b283e46f92d36971b810dd87172fa157cf8a4b
+                    MATRIX: 594->1|755->68|878->156|927->184|1065->287|1098->311|1138->313|1248->388|1288->412|1328->414|1371->422|1400->429|1441->439|1497->464|1609->541|1640->563|1680->565|1788->638|1824->658|1864->660|1907->668|1934->673|1975->683|2031->708|2158->800|2200->833|2240->835|2316->876|2354->898|2394->900|2464->934|2479->940|2510->949|2626->1029|2641->1035|2671->1043|2726->1067|2767->1077
+                    LINES: 19->1|22->1|27->6|27->6|33->12|33->12|33->12|37->16|37->16|37->16|38->17|38->17|39->18|43->22|47->26|47->26|47->26|51->30|51->30|51->30|52->31|52->31|53->32|57->36|63->42|63->42|63->42|65->44|65->44|65->44|66->45|66->45|66->45|67->46|67->46|67->46|68->47|70->49
                     -- GENERATED --
                 */
             

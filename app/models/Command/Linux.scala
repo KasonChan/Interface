@@ -1,7 +1,7 @@
 package models.Command
 
-import sys.process._
 import language.postfixOps
+import sys.process._
 
 object Linux {
   // Execute command
@@ -9,7 +9,7 @@ object Linux {
   def exec(command: Seq[String])(workingDirectory: String): String = {
     val output = Process(command,
       new java.io.File(workingDirectory)).!!
-    
+
     output
   }
 
@@ -18,7 +18,7 @@ object Linux {
   def ls(workingDirectory: String): String = {
     val output = Process(Seq("ls"),
       new java.io.File(workingDirectory)).!!
-    
+
     output
   }
 
@@ -27,10 +27,18 @@ object Linux {
     val outputs = ls(workingDirectory)
     val filesArray = outputs.split("\n")
 
-    val output = 
+    val output =
       for (file <- filesArray if file.startsWith(fileOptions)) yield file
 
     output.mkString("\n")
+  }
+
+  // Show all content in the file
+  def cat(file: String)(workingDirectory: String): String = {
+    val output = Process(Seq("cat", file),
+      new java.io.File(workingDirectory)).!!
+
+    output
   }
 
   // Change file mode bit

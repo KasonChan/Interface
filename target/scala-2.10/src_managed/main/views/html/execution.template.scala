@@ -13,13 +13,13 @@ import play.api.mvc._
 import play.api.data._
 import views.html._
 /**/
-object execution extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template4[List[String],List[String],User,String,play.api.templates.HtmlFormat.Appendable] {
+object execution extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,Format[play.api.templates.HtmlFormat.Appendable]](play.api.templates.HtmlFormat) with play.api.templates.Template4[List[String],List[String],User,List[File],play.api.templates.HtmlFormat.Appendable] {
 
     /**/
-    def apply/*1.2*/(messages: List[String])(errors: List[String])(user: User)(outputs: String):play.api.templates.HtmlFormat.Appendable = {
+    def apply/*1.2*/(messages: List[String])(errors: List[String])(user: User)(outputs: List[File]):play.api.templates.HtmlFormat.Appendable = {
         _display_ {
 
-Seq[Any](format.raw/*1.77*/("""
+Seq[Any](format.raw/*1.81*/("""
 
 """),_display_(Seq[Any](/*3.2*/frame(Messages("application.name"))/*3.37*/ {_display_(Seq[Any](format.raw/*3.39*/("""
 """),_display_(Seq[Any](/*4.2*/dashboard(user))),format.raw/*4.17*/("""
@@ -27,19 +27,19 @@ Seq[Any](format.raw/*1.77*/("""
 """)))})))}
     }
     
-    def render(messages:List[String],errors:List[String],user:User,outputs:String): play.api.templates.HtmlFormat.Appendable = apply(messages)(errors)(user)(outputs)
+    def render(messages:List[String],errors:List[String],user:User,outputs:List[File]): play.api.templates.HtmlFormat.Appendable = apply(messages)(errors)(user)(outputs)
     
-    def f:((List[String]) => (List[String]) => (User) => (String) => play.api.templates.HtmlFormat.Appendable) = (messages) => (errors) => (user) => (outputs) => apply(messages)(errors)(user)(outputs)
+    def f:((List[String]) => (List[String]) => (User) => (List[File]) => play.api.templates.HtmlFormat.Appendable) = (messages) => (errors) => (user) => (outputs) => apply(messages)(errors)(user)(outputs)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Jul 28 12:03:43 CDT 2014
+                    DATE: Thu Aug 07 16:25:50 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/execution.scala.html
-                    HASH: 29bf85f4016108699e12616b215916eb2c16c1ac
-                    MATRIX: 591->1|760->76|797->79|840->114|879->116|915->118|951->133|987->135|1018->158|1034->166|1064->175
+                    HASH: e19b91618e59d28e441572fa0d8308b6fe2f448c
+                    MATRIX: 595->1|768->80|805->83|848->118|887->120|923->122|959->137|995->139|1026->162|1042->170|1072->179
                     LINES: 19->1|22->1|24->3|24->3|24->3|25->4|25->4|26->5|26->5|26->5|26->5
                     -- GENERATED --
                 */

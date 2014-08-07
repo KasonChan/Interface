@@ -1,4 +1,4 @@
-@(messages: List[String])(errors: List[String])(outputs: String)
+@(messages: List[String])(errors: List[String])(outputs: List[File])
 
 <!-- Section title -->
 <div id="section">
@@ -39,12 +39,13 @@
 <div id="section">
   <div id="container">
     <!-- Output -->
-    @if(outputs == "") {
-    Internal server error
+  @if(outputs != List(File("", ""))) {
+  <form method="post" id="output">
+    @for(output <- outputs) {
+    <label for="outputFilename">@output.filename</label>
+    <input type="text" name="outputContent" id="outputContent" value="@output.content" required readonly>
   }
-  @if(outputs != "") {
-  @outputs
-  
+</form>
 }
 </div>
 </div>
