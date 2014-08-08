@@ -65,6 +65,26 @@ if (isNaN(majorVersion)) {
 document.getElementById("browserName").innerHTML = browserName;
 });
 
+// Progress bar
+$(document).ready(function(){
+  // Hide setting_wrapper
+  $("#progress").hide();
+
+  // Toggle dashboard
+  $("#submissionSubmit").click(function(){
+    $("progress").show();
+    function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+      
+      progressbar.progressbar( "value", val + 2 );
+      
+      if ( val < 99 ) {
+        setTimeout( progress, 80 );
+      }
+    }
+  });
+});
+
 // Dashboard toggle
 $(document).ready(function(){
   // Hide setting_wrapper
@@ -122,3 +142,4 @@ $(document).ready(function(){
     }, 5000);
   }  
 });
+

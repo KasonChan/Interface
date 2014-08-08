@@ -35,7 +35,7 @@ Seq[Any](format.raw/*1.48*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Aug 07 16:14:11 CDT 2014
+                    DATE: Fri Aug 08 13:34:16 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/guest.scala.html
                     HASH: 3188822ad890cf9fe826b52a5f73e1c66e9da076
                     MATRIX: 575->1|715->47|752->50|795->85|834->87|872->91|904->115|933->123

@@ -1,5 +1,7 @@
 @(messages: List[String])(errors: List[String])
 
+<progress id="progress"></progress>
+
 <!-- Section title -->
 <div id="section">
   <div id="container">
@@ -49,7 +51,8 @@
       <input type="file" name="files[]" id="compositions" multiple directory required>
 
       <!-- Submit -->
-      <input type="submit" value="@Messages("submission.label.submit")">
+      <input id="submissionSubmit" type="submit" value="@Messages("submission.label.submit")">
     </form>
   </div>
 </div>
+
