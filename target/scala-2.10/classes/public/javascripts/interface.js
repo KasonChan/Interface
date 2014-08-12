@@ -72,14 +72,16 @@ $(document).ready(function(){
 
   // Toggle dashboard
   $("#submissionSubmit").click(function(){
-    $("progress").show();
-    function progress() {
-      var val = progressbar.progressbar( "value" ) || 0;
-      
-      progressbar.progressbar( "value", val + 2 );
-      
-      if ( val < 99 ) {
-        setTimeout( progress, 80 );
+    if(document.getElementById("compositions").value.length != 0) { 
+      $("progress").show();
+      function progress() {
+        var val = progressbar.progressbar( "value" ) || 0;
+
+        progressbar.progressbar( "value", val + 2 );
+
+        if ( val < 99 ) {
+          setTimeout( progress, 80 );
+        }
       }
     }
   });

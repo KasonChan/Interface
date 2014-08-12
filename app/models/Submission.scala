@@ -27,7 +27,8 @@ object Submission {
     // $6 resultDirectoryFiles
 
     // Write content to output file
-    fw.write("""echo *****START ./interface.sh
+    fw.write("""
+echo *****START ./interface.sh
 
 cd $1
 ./interface.sh $2 $3 $4 $5 $6
@@ -50,7 +51,8 @@ echo *****END ./interface.sh
     // New print writer
     val fw = new PrintWriter(outputFile)
 
-    fw.write("""# Print user name, hostname and date
+    fw.write("""
+# Print user name, hostname and date
 echo "$USER@`hostname` interface.sh `date`"
 
 # Get source directory/files
@@ -116,7 +118,8 @@ echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "r
     // New print writer
     val fw = new PrintWriter(outputFile)
 
-    fw.write("""#!/bin/bash
+    fw.write("""
+#!/bin/bash
 # 
 # script that passes password from stdin to ssh. 
 # 
