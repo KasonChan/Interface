@@ -25,6 +25,8 @@ object Destinations extends Controller {
         request.body.asFormUrlEncoded.get("destinationHostname")(0)
       def destinationPassword =
         request.body.asFormUrlEncoded.get("destinationPassword")(0)
+      def destinationType =
+        request.body.asFormUrlEncoded.get("destinationType")(0)
 
       val user = User.get(username)
       var errors = List("")
@@ -45,14 +47,14 @@ object Destinations extends Controller {
       // If there is no errors
       if (errors == List("")) {
         val newDestination = Destination(username, destinationUsername,
-          destinationHostname, destinationPassword)
+          destinationHostname, destinationPassword, destinationType)
 
         Destination.insert(newDestination)
         // Display destinations
         Redirect(routes.Application.submission)
       } else {
         val invalidDestination = Destination(username, destinationUsername,
-          destinationHostname, destinationPassword)
+          destinationHostname, destinationPassword, destinationType)
 
         // Return to the form with error messages
         Ok(views.html.destination(emptyMessages)(errors)(user)(invalidDestination))
@@ -104,6 +106,8 @@ object Destinations extends Controller {
           request.body.asFormUrlEncoded.get("destinationHostname")(0)
         def destinationPassword =
           request.body.asFormUrlEncoded.get("destinationPassword")(0)
+        def destinationType =
+          request.body.asFormUrlEncoded.get("destinationType")(0)
 
         var errors = List("")
         var messages = List("")
@@ -111,7 +115,7 @@ object Destinations extends Controller {
         val user = User.get(username)
 
         var editDestination = Destination(username, destinationUsername,
-          destinationHostname, destinationPassword)
+          destinationHostname, destinationPassword, destinationType)
 
         if (action == "updated") {
           // Update destination into the database

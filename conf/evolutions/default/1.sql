@@ -15,6 +15,7 @@ CREATE TABLE destinations (
   destinationUsername varchar(35),
   destinationHostname varchar(50),
   destinationPassword varchar(35),
+  destinationType varchar(35),
   PRIMARY KEY (destinationUsername, destinationHostname),
   CONSTRAINT fk_username FOREIGN KEY (username)
   REFERENCES users(username)

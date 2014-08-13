@@ -60,7 +60,7 @@ object Users extends Controller {
 
       // Display destination
       // Store username as connected session data
-      val emptyDestination = Destination(username, "", "", "")
+      val emptyDestination = Destination(username, "", "", "", "")
       Ok(views.html.destination(emptyMessages)(emptyErrors)(newUser)(emptyDestination)).withSession(
         "connected" -> username)
     } else {

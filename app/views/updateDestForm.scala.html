@@ -68,6 +68,12 @@
       placeholder="@Messages("destination.label.password")" 
       value="@destination.destinationPassword" required>
 
+      <!-- Type -->
+      <input type="text" name="destinationType" id="destinationType" 
+      value="@destination.destinationType" maxlength="35" 
+      onclick="changeDestinationType()" 
+      onfocus="showTypeHint()" onblur="hideTypeHint()" readonly required>
+
       <!-- Submit -->
       <input type="submit" value="@Messages("update.destination.label.submit")">
     </form>
@@ -98,6 +104,12 @@
     <input type="password" name="destinationPassword" id="destinationPassword" 
     placeholder="@Messages("destination.label.password")" 
     value="@destination.destinationPassword" readonly required hidden>
+
+    <!-- Type -->
+    <input type="text" name="destinationType" id="destinationType" 
+    value="@destination.destinationType" maxlength="35" 
+    onclick="changeDestinationType()" 
+    onfocus="showTypeHint()" onblur="hideTypeHint()" readonly required hidden>
 
     <!-- Submit -->
     <input type="submit" value="@Messages("update.destination.label.delete")">

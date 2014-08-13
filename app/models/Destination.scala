@@ -11,7 +11,8 @@ case class Destination(
   username: String,
   destinationUsername: String,
   destinationHostname: String,
-  destinationPassword: String)
+  destinationPassword: String,
+  destinationType: String)
 
 object Destination {
   /**
@@ -28,7 +29,8 @@ object Destination {
       // Create user from contents of each row
       Destination(row[String]("username"), row[String]("destinationUsername"),
         row[String]("destinationHostname"),
-        row[String]("destinationPassword"))).toList
+        row[String]("destinationPassword"),
+        row[String]("destinationType"))).toList
   }
 
   // def get(un: String): List[Destination] = {
@@ -51,7 +53,8 @@ object Destination {
         // Create destination from contents of each row
         Destination(row[String]("username"), row[String]("destinationUsername"),
           row[String]("destinationHostname"),
-          row[String]("destinationPassword"))).toList
+          row[String]("destinationPassword"),
+        row[String]("destinationType"))).toList
     }
   }
 
@@ -73,7 +76,8 @@ object Destination {
         // Create destination from contents of each row
         Destination(row[String]("username"), row[String]("destinationUsername"),
           row[String]("destinationHostname"),
-          row[String]("destinationPassword"))).toList
+          row[String]("destinationPassword"),
+        row[String]("destinationType"))).toList
     }
   }
 
@@ -86,12 +90,13 @@ object Destination {
     implicit connection =>
       val addedRows = SQL("""insert into destinations 
       values ({username}, {destinationUsername}, {destinationHostname}, 
-        {destinationPassword})""").on(
+        {destinationPassword}, {destinationType})""").on(
         // Each named parameter is mapped to its value
         "username" -> destination.username,
         "destinationUsername" -> destination.destinationUsername,
         "destinationHostname" -> destination.destinationHostname,
-        "destinationPassword" -> destination.destinationPassword).executeUpdate()
+        "destinationPassword" -> destination.destinationPassword,
+        "destinationType" -> destination.destinationType).executeUpdate()
       // executeUpdate returns the number of rows the statement has affected
       addedRows == 1
   }
@@ -99,14 +104,16 @@ object Destination {
   def update(destination: Destination): Boolean = DB.withConnection {
     implicit connection =>
       val updatedRows = SQL("""update destinations 
-      set destinationPassword = {destinationPassword} 
+      set destinationPassword = {destinationPassword},
+      destinationType = {destinationType} 
       where username = {username} AND 
       destinationUsername = {destinationUsername} AND
       destinationHostname = {destinationHostname};""").on(
         "username" -> destination.username,
         "destinationUsername" -> destination.destinationUsername,
         "destinationHostname" -> destination.destinationHostname,
-        "destinationPassword" -> destination.destinationPassword).executeUpdate()
+        "destinationPassword" -> destination.destinationPassword,
+        "destinationType" -> destination.destinationType).executeUpdate()
       updatedRows == 1
   }
 

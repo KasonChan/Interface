@@ -55,7 +55,7 @@ object Application extends Controller {
       val user = User.get(username)
 
       // Create empty destination of the username
-      val emptyDestination = Destination(username, "", "", "")
+      val emptyDestination = Destination(username, "", "", "", "")
       Ok(views.html.destination(emptyMessages)(emptyErrors)(user)(emptyDestination))
     }.getOrElse {
       Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))

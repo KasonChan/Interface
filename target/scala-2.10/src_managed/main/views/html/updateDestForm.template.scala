@@ -89,42 +89,54 @@ Seq[Any](format.raw/*1.81*/("""
       placeholder=""""),_display_(Seq[Any](/*68.21*/Messages("destination.label.password"))),format.raw/*68.59*/("""" 
       value=""""),_display_(Seq[Any](/*69.15*/destination/*69.26*/.destinationPassword)),format.raw/*69.46*/("""" required>
 
+      <!-- Type -->
+      <input type="text" name="destinationType" id="destinationType" 
+      value=""""),_display_(Seq[Any](/*73.15*/destination/*73.26*/.destinationType)),format.raw/*73.42*/("""" maxlength="35" 
+      onclick="changeDestinationType()" 
+      onfocus="showTypeHint()" onblur="hideTypeHint()" readonly required>
+
       <!-- Submit -->
-      <input type="submit" value=""""),_display_(Seq[Any](/*72.36*/Messages("update.destination.label.submit"))),format.raw/*72.79*/("""">
+      <input type="submit" value=""""),_display_(Seq[Any](/*78.36*/Messages("update.destination.label.submit"))),format.raw/*78.79*/("""">
     </form>
 
     <!-- Delete form -->
     <!-- All fields of this form is hidden except the submit button -->
     <form method="post" id="delete" 
-    action=""""),_display_(Seq[Any](/*78.14*/routes/*78.20*/.Destinations.edit(destination.username, 
-    "deleted"))),format.raw/*79.15*/("""">
+    action=""""),_display_(Seq[Any](/*84.14*/routes/*84.20*/.Destinations.edit(destination.username, 
+    "deleted"))),format.raw/*85.15*/("""">
     <!-- User -->
     <!-- Username -->
     <input type="text" name="username" id="username" 
-    placeholder=""""),_display_(Seq[Any](/*83.19*/Messages("destination.label.username"))),format.raw/*83.57*/("""" 
-    value=""""),_display_(Seq[Any](/*84.13*/destination/*84.24*/.username)),format.raw/*84.33*/("""" required readonly hidden>
+    placeholder=""""),_display_(Seq[Any](/*89.19*/Messages("destination.label.username"))),format.raw/*89.57*/("""" 
+    value=""""),_display_(Seq[Any](/*90.13*/destination/*90.24*/.username)),format.raw/*90.33*/("""" required readonly hidden>
 
     <!-- Destination -->
     <!-- Username -->
     <input type="text" name="destinationUsername" id="destinationUsername" 
-    placeholder=""""),_display_(Seq[Any](/*89.19*/Messages("destination.label.username"))),format.raw/*89.57*/("""" 
-    value=""""),_display_(Seq[Any](/*90.13*/destination/*90.24*/.destinationUsername)),format.raw/*90.44*/("""" readonly required hidden>
+    placeholder=""""),_display_(Seq[Any](/*95.19*/Messages("destination.label.username"))),format.raw/*95.57*/("""" 
+    value=""""),_display_(Seq[Any](/*96.13*/destination/*96.24*/.destinationUsername)),format.raw/*96.44*/("""" readonly required hidden>
 
     <!-- Hostname -->
     <input type="text" name="destinationHostname" id="destinationHostname" 
-    placeholder=""""),_display_(Seq[Any](/*94.19*/Messages("destination.label.hostname"))),format.raw/*94.57*/("""" 
-    value=""""),_display_(Seq[Any](/*95.13*/destination/*95.24*/.destinationHostname)),format.raw/*95.44*/("""" readonly required hidden>
+    placeholder=""""),_display_(Seq[Any](/*100.19*/Messages("destination.label.hostname"))),format.raw/*100.57*/("""" 
+    value=""""),_display_(Seq[Any](/*101.13*/destination/*101.24*/.destinationHostname)),format.raw/*101.44*/("""" readonly required hidden>
 
     <!-- Password -->
     <input type="password" name="destinationPassword" id="destinationPassword" 
-    placeholder=""""),_display_(Seq[Any](/*99.19*/Messages("destination.label.password"))),format.raw/*99.57*/("""" 
-    value=""""),_display_(Seq[Any](/*100.13*/destination/*100.24*/.destinationPassword)),format.raw/*100.44*/("""" readonly required hidden>
+    placeholder=""""),_display_(Seq[Any](/*105.19*/Messages("destination.label.password"))),format.raw/*105.57*/("""" 
+    value=""""),_display_(Seq[Any](/*106.13*/destination/*106.24*/.destinationPassword)),format.raw/*106.44*/("""" readonly required hidden>
+
+    <!-- Type -->
+    <input type="text" name="destinationType" id="destinationType" 
+    value=""""),_display_(Seq[Any](/*110.13*/destination/*110.24*/.destinationType)),format.raw/*110.40*/("""" maxlength="35" 
+    onclick="changeDestinationType()" 
+    onfocus="showTypeHint()" onblur="hideTypeHint()" readonly required hidden>
 
     <!-- Submit -->
-    <input type="submit" value=""""),_display_(Seq[Any](/*103.34*/Messages("update.destination.label.delete"))),format.raw/*103.77*/("""">
+    <input type="submit" value=""""),_display_(Seq[Any](/*115.34*/Messages("update.destination.label.delete"))),format.raw/*115.77*/("""">
   </form>
 </div>
-""")))})),format.raw/*106.2*/("""
+""")))})),format.raw/*118.2*/("""
 </div>
 </div>
 """))}
@@ -139,11 +151,11 @@ Seq[Any](format.raw/*1.81*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Aug 12 11:18:32 CDT 2014
+                    DATE: Wed Aug 13 14:06:49 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/updateDestForm.scala.html
-                    HASH: 86f85101d4d7da4e772a6fd8e3ec4dc376765172
-                    MATRIX: 602->1|775->80|898->168|955->204|1093->307|1126->331|1166->333|1276->408|1316->432|1356->434|1399->442|1428->449|1469->459|1525->484|1637->561|1668->583|1708->585|1816->658|1852->678|1892->680|1935->688|1962->693|2003->703|2059->728|2168->802|2216->834|2256->836|2406->950|2421->956|2501->1014|2682->1159|2742->1197|2795->1214|2815->1225|2846->1234|3060->1412|3120->1450|3173->1467|3193->1478|3235->1498|3415->1642|3475->1680|3528->1697|3548->1708|3590->1728|3774->1876|3834->1914|3887->1931|3907->1942|3949->1962|4055->2032|4120->2075|4319->2238|4334->2244|4412->2300|4563->2415|4623->2453|4674->2468|4694->2479|4725->2488|4931->2658|4991->2696|5042->2711|5062->2722|5104->2742|5285->2887|5345->2925|5396->2940|5416->2951|5458->2971|5643->3120|5703->3158|5755->3173|5776->3184|5819->3204|5938->3286|6004->3329|6057->3350
-                    LINES: 19->1|22->1|27->6|27->6|33->12|33->12|33->12|37->16|37->16|37->16|38->17|38->17|39->18|43->22|47->26|47->26|47->26|51->30|51->30|51->30|52->31|52->31|53->32|57->36|62->41|62->41|62->41|67->46|67->46|68->47|73->52|73->52|74->53|74->53|74->53|79->58|79->58|80->59|80->59|80->59|84->63|84->63|85->64|85->64|85->64|89->68|89->68|90->69|90->69|90->69|93->72|93->72|99->78|99->78|100->79|104->83|104->83|105->84|105->84|105->84|110->89|110->89|111->90|111->90|111->90|115->94|115->94|116->95|116->95|116->95|120->99|120->99|121->100|121->100|121->100|124->103|124->103|127->106
+                    HASH: a453841570f91c4f064f61d9d845289569f3259b
+                    MATRIX: 602->1|775->80|898->168|955->204|1093->307|1126->331|1166->333|1276->408|1316->432|1356->434|1399->442|1428->449|1469->459|1525->484|1637->561|1668->583|1708->585|1816->658|1852->678|1892->680|1935->688|1962->693|2003->703|2059->728|2168->802|2216->834|2256->836|2406->950|2421->956|2501->1014|2682->1159|2742->1197|2795->1214|2815->1225|2846->1234|3060->1412|3120->1450|3173->1467|3193->1478|3235->1498|3415->1642|3475->1680|3528->1697|3548->1708|3590->1728|3774->1876|3834->1914|3887->1931|3907->1942|3949->1962|4102->2079|4122->2090|4160->2106|4387->2297|4452->2340|4651->2503|4666->2509|4744->2565|4895->2680|4955->2718|5006->2733|5026->2744|5057->2753|5263->2923|5323->2961|5374->2976|5394->2987|5436->3007|5618->3152|5679->3190|5731->3205|5752->3216|5795->3236|5981->3385|6042->3423|6094->3438|6115->3449|6158->3469|6322->3596|6343->3607|6382->3623|6609->3813|6675->3856|6728->3877
+                    LINES: 19->1|22->1|27->6|27->6|33->12|33->12|33->12|37->16|37->16|37->16|38->17|38->17|39->18|43->22|47->26|47->26|47->26|51->30|51->30|51->30|52->31|52->31|53->32|57->36|62->41|62->41|62->41|67->46|67->46|68->47|73->52|73->52|74->53|74->53|74->53|79->58|79->58|80->59|80->59|80->59|84->63|84->63|85->64|85->64|85->64|89->68|89->68|90->69|90->69|90->69|94->73|94->73|94->73|99->78|99->78|105->84|105->84|106->85|110->89|110->89|111->90|111->90|111->90|116->95|116->95|117->96|117->96|117->96|121->100|121->100|122->101|122->101|122->101|126->105|126->105|127->106|127->106|127->106|131->110|131->110|131->110|136->115|136->115|139->118
                     -- GENERATED --
                 */
             

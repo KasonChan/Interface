@@ -145,3 +145,24 @@ $(document).ready(function(){
   }  
 });
 
+$(document).ready(function(){
+  $("#typeHint").hide();
+});
+
+// Change destination type
+function changeDestinationType() {
+  if (document.getElementById("newDestinationType").value == "Cluster") {
+    document.getElementById("newDestinationType").value = "DAGMan";
+  }
+  else if (document.getElementById("newDestinationType").value == "DAGMan") {
+    document.getElementById("newDestinationType").value = "Cluster";
+  }
+}
+
+function showTypeHint() {
+  $("#typeHint").show();
+}
+
+function hideTypeHint() {
+  $("#typeHint").hide();
+}
