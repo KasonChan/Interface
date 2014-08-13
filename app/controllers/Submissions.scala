@@ -38,13 +38,10 @@ object Submissions extends Controller {
 
   def submission = Action(parse.multipartFormData) { request =>
     request.session.get("connected").map { username =>
-
       /**
        * Destination variables declarations
        */
       // Destination directory
-      // TODO:
-      // Get from the database
       val destinationDirectory = "home" + "/" + username
 
       /**
@@ -88,6 +85,10 @@ object Submissions extends Controller {
 
         val filesUploadMsg = "File(s) is/are uploaded: " + "\n" + fn
 
+        // Get configuration from the form
+        def configuration =
+          request.body.asFormUrlEncoded.get("configuration")
+
         /**
          * Check OS
          */
@@ -96,101 +97,162 @@ object Submissions extends Controller {
            * Linux
            */
           case "Linux" => {
-            /**
-             * Generate script files for executing the the submission
-             */
-            // Submission script name
-            val submissionScriptName = localSubmissionDirectory + "submissionExecution.sh"
+            configuration match {
+              case Some(Seq("Local")) => {
+                /**
+                 * Generate script files for executing the submission
+                 */
+                // Submission script name
+                val submissionScriptName = localSubmissionComposition + "/" + 
+                "submissionExecution.sh"
 
-            // Generate submission execution script
-            Submission.generateSubmissionScript(submissionScriptName)
+                // Generate submission execution script
+                Submission.generateSubmissionScript1(submissionScriptName)
 
-            // Interface execution script name
-            val executionScriptName = localSubmissionDirectory + "interface.sh"
+                // Interface execution script name
+                val executionScriptName = localSubmissionComposition + "/" +
+                 "interface.sh"
 
-            // Generate execution script 
-            Submission.generateInterfaceScript(compositionsDirectory,
-              executionScriptName)
+                // Generate execution script 
+                Submission.generateInterfaceScript1(compositionsDirectory,
+                  executionScriptName)
 
-            // sshaskpass script name
-            val sshaskpassScriptName = localSubmissionDirectory + "sshaskpass.sh"
+                /**
+                 * Chmod the script files
+                 */
+                val chmodOption = "u+x"
+                val fileOption = ".sh"
 
-            // Generate sshaskpass script
-            Submission.generateSshaskpassScript(sshaskpassScriptName)
+                // Chmod the scripts in the composition directory
+                val compositionScripts = Linux.ls(localSubmissionComposition)
+                Linux.chmod(chmodOption)(compositionScripts)(fileOption)(localSubmissionComposition)
 
-            /**
-             * Chmod the script files
-             */
-            val chmodOption = "u+x"
-            val fileOption = ".sh"
+                /**
+                 * Execute the submission scripts
+                 */
+                val sh =
+                  Linux.sh(submissionScriptName)("")(localSubmissionComposition)
 
-            // Chmod the scripts in the composition directory
-            val compositionScripts = Linux.ls(localSubmissionComposition)
-            Linux.chmod(chmodOption)(compositionScripts)(fileOption)(localSubmissionComposition)
+                // Get the list of the outputs as string
+                val outputs = Linux.lsStartsWithOpts("output")(localSubmissionComposition)
 
-            // Chmod the scripts in the submission directory
-            val submissionScripts = Linux.ls(localSubmissionDirectory)
-            Linux.chmod(chmodOption)(submissionScripts)(fileOption)(localSubmissionDirectory)
+                var errors = List("")
 
-            /**
-             * Execute the submission scripts
-             */
-            // Execute interface
-            // $2 destinationUsername
-            // $3 destinationHostname
-            // $4 destinationPassword
-            // $5 destinationDirectoryFiles
-            // $6 resultDirectoryFiles
-            // Command sh
-            val sh =
-              Linux.sh(submissionScriptName)(localSubmissionDirectory + " " +
-                destination(0).destinationUsername + " " +
-                destination(0).destinationHostname + " " +
-                destination(0).destinationPassword + " " +
-                "home/" + destination(0).destinationUsername + " " +
-                "")(localSubmissionDirectory)
-
-            // Get the list of the outputs as string
-            val outputs = Linux.lsWithOpts("output")(localSubmissionComposition)
-
-            var errors = List("")
-
-            if (outputs == "") {
-              errors = List("Internal server error")
-            }
-
-            var results = List(File("", ""))
-
-            if (outputs != "") {
-              // Get the list of outputs as array of string
-              val filesArray = outputs.split("\n")
-
-              if (filesArray != "") {
-                for (file <- filesArray) {
-                  val result = File(file, Linux.cat(file)(localSubmissionComposition))
-                  results = results :+ result
+                if (outputs == "") {
+                  errors = List("Internal server error")
                 }
-              }
 
-              results = results.tail
-            }
+                var results = List(File("", ""))
 
-            // Display result after submission and execution
-            Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
-          }
-          /**
-           * Windows
-           */
-          case "Win" => {
-            var results = List(File("", ""))
+                if (outputs != "") {
+                  // Get the list of outputs as array of string
+                  val filesArray = outputs.split("\n")
 
-            Ok(views.html.execution(List("Sorry! Windows is not supported yet."))(emptyErrors)(user)(results))
-          }
-        }
+                  if (filesArray != "") {
+                    for (file <- filesArray) {
+                      val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                      results = results :+ result
+                    }
+                  }
+
+                  results = results.tail
+                }
+
+                // Display result after submission and execution
+                Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
+
+              } // End of configuration case local
+              case Some(Seq("DAGMan")) => {
+
+                /**
+                 * Generate script files for executing the submission
+                 */
+                // Submission script name
+                val submissionScriptName = localSubmissionDirectory + "submissionExecution.sh"
+
+                // Generate submission execution script
+                Submission.generateSubmissionScript3(submissionScriptName)
+
+                // Interface execution script name
+                val executionScriptName = localSubmissionDirectory + "interface.sh"
+
+                // Generate execution script 
+                Submission.generateInterfaceScript3(compositionsDirectory,
+                  executionScriptName)
+
+                // sshaskpass script name
+                val sshaskpassScriptName = localSubmissionDirectory + "sshaskpass.sh"
+
+                // Generate sshaskpass script
+                Submission.generateSshaskpassScript(sshaskpassScriptName)
+
+                /**
+                 * Chmod the script files
+                 */
+                val chmodOption = "u+x"
+                val fileOption = ".sh"
+
+                // Chmod the scripts in the composition directory
+                val compositionScripts = Linux.ls(localSubmissionComposition)
+                Linux.chmod(chmodOption)(compositionScripts)(fileOption)(localSubmissionComposition)
+
+                // Chmod the scripts in the submission directory
+                val submissionScripts = Linux.ls(localSubmissionDirectory)
+                Linux.chmod(chmodOption)(submissionScripts)(fileOption)(localSubmissionDirectory)
+
+                /**
+                 * Execute the submission scripts
+                 */
+                // Execute interface
+                // $2 destinationUsername
+                // $3 destinationHostname
+                // $4 destinationPassword
+                // $5 destinationDirectoryFiles
+                // $6 resultDirectoryFiles
+                // Command sh
+                val sh =
+                  Linux.sh(submissionScriptName)(localSubmissionDirectory + " " +
+                    destination(0).destinationUsername + " " +
+                    destination(0).destinationHostname + " " +
+                    destination(0).destinationPassword + " " +
+                    "home/" + destination(0).destinationUsername + " " +
+                    "")(localSubmissionDirectory)
+
+                // Get the list of the outputs as string
+                val outputs = Linux.lsStartsWithOpts("output")(localSubmissionComposition)
+
+                var errors = List("")
+
+                if (outputs == "") {
+                  errors = List("Internal server error")
+                }
+
+                var results = List(File("", ""))
+
+                if (outputs != "") {
+                  // Get the list of outputs as array of string
+                  val filesArray = outputs.split("\n")
+
+                  if (filesArray != "") {
+                    for (file <- filesArray) {
+                      val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                      results = results :+ result
+                    }
+                  }
+
+                  results = results.tail
+                }
+
+                // Display result after submission and execution
+                Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
+
+              } // End of configuration case dagman
+            } // End of configuration match
+          } // End of case Linux
+        } // End of OS match
       } catch {
         case e: Throwable => Ok(views.html.errors(e))
       }
-
     }.getOrElse {
       Ok(views.html.notAuthorized(User.emptyMessages)(List(Messages("not.authorized.not.connected"))))
     }

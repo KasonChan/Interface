@@ -22,13 +22,24 @@ object Linux {
     output
   }
 
-  // List all files in the workingDirectory with fileOptions
-  def lsWithOpts(fileOptions: String)(workingDirectory: String) = {
+  // List all files in the workingDirectory starts with fileOptions
+  def lsStartsWithOpts(fileOptions: String)(workingDirectory: String) = {
     val outputs = ls(workingDirectory)
     val filesArray = outputs.split("\n")
 
     val output =
       for (file <- filesArray if file.startsWith(fileOptions)) yield file
+
+    output.mkString("\n")
+  }
+
+  // List all files in the workingDirectory ends with fileOptions
+  def lsEndsWithOpts(fileOptions: String)(workingDirectory: String) = {
+    val outputs = ls(workingDirectory)
+    val filesArray = outputs.split("\n")
+
+    val output =
+      for (file <- filesArray if file.endsWith(fileOptions)) yield file
 
     output.mkString("\n")
   }

@@ -15,7 +15,30 @@ import sys.process._
 import language.postfixOps
 
 object Submission {
-  def generateSubmissionScript(outputFile: String) = {
+  def generateSubmissionScript1(outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    // Write content to output file
+    fw.write("""
+echo *****START ./interface.sh
+
+./interface.sh
+
+if [ $? -eq 0 ]; then
+  echo "Execution was successful"
+else
+  echo "Execution was not successful"
+fi
+
+echo *****END ./interface.sh
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  def generateSubmissionScript3(outputFile: String) = {
     // New print writer
     val fw = new PrintWriter(outputFile)
 
@@ -46,7 +69,38 @@ echo *****END ./interface.sh
     fw.close()
   }
 
-  def generateInterfaceScript(sourceDirectoryFiles: String,
+  def generateInterfaceScript1(sourceDirectoryFiles: String,
+    outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    fw.write("""
+# Print user name, hostname and date
+echo "$USER@`hostname` interface.sh `date`"
+
+# Start time in nanosecond
+START=$(date +%s.%N)
+
+# Execute the execution script
+./execution.sh
+
+# End time in nanosecond
+END=$(date +%s.%N)
+
+# Print execution time
+DIFF=$(echo "$END - $START" | bc)
+echo "$DIFF nanoseconds"
+
+# Clean up compiled codes
+make clean
+
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  def generateInterfaceScript3(sourceDirectoryFiles: String,
     outputFile: String) = {
     // New print writer
     val fw = new PrintWriter(outputFile)

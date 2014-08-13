@@ -42,17 +42,19 @@
   <div id="container">
     <form action="@routes.Submissions.submission" 
     method="post" id="submissionForm" enctype="multipart/form-data">
-      <!-- Sources -->
-<!--       <label for="sources">@Messages("submission.label.sources")</label>
-      <input type="file" name="files[]" id="sources" multiple directory webkitdirectory disabled>
- -->      
-      <!-- Compositions -->
-      <label for="compositions">@Messages("submission.label.compositions")</label>
-      <input type="file" name="files[]" id="compositions" multiple directory required>
+    
+    <!-- Compositions -->
+    <label for="compositions">@Messages("submission.label.compositions")</label>
+    <input type="file" name="files[]" id="compositions" multiple directory required>
 
-      <!-- Submit -->
-      <input id="submissionSubmit" type="submit" value="@Messages("submission.label.submit")">
-    </form>
-  </div>
+    <!-- Configuration -->
+    <label for="configuration">@Messages("submission.label.configuration")</label>
+    <input type="text" name="configuration" id="configuration" 
+    value="Local" maxlength="35" readonly required>
+
+    <!-- Submit -->
+    <input id="submissionSubmit" type="submit" value="@Messages("submission.label.submit")">
+  </form>
+</div>
 </div>
 
