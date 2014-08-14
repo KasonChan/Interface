@@ -288,6 +288,15 @@ a:hover, a:focus {
   font-size: 18px;
 }
 
+#section #composition {
+  width: 100%;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px;
+  box-sizing: border-box;  
+}
+
 #section #configuration {
   width: 100%;
   font-family: Nunito, sans-serif;
@@ -306,8 +315,8 @@ a:hover, a:focus {
   font-weight: 300;
   font-size: 16px;
   text-align: center;
-  background-color: #e0e0e0;
-  color: #616161;
+  background-color: #424242;
+  color: white;
   padding: 20px;
   box-sizing: border-box;
 }
