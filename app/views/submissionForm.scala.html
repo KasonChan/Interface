@@ -49,8 +49,13 @@
 
     <!-- Configuration -->
     <label for="configuration">@Messages("submission.label.configuration")</label>
-    <input type="text" name="configuration" id="configuration" 
-    value="Local" maxlength="35" readonly required>
+    <select name="configuration" id="configuration">
+      <option value="local">Local</option>
+      <option value="cluster">Cluster</option>      
+      <option value="dagman">DAGMan</option>
+      <option value="local+cluster">Local + Cluster</option>
+      <option value="local+dagman">Local + DAGMan</option>
+    </select>
 
     <!-- Submit -->
     <input id="submissionSubmit" type="submit" value="@Messages("submission.label.submit")">

@@ -23,6 +23,7 @@ object Submission {
     fw.write("""
 echo *****START ./interface.sh
 
+cd $1
 ./interface.sh
 
 if [ $? -eq 0 ]; then

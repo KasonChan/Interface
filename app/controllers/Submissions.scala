@@ -85,9 +85,10 @@ object Submissions extends Controller {
 
         val filesUploadMsg = "File(s) is/are uploaded: " + "\n" + fn
 
-        // Get configuration from the form
-        def configuration =
-          request.body.asFormUrlEncoded.get("configuration")
+        // Get data from the form
+        def data = request.body.asFormUrlEncoded
+        // Get selected confirguation
+        def configuration = data.get("configuration") 
 
         /**
          * Check OS
@@ -98,24 +99,22 @@ object Submissions extends Controller {
            */
           case "Linux" => {
             configuration match {
-              case Some(Seq("Local")) => {
+              case Some(Seq("local")) => {
                 /**
                  * Generate script files for executing the submission
                  */
-                // Submission script name
-                val submissionScriptName = localSubmissionComposition + "/" + 
-                "submissionExecution.sh"
-
-                // Generate submission execution script
-                Submission.generateSubmissionScript1(submissionScriptName)
-
                 // Interface execution script name
-                val executionScriptName = localSubmissionComposition + "/" +
-                 "interface.sh"
+                val executionScriptName = localSubmissionComposition + "/" + "interface.sh"
 
                 // Generate execution script 
                 Submission.generateInterfaceScript1(compositionsDirectory,
                   executionScriptName)
+
+                // Submission script name
+                val submissionScriptName = localSubmissionComposition + "/" + "submissionExecution.sh"
+
+                // Generate submission execution script
+                Submission.generateSubmissionScript1(submissionScriptName)
 
                 /**
                  * Chmod the script files
@@ -131,7 +130,7 @@ object Submissions extends Controller {
                  * Execute the submission scripts
                  */
                 val sh =
-                  Linux.sh(submissionScriptName)("")(localSubmissionComposition)
+                  Linux.sh(submissionScriptName)(localSubmissionComposition)(localSubmissionComposition)
 
                 // Get the list of the outputs as string
                 val outputs = Linux.lsStartsWithOpts("output")(localSubmissionComposition)
@@ -162,7 +161,7 @@ object Submissions extends Controller {
                 Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
 
               } // End of configuration case local
-              case Some(Seq("DAGMan")) => {
+              case Some(Seq("dagman")) => {
 
                 /**
                  * Generate script files for executing the submission
