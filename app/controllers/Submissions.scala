@@ -138,7 +138,7 @@ object Submissions extends Controller {
                 var errors = List("")
 
                 if (outputs == "") {
-                  errors = List("Internal server error")
+                  errors = List(Messages("submission.error.external"))
                 }
 
                 var results = List(File("", ""))
@@ -223,7 +223,7 @@ object Submissions extends Controller {
                 var errors = List("")
 
                 if (outputs == "") {
-                  errors = List("Internal server error")
+                  errors = List(Messages("submission.error.external"))
                 }
 
                 var results = List(File("", ""))

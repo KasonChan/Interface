@@ -51,6 +51,8 @@ submission.label.executables = Executable
 submission.label.destination = Destination
 submission.label.configuration = Configuration
 submission.label.submit = Submit
+submission.error.internal = Internal server error
+submission.error.external = External service error
 
 destination.title.add = Add your destination
 destination.title.edit = Edit your destination

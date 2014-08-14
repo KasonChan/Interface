@@ -145,6 +145,7 @@ $(document).ready(function(){
   }  
 });
 
+// Hide hint
 $(document).ready(function(){
   $("#typeHint").hide();
 });
@@ -159,10 +160,12 @@ function changeDestinationType() {
   }
 }
 
+// Function to show type hint
 function showTypeHint() {
   $("#typeHint").show();
 }
 
+// Function to hide type hint
 function hideTypeHint() {
   $("#typeHint").hide();
 }
