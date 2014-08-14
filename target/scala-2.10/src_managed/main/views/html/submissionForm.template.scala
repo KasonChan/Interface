@@ -71,15 +71,14 @@ Seq[Any](format.raw/*1.48*/("""
     <!-- Configuration -->
     <label for="configuration">"""),_display_(Seq[Any](/*51.33*/Messages("submission.label.configuration"))),format.raw/*51.75*/("""</label>
     <select name="configuration" id="configuration">
-      <option value="local">Local</option>
-      <option value="cluster">Cluster</option>      
+      <option value="local">Local</option>    
       <option value="dagman">DAGMan</option>
-      <option value="local+cluster">Local + Cluster</option>
+      <option value="local+cluster">Local + Cluster</option>      
       <option value="local+dagman">Local + DAGMan</option>
     </select>
 
     <!-- Submit -->
-    <input id="submissionSubmit" type="submit" value=""""),_display_(Seq[Any](/*61.56*/Messages("submission.label.submit"))),format.raw/*61.91*/("""">
+    <input id="submissionSubmit" type="submit" value=""""),_display_(Seq[Any](/*60.56*/Messages("submission.label.submit"))),format.raw/*60.91*/("""">
   </form>
 </div>
 </div>
@@ -96,11 +95,11 @@ Seq[Any](format.raw/*1.48*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Aug 14 14:43:49 CDT 2014
+                    DATE: Thu Aug 14 17:40:06 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/submissionForm.scala.html
-                    HASH: 5caba9b726919427c6fc1c926ec4f91698aa78f4
-                    MATRIX: 584->1|724->47|884->172|933->200|1071->303|1104->327|1144->329|1254->404|1294->428|1334->430|1377->438|1406->445|1447->455|1503->480|1615->557|1646->579|1686->581|1794->654|1830->674|1870->676|1913->684|1940->689|1981->699|2037->724|2161->812|2176->818|2221->841|2391->975|2454->1016|2644->1170|2708->1212|3157->1625|3214->1660
-                    LINES: 19->1|22->1|29->8|29->8|35->14|35->14|35->14|39->18|39->18|39->18|40->19|40->19|41->20|45->24|49->28|49->28|49->28|53->32|53->32|53->32|54->33|54->33|55->34|59->38|64->43|64->43|64->43|68->47|68->47|72->51|72->51|82->61|82->61
+                    HASH: da9486121012e4e7589045bd8f908cd97e2330a2
+                    MATRIX: 584->1|724->47|884->172|933->200|1071->303|1104->327|1144->329|1254->404|1294->428|1334->430|1377->438|1406->445|1447->455|1503->480|1615->557|1646->579|1686->581|1794->654|1830->674|1870->676|1913->684|1940->689|1981->699|2037->724|2161->812|2176->818|2221->841|2391->975|2454->1016|2644->1170|2708->1212|3114->1582|3171->1617
+                    LINES: 19->1|22->1|29->8|29->8|35->14|35->14|35->14|39->18|39->18|39->18|40->19|40->19|41->20|45->24|49->28|49->28|49->28|53->32|53->32|53->32|54->33|54->33|55->34|59->38|64->43|64->43|64->43|68->47|68->47|72->51|72->51|81->60|81->60
                     -- GENERATED --
                 */
             

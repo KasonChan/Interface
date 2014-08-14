@@ -15,6 +15,10 @@ import sys.process._
 import language.postfixOps
 
 object Submission {
+  /**
+   * Generate submission script
+   */
+  // Submission script for local
   def generateSubmissionScript1(outputFile: String) = {
     // New print writer
     val fw = new PrintWriter(outputFile)
@@ -39,6 +43,7 @@ echo *****END ./interface.sh
     fw.close()
   }
 
+  // Submission script for DAGMan
   def generateSubmissionScript3(outputFile: String) = {
     // New print writer
     val fw = new PrintWriter(outputFile)
@@ -70,6 +75,80 @@ echo *****END ./interface.sh
     fw.close()
   }
 
+  // Submission script for local and cluster
+  def generateSubmissionScript4(outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    // Execute interface
+    // $3 destinationUsername
+    // $4 destinationHostname
+    // $5 destinationPassword
+    // $6 destinationDirectoryFiles
+    // $7 resultDirectoryFiles
+
+    // Write content to output file
+    fw.write("""
+echo *****START ./interface.sh
+
+cd $1
+./execution1.sh
+
+cd ..
+./interface.sh $2 $3 $4 $5 $6
+
+if [ $? -eq 0 ]; then
+  echo "Execution was successful"
+else
+  echo "Execution was not successful"
+fi
+
+echo *****END ./interface.sh
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  // Submission script for local and DAGMan
+  def generateSubmissionScript5(outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    // Execute interface
+    // $3 destinationUsername
+    // $4 destinationHostname
+    // $5 destinationPassword
+    // $6 destinationDirectoryFiles
+    // $7 resultDirectoryFiles
+
+    // Write content to output file
+    fw.write("""
+echo *****START ./interface.sh
+
+cd $1
+./execution1.sh
+
+cd ..
+./interface.sh $2 $3 $4 $5 $6
+
+if [ $? -eq 0 ]; then
+  echo "Execution was successful"
+else
+  echo "Execution was not successful"
+fi
+
+echo *****END ./interface.sh
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  /**
+   * Generate interface script
+   */
+  // Interface script for local
   def generateInterfaceScript1(sourceDirectoryFiles: String,
     outputFile: String) = {
     // New print writer
@@ -101,6 +180,7 @@ make clean
     fw.close()
   }
 
+  // Interface script for DAGMan
   def generateInterfaceScript3(sourceDirectoryFiles: String,
     outputFile: String) = {
     // New print writer
@@ -169,6 +249,145 @@ echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "r
     fw.close()
   }
 
+  // Interface script for local and cluster
+  def generateInterfaceScript4(sourceDirectoryFiles: String,
+    outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    fw.write("""
+# Print user name, hostname and date
+echo "$USER@`hostname` interface.sh `date`"
+
+# Get source directory/files
+sourceDirectoryFiles="compositions"
+
+# Get destination username and host
+destinationUsername=$1
+destinationHost=$2
+destinationUsernameAndHost="$destinationUsername@$destinationHost"
+
+# Get destination password
+destinationPassword=$3
+
+# Get destination directory/files
+destinationDirectoryFiles=$4
+
+# Get result files
+resultDirectoryFiles=$5
+
+# Start time in second
+START=$(date +%s.%N)
+
+# Send source directory/files to destination directory/files using scp
+echo "$destinationPassword" | ./sshaskpass.sh scp -r "$sourceDirectoryFiles" "$destinationUsername@$destinationHost:/$destinationDirectoryFiles"
+
+# Go to the source directory/files
+goToSourceDirectory="$sourceDirectoryFiles"
+
+# Login destination go to the source directory and execute execution script
+echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "cd $sourceDirectoryFiles; ./execution2.sh;"
+
+# If the execution is successful
+if [ $? -eq 0 ]; then
+  # Send resultDirectoryFiles from destination back to source directory/files using scp
+  echo "$destinationPassword" | ./sshaskpass.sh scp -r "$destinationUsername@$destinationHost:/$destinationDirectoryFiles/$sourceDirectoryFiles/$resultDirectoryFiles" "$PWD"
+
+  # End time in second
+  END=$(date +%s.%N)
+
+  # Print execution time
+  DIFF=$(echo "$END - $START" | bc)
+  echo "Execution was successful"
+  echo "$DIFF seconds"
+else
+  # End time in second
+  END=$(date +%s.%N)
+
+  # Print execution time
+  DIFF=$(echo "$END - $START" | bc)
+  echo "Execution was not successful"
+  echo "$DIFF seconds"
+fi
+
+# Login destination and remove the directory
+echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "rm -r $sourceDirectoryFiles"
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  // Interface script for local and DAGMan
+  def generateInterfaceScript5(sourceDirectoryFiles: String,
+    outputFile: String) = {
+    // New print writer
+    val fw = new PrintWriter(outputFile)
+
+    fw.write("""
+# Print user name, hostname and date
+echo "$USER@`hostname` interface.sh `date`"
+
+# Get source directory/files
+sourceDirectoryFiles="compositions"
+
+# Get destination username and host
+destinationUsername=$1
+destinationHost=$2
+destinationUsernameAndHost="$destinationUsername@$destinationHost"
+
+# Get destination password
+destinationPassword=$3
+
+# Get destination directory/files
+destinationDirectoryFiles=$4
+
+# Get result files
+resultDirectoryFiles=$5
+
+# Start time in second
+START=$(date +%s.%N)
+
+# Send source directory/files to destination directory/files using scp
+echo "$destinationPassword" | ./sshaskpass.sh scp -r "$sourceDirectoryFiles" "$destinationUsername@$destinationHost:/$destinationDirectoryFiles"
+
+# Go to the source directory/files
+goToSourceDirectory="$sourceDirectoryFiles"
+
+# Login destination go to the source directory and execute execution script
+echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "cd $sourceDirectoryFiles; ./execution2.sh;"
+
+# If the execution is successful
+if [ $? -eq 0 ]; then
+  # Send resultDirectoryFiles from destination back to source directory/files using scp
+  echo "$destinationPassword" | ./sshaskpass.sh scp -r "$destinationUsername@$destinationHost:/$destinationDirectoryFiles/$sourceDirectoryFiles/$resultDirectoryFiles" "$PWD"
+
+  # End time in second
+  END=$(date +%s.%N)
+
+  # Print execution time
+  DIFF=$(echo "$END - $START" | bc)
+  echo "Execution was successful"
+  echo "$DIFF seconds"
+else
+  # End time in second
+  END=$(date +%s.%N)
+
+  # Print execution time
+  DIFF=$(echo "$END - $START" | bc)
+  echo "Execution was not successful"
+  echo "$DIFF seconds"
+fi
+
+# Login destination and remove the directory
+echo "$destinationPassword" | ./sshaskpass.sh ssh $destinationUsernameAndHost "rm -r $sourceDirectoryFiles"
+""")
+
+    // Close file
+    fw.close()
+  }
+
+  // Script for passing password from stdin to ssh
   def generateSshaskpassScript(outputFile: String) = {
     // New print writer
     val fw = new PrintWriter(outputFile)

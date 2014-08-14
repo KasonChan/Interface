@@ -59,6 +59,28 @@ object Destination {
   }
 
   /**
+   * Get the destinations by the username with corresponding type
+   */
+  def getWithType(un: String)(dType: String): List[Destination] = {
+    val select = SQL("""select * from destinations d where d.username = {un} AND
+      d.destinationType = {dType} 
+      order by d.destinationUsername asc, d.destinationHostname asc;""").on(
+      "un" -> un,
+      "dType" -> dType)
+
+    // Create connection before running code, and close it afterward
+    // Make connection implicitly available
+    DB.withConnection { implicit connection =>
+      select().map(row =>
+        // Create destination from contents of each row
+        Destination(row[String]("username"), row[String]("destinationUsername"),
+          row[String]("destinationHostname"),
+          row[String]("destinationPassword"),
+        row[String]("destinationType"))).toList
+    }
+  }
+
+  /**
    * Find the destination if existed in the database by the username,
    * destinationUsername and destinationHostname
    */
