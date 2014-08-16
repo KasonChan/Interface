@@ -85,7 +85,7 @@ object Submissions extends Controller {
         // Get data from the form
         def data = request.body.asFormUrlEncoded
         // Get selected confirguation
-        def configuration = data.get("configuration") 
+        def configuration = data.get("configuration")
 
         /**
          * Check OS
@@ -145,13 +145,17 @@ object Submissions extends Controller {
                   val filesArray = outputs.split("\n")
 
                   if (filesArray != "") {
-                    for (file <- filesArray) {
-                      val result = File(file, Linux.cat(file)(localSubmissionComposition))
-                      results = results :+ result
+                    if (filesArray.length >= 4) {
+                      for (file <- filesArray) {
+                        val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                        results = results :+ result
+                      }
+
+                      results = results.tail
+                    } else {
+                      errors = List(Messages("submission.error.external"))
                     }
                   }
-
-                  results = results.tail
                 }
 
                 // Display result after submission and execution
@@ -234,15 +238,18 @@ object Submissions extends Controller {
                   val filesArray = outputs.split("\n")
 
                   if (filesArray != "") {
-                    for (file <- filesArray) {
-                      val result = File(file, Linux.cat(file)(localSubmissionComposition))
-                      results = results :+ result
+                    if (filesArray.length >= 4) {
+                      for (file <- filesArray) {
+                        val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                        results = results :+ result
+                      }
+
+                      results = results.tail
+                    } else {
+                      errors = List(Messages("submission.error.external"))
                     }
                   }
-
-                  results = results.tail
                 }
-
                 // Display result after submission and execution
                 Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
 
@@ -324,13 +331,18 @@ object Submissions extends Controller {
                   val filesArray = outputs.split("\n")
 
                   if (filesArray != "") {
-                    for (file <- filesArray) {
-                      val result = File(file, Linux.cat(file)(localSubmissionComposition))
-                      results = results :+ result
+                    if (filesArray.length >= 4) {
+                      for (file <- filesArray) {
+                        val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                        results = results :+ result
+                      }
+
+                      results = results.tail
+
+                    } else {
+                      errors = List(Messages("submission.error.external"))
                     }
                   }
-
-                  results = results.tail
                 }
 
                 // Display result after submission and execution
@@ -413,19 +425,22 @@ object Submissions extends Controller {
                   val filesArray = outputs.split("\n")
 
                   if (filesArray != "") {
-                    for (file <- filesArray) {
-                      val result = File(file, Linux.cat(file)(localSubmissionComposition))
-                      results = results :+ result
+                    if (filesArray.length >= 4) {
+                      for (file <- filesArray) {
+                        val result = File(file, Linux.cat(file)(localSubmissionComposition))
+                        results = results :+ result
+                      }
+
+                      results = results.tail
+                    } else {
+                      errors = List(Messages("submission.error.external"))
                     }
                   }
-
-                  results = results.tail
                 }
 
                 // Display result after submission and execution
                 Ok(views.html.execution(List(filesUploadMsg))(errors)(user)(results))
               } // End of configuration case local+dagman
-
 
             } // End of configuration match
           } // End of case Linux
