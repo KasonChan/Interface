@@ -26,7 +26,10 @@ object Destinations extends Controller {
       def destinationPassword =
         request.body.asFormUrlEncoded.get("destinationPassword")(0)
       def destinationType =
-        request.body.asFormUrlEncoded.get("destinationType")(0)
+        request.body.asFormUrlEncoded.get("configuration")(0) match {
+          case "cluster" => "Cluster"
+          case "dagman" => "DAGMan"
+        }
 
       val user = User.get(username)
       var errors = List("")
@@ -143,48 +146,4 @@ object Destinations extends Controller {
         Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
       }
   }
-
-  // def update(username: String) = Action { implicit request =>
-  //   request.session.get("connected").map { username =>
-  //     // Get destination information from the form
-  //     def destinationUsername =
-  //       request.body.asFormUrlEncoded.get("destinationUsername")(0)
-  //     def destinationHostname =
-  //       request.body.asFormUrlEncoded.get("destinationHostname")(0)
-  //     def destinationPassword =
-  //       request.body.asFormUrlEncoded.get("destinationPassword")(0)
-
-  //     // Update destination into the database
-  //     val updateDestination = Destination(username, destinationUsername,
-  //       destinationHostname, destinationPassword)
-  //     Destination.update(updateDestination)
-
-  //     // Redirect the page to show updated destination information
-  //     Redirect(routes.Destinations.listDest(username))
-  //   }.getOrElse {
-  //     Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
-  //   }
-  // }
-
-  // def delete(username: String) = Action { implicit request =>
-  //   request.session.get("connected").map { username =>
-  //     // Get destination information from the form
-  //     def destinationUsername =
-  //       request.body.asFormUrlEncoded.get("destinationUsername")(0)
-  //     def destinationHostname =
-  //       request.body.asFormUrlEncoded.get("destinationHostname")(0)
-  //     def destinationPassword =
-  //       request.body.asFormUrlEncoded.get("destinationPassword")(0)
-
-  //     // Delete destination from the database
-  //     val deleteDestination = Destination(username, destinationUsername,
-  //       destinationHostname, destinationPassword)
-  //     Destination.delete(deleteDestination)
-
-  //     // Redirect the page to show updated destination information
-  //     Redirect(routes.Destinations.listDest(username))
-  //   }.getOrElse {
-  //     Ok(views.html.notAuthorized(emptyMessages)(List(Messages("not.authorized.not.connected"))))
-  //   }
-  // }
 }

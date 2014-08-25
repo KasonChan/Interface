@@ -1,0 +1,34 @@
+000 (1093071.000.000) 08/25 15:23:56 Job submitted from host: <192.170.227.195:37994>
+    DAG Node: A
+...
+007 (1093071.000.000) 08/25 15:25:24 Shadow exception!
+	Error from 957@LE-SHAW455-3-S4-its-u12-nfs-20140417: FAILED TO SEND INITIAL KEEP ALIVE TO OUR PARENT <10.0.2.15:36154>
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+...
+007 (1093071.000.000) 08/25 15:25:44 Shadow exception!
+	Error from 957@LE-SHAW455-3-S4-its-u12-nfs-20140417: FAILED TO SEND INITIAL KEEP ALIVE TO OUR PARENT <10.0.2.15:36154>
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+...
+001 (1093071.000.000) 08/25 15:26:45 Job executing on host: <10.5.106.13:39713?CCBID=192.170.227.194:11011%3fsock%3dcollector#43547&noUDP>
+...
+006 (1093071.000.000) 08/25 15:26:46 Image size of job updated: 1
+	0  -  MemoryUsage of job (MB)
+	0  -  ResidentSetSize of job (KB)
+...
+005 (1093071.000.000) 08/25 15:26:47 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	9676  -  Run Bytes Sent By Job
+	972  -  Run Bytes Received By Job
+	9676  -  Total Bytes Sent By Job
+	972  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :       21        3  35789236
+	   Memory (MB)          :        0        1       680
+...

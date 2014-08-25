@@ -8,7 +8,7 @@ signin.label.password = Password
 signin.label.submit = Sign in
 signin.link.signup = Create an account
 signin.link.guest = Guest session
-signin.error = The email or password you entered is incorrect.
+signin.error = The username or password you entered is incorrect.
 signin.success = You are connected.
 
 signup.title = Create your Interface Account
@@ -44,12 +44,12 @@ update.destination.label.delete = Delete
 update.destination.success = Your destination is updated.
 update.destination.success.deleted = Your destination is deleted.
 
-submission.title = Upload and submit your code
+submission.title = Application submission
 submission.label.sources = Source(s)
 submission.label.compositions = Compositions
 submission.label.executables = Executable
 submission.label.destination = Destination
-submission.label.configuration = Configuration
+submission.label.configuration = Submission configuration
 submission.label.submit = Submit
 submission.error.internal = Internal server error
 submission.error.external = External service error
@@ -73,6 +73,8 @@ dashboard.label.edit = Edit your Interface account
 dashboard.label.add.dest = Add your destination
 dashboard.label.edit.dest = Edit your destinations
 dashboard.label.logout = Logout
+
+execution.result = Result
 
 not.authorized.not.connected = Oops, you are not logged in.
 

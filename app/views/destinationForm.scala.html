@@ -63,13 +63,11 @@
       placeholder="@Messages("destination.label.password")" 
       value="@destination.destinationPassword" maxlength="35" required>
       
-      <p id="typeHint">Choose destination type from Cluster and DAGMan</p>
-
-      <!-- Type -->
-      <input type="text" name="destinationType" id="newDestinationType" 
-      value="@Messages("destination.label.type.cluster")" maxlength="35" 
-      onclick="changeDestinationType()" 
-      onfocus="showTypeHint()" onblur="hideTypeHint()" readonly required>
+      <!-- Configuration -->
+      <select name="configuration" id="configuration">
+        <option value="cluster">Cluster</option>    
+        <option value="dagman">DAGMan</option>
+      </select>
 
       <!-- Submit -->
       <input type="submit" id="destinationSubmit" value="@Messages("destination.label.submit")">

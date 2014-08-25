@@ -1,0 +1,16 @@
+# +ProjectName is the name of the project reported to the OSG accounting system
++ProjectName="ConnectTrain"
+
+universe = vanilla
+executable = B.sh
+transfer_input_files = B.c, outputA
+getenv = true
+should_transfer_files = yes
+when_to_transfer_output = ON_EXIT
+
+output = B.out
+error = B.error
+log = B.log
+requirements = ( ( ARCH == "X86_64" || ARCH == "INTEL") && OPSYS == "LINUX" )
+
+Queue
