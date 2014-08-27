@@ -50,10 +50,11 @@
     <!-- Configuration -->
     <label for="configuration">@Messages("submission.label.configuration")</label>
     <select name="configuration" id="configuration">
-      <option value="local">Local</option>    
-      <option value="dagman">DAGMan</option>
-      <option value="local+cluster">Local + Cluster</option>      
-      <option value="local+dagman">Local + DAGMan</option>
+      <option value="local">Local</option>
+      <option value="dagman">OSGConnect (HTCondor)</option>    
+      <option value="dagman">OSGConnect (DAGMan)</option>
+      <option value="local+cluster">Local + Cluster (DISCFarm)</option>      
+      <option value="local+dagman">Local + OSGConnect (DAGMan)</option>
     </select>
 
     <!-- Submit -->

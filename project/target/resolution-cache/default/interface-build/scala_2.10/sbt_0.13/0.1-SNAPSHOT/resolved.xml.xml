@@ -4,7 +4,7 @@
 		module="interface-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20140624100941"
+		publication="20140827161306"
 		e:scalaVersion="2.10" e:sbtVersion="0.13"
 	>
 		<description>
