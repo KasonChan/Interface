@@ -36,7 +36,7 @@ Seq[Any](format.raw/*1.86*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Thu Aug 28 10:53:49 CDT 2014
+                    DATE: Thu Aug 28 13:53:02 CDT 2014
                     SOURCE: /home/ka-son/Documents/Interface/app/views/destination.scala.html
                     HASH: 191c6111acf7301c31c5f39341e91ee411282338
                     MATRIX: 598->1|776->85|813->88|856->123|895->125|933->129|969->144|1007->148|1040->173|1056->181|1090->194
