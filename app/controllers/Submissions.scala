@@ -134,11 +134,11 @@ object Submissions extends Controller {
 
                 var errors = List("")
 
+                var results = List(File("", ""))
+
                 if (outputs == "") {
                   errors = List(Messages("submission.error.external"))
                 }
-
-                var results = List(File("", ""))
 
                 if (outputs != "") {
                   // Get the list of outputs as array of string
@@ -228,11 +228,11 @@ object Submissions extends Controller {
 
                 var errors = List("")
 
+                var results = List(File("", ""))
+
                 if (outputs == "") {
                   errors = List(Messages("submission.error.external"))
                 }
-
-                var results = List(File("", ""))
 
                 if (outputs != "") {
                   // Get the list of outputs as array of string
@@ -321,11 +321,11 @@ object Submissions extends Controller {
 
                 var errors = List("")
 
+                var results = List(File("", ""))
+
                 if (outputs == "") {
                   errors = List(Messages("submission.error.external"))
                 }
-
-                var results = List(File("", ""))
 
                 if (outputs != "") {
                   // Get the list of outputs as array of string
@@ -415,12 +415,12 @@ object Submissions extends Controller {
 
                 var errors = List("")
 
+                var results = List(File("", ""))
+
                 if (outputs == "") {
                   errors = List(Messages("submission.error.external"))
                 }
-
-                var results = List(File("", ""))
-
+                
                 if (outputs != "") {
                   // Get the list of outputs as array of string
                   val filesArray = outputs.split("\n")
