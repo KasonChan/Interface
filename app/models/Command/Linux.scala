@@ -22,6 +22,15 @@ object Linux {
     output
   }
 
+  // List directory contents in reverse order
+  // List all files in the workingDirectory
+  def ls_r(workingDirectory: String): String = {
+    val output = Process(Seq("ls", "-r"),
+      new java.io.File(workingDirectory)).!!
+
+    output
+  }
+
   // List all files in the workingDirectory starts with fileOptions
   def lsStartsWithOpts(fileOptions: String)(workingDirectory: String) = {
     val outputs = ls(workingDirectory)
