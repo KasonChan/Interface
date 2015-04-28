@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Project
 logs
 project/project
@@ -17,3 +18,8 @@ dist
 
 ## Mac
 .DS_Store
+=======
+logs
+.history
+/RUNNING_PID
+>>>>>>> 28185c8557cf628999547fadaff14ccfff2f7a7a
