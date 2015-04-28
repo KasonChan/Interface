@@ -1,0 +1,11 @@
+@(throwableMsg: Throwable)
+
+@frame(Messages("application.name")) {
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      <strong>Internal server error: @throwableMsg</strong>
+    </div>
+  </div>
+</div>
+}

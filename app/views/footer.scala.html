@@ -1,0 +1,19 @@
+@import models.OS
+
+<div id="footer">
+  <div id="container">
+    <!-- Display current date and time -->
+    @(new java.util.Date().format("E MMM d, yyyy hh:mm:ss a zzz")) <br>
+    
+    <!-- Display OS name, version and arch -->
+    @(OS.getName)
+    @(OS.getVersion)
+    @(OS.getArch)<br>
+    
+    <!-- Display browser name -->
+    <strong id="browserName">Browser Name</strong><br>
+
+    <!-- Copyright -->
+    <strong>@Messages("application.name") © 2014</strong>
+  </div>
+</div>

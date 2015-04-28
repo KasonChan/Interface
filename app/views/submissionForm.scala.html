@@ -1,0 +1,65 @@
+@(messages: List[String])(errors: List[String])
+
+<progress id="progress"></progress>
+
+<!-- Section title -->
+<div id="section">
+  <div id="container">
+    <div id="title">@Messages("submission.title")</div>
+  </div>
+</div>
+
+<!-- Section messages -->
+<!-- Hide section messages if the list is empty -->
+@if(messages != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="messages">
+      @for(message <- messages) {
+      @message<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
+@if(errors != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      @for(error <- errors) {
+      @error<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section content -->
+<div id="section">
+  <div id="container">
+    <form action="@routes.Submissions.submission" 
+    method="post" id="submissionForm" enctype="multipart/form-data">
+    
+    <!-- Compositions -->
+    <label for="compositions">@Messages("submission.label.compositions")</label>
+    <input type="file" name="files[]" id="compositions" multiple directory required>
+
+    <!-- Configuration -->
+    <label for="configuration">@Messages("submission.label.configuration")</label>
+    <select name="configuration" id="configuration">
+      <option value="local">Local</option>
+      <option value="dagman">OSGConnect (HTCondor)</option>    
+      <option value="dagman">OSGConnect (DAGMan)</option>
+      <option value="local+cluster">Local + Cluster (DISCFarm)</option>      
+      <option value="local+dagman">Local + OSGConnect (DAGMan)</option>
+    </select>
+
+    <!-- Submit -->
+    <input id="submissionSubmit" type="submit" value="@Messages("submission.label.submit")">
+  </form>
+</div>
+</div>
+

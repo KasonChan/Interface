@@ -1,0 +1,5 @@
+@(messages: List[String])(errors: List[String])(user: User)
+
+@frame(Messages("application.name")) {
+  @signupForm(messages)(errors)(user)
+}

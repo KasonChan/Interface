@@ -1,0 +1,63 @@
+@(user: User)
+
+<!-- Dashboard -->
+<!-- Hide dashboard if the user is empty -->
+@if(user != User("", "", "", "")) {
+<div class="dashboard_wrapper">
+  <div id="dashboard">
+    <div class="container">
+      @user.username
+    </div>
+  </div>
+</div>
+}
+
+<!-- Setting -->
+<!-- Hide setting if the user is empty -->
+@if(user != User("", "", "", "")) {
+<div id="setting_wrapper">
+  <div id="setting">
+    <div class="container">
+      <!-- Edit account information-->
+      <!-- All fields of this form are hidden except the submit button -->
+      <form method="post" id="editUser" action="@routes.Users.edit(user.username, "update")">
+        <!-- Hidden form fields -->
+        <!-- Name -->
+        <input type="text" name="firstname" id="firstname" placeholder="First" 
+        value="@user.firstname" required hidden>
+        <input type="text" name="lastname" id="lastname" placeholder="Last" 
+        value="@user.lastname" required hidden>
+
+        <!-- Username -->
+        <input type="text" name="username" id="username" value="@user.username" 
+        required  hidden>
+
+        <!-- Password -->
+        <input type="password" name="password" id="password" 
+        value="@user.password" required hidden>
+
+        <!-- Submit -->
+        <input type="submit" value="@Messages("dashboard.label.edit")">
+      </form>
+
+      <!-- Add destination -->
+      <form method="post" id="addDest" 
+      action="@routes.Destinations.listDest(user.username)">
+      <input type="button" value="@Messages("dashboard.label.add.dest")"
+      onclick="addDest()">
+      </form>
+
+      <!-- Edit your destination information -->
+      <form method="post" id="editDest" 
+      action="@routes.Destinations.listDest(user.username)">
+      <input type="submit" value="@Messages("dashboard.label.edit.dest")">
+    </form>
+
+    <!-- Logout -->
+    <form method="post" id="logout" action="@routes.Users.logout">
+      <input type="submit" value="@Messages("dashboard.label.logout")">
+    </form>
+  </div>
+</div>
+</div>
+}

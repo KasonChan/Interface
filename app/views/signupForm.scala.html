@@ -1,0 +1,63 @@
+@(messages: List[String])(errors: List[String])(user: User)
+
+<!-- Section title -->
+<div id="section">
+  <div id="container">
+    <div id="title">@Messages("signup.title")</div>
+  </div>
+</div>
+
+<!-- Section messages -->
+<!-- Hide section messages if the list is empty -->
+@if(messages != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="messages">
+      @for(message <- messages) {
+      @message<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
+@if(errors != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      @for(error <- errors) {
+      @error<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section content -->
+<div id="section">
+  <div id="container">
+    <form method="post" id="signup" action="@routes.Users.create">
+      <!-- Name -->
+      <label for="name">@Messages("signup.label.name")</label>
+      <input type="text" name="firstname" id="firstname" placeholder="First" value="@user.firstname" maxlength="35" required>
+      <input type="text" name="lastname" id="lastname" placeholder="Last" value="@user.lastname" maxlength="35" required>
+
+      <!-- Username -->
+      <label for="username">@Messages("signup.label.username")</label>
+      <input type="text" name="username" id="username" value="@user.username" maxlength="35" required>
+      
+      <!-- Password -->
+      <label for="password">@Messages("signup.label.password")</label>
+      <input type="password" name="password" id="password" value="@user.password" maxlength="35" required>
+      
+      <!-- Confirm password -->
+      <label for="password">@Messages("signup.label.confirmPassword")</label>
+      <input type="password" name="passwordConfirmation" id="passwordConfirmation" maxlength="35" required>
+      
+      <input type="submit" value="@Messages("signup.label.submit")">
+    </form>
+  </div>
+</div>
+

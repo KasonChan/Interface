@@ -1,0 +1,5 @@
+@(messages: List[String])(errors: List[String])
+
+@frame(Messages("application.name")) {
+  @submissionForm(messages)(errors)
+}

@@ -1,0 +1,62 @@
+@(messages: List[String])(errors: List[String])(user: User)
+
+<!-- Section title -->
+<div id="section">
+  <div id="container">
+    <div id="title">@Messages("update.title")</div>
+  </div>
+</div>
+
+<!-- Section messages -->
+<!-- Hide section messages if the list is empty -->
+@if(messages != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="messages">
+      @for(message <- messages) {
+      @message<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section errors -->
+<!-- Hide section errors if the list is empty -->
+@if(errors != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      @for(error <- errors) {
+      @error<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section content -->
+<div id="section">
+  <div id="container">
+    <form method="post" id="update" action="@routes.Users.edit(user.username, "updated")">
+    <!-- Name -->
+    <label for="name">@Messages("update.label.name")</label>
+    <input type="text" name="firstname" id="firstname" value="@user.firstname" 
+    maxlength="35" required>
+    <input type="text" name="lastname" id="lastname" value="@user.lastname" 
+    maxlength="35" required>
+
+    <!-- Username -->
+    <label for="username">@Messages("update.label.username")</label>
+    <input type="text" name="username" id="username" value="@user.username" 
+    required readonly>
+
+    <!-- Password -->
+    <label for="password">@Messages("update.label.password")</label>
+    <input type="password" name="password" id="password" 
+    value="@user.password" maxlength="35" required>
+
+    <input type="submit" value="@Messages("update.label.submit")">
+  </form>
+</div>
+</div>

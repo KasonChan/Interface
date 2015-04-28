@@ -1,0 +1,6 @@
+@(messages: List[String])(errors: List[String])(user: User)(outputs: List[File])
+
+@frame(Messages("application.name")) {
+@dashboard(user)
+@executionForm(messages)(errors)(outputs)
+}

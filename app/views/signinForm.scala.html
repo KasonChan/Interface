@@ -1,0 +1,61 @@
+@(messages: List[String])(errors: List[String])(user: User)
+
+<!-- Section title -->
+<div id="section">
+  <div id="container">
+    <div id="title">@Messages("signin.title")</div>
+  </div>
+</div>
+
+<!-- Section messages -->
+@if(messages != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="messages">
+      @for(message <- messages) {
+      @message<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section errors -->
+@if(errors != List("")) { 
+<div id="section">
+  <div id="container">
+    <div id="errors">
+      @for(error <- errors) {
+      @error<br>
+    }
+  </div>
+</div>
+</div>
+}
+
+<!-- Section content -->
+<div id="section">
+  <div id="container">
+    <form method="post" id="signin" action="@routes.Users.signin">
+      <!-- Username -->
+      <input type="text" name="username" id="username" 
+      placeholder="@Messages("signin.label.username")" 
+      value="@user.username" maxlength="35" required>
+      
+      <!-- Password -->
+      <input type="password" name="password" id="password" 
+      placeholder="@Messages("signin.label.password")" maxlength="35" required>
+      
+      <!-- Submit -->
+      <input type="submit" value="@Messages("signin.label.submit")">
+    </form>
+  </div>
+</div>
+<div id="section">
+  <div id="container">
+    <div id="link">
+      <!-- Create an account -->
+      <a href="@routes.Users.create">@Messages("signin.link.signup")</a>
+    </div>
+  </div>
+</div>
